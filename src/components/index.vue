@@ -1,11 +1,12 @@
 <template>
-    <div>
-        <div>this is template body</div>
+    <div class="home">
+      <action-bar></action-bar>
     </div>
 </template>
 <style scoped>
 </style>
 <script>
+  import actionBar from './index/actionBar.vue'
     export default{
         data(){
             return{
@@ -16,6 +17,7 @@
         ready (){
         },
         components:{
+          actionBar
         }
     }
 </script>
