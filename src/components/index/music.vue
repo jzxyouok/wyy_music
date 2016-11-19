@@ -1,13 +1,11 @@
 <template>
-    <div class="home">
-      <action-bar></action-bar>
-      <router-view></router-view>
+    <div>
+        <div>this is music body</div>
     </div>
 </template>
 <style scoped>
 </style>
 <script>
-  import actionBar from './index/actionBar.vue'
     export default{
         data(){
             return{
@@ -18,7 +16,6 @@
         ready (){
         },
         components:{
-          actionBar
         }
     }
 </script>
