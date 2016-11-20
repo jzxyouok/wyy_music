@@ -22,13 +22,17 @@
     </div>
 </template>
 <style scoped>
+  .personal {
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+  }
   .personal-fm, .personal-music, .personal-new {
     /*height: 100px;*/
   }
   .personal-img {
     width: 60px;
     height: 60px;
-    margin: 10px auto;
+    margin: 0 auto 10px;
     background-size: 100%;
   }
   .personal-music .personal-img {
