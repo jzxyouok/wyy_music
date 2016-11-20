@@ -14,6 +14,8 @@
         <new-music></new-music>
         <!--  推荐MV  -->
         <recommend-mv></recommend-mv>
+        <!--  主播电台  -->
+        <radio-fm></radio-fm>
       </div>
     </div>
 </template>
@@ -26,6 +28,7 @@
   import exclusive from './exclusive.vue'
   import newMusic from './newMusic.vue'
   import recommendMv from './recommendMv.vue'
+  import radioFm from './radioFm.vue'
     export default{
         data(){
             return{
@@ -36,7 +39,7 @@
         ready (){
         },
         components:{
-          banner,personal,recommendMlist,exclusive,newMusic,recommendMv
+          banner,personal,recommendMlist,exclusive,newMusic,recommendMv,radioFm
         }
     }
 </script>
