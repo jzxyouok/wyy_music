@@ -34,6 +34,7 @@
     color: #fff;
     font-size: 12px;
     text-align: right;
+    padding-right: 5px;
   }
   .user-view .wyy-icon {
     width: 14px;

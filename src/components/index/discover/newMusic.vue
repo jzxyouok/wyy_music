@@ -21,7 +21,7 @@
   .mlist .thumb {
     width: 100%;
   }
-  .mlist .author {
+  .mlist-author {
     color: #888;
     font-size: 12px;
   }

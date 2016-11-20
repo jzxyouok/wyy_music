@@ -12,6 +12,8 @@
         <exclusive></exclusive>
         <!--  最新音乐  -->
         <new-music></new-music>
+        <!--  推荐MV  -->
+        <recommend-mv></recommend-mv>
       </div>
     </div>
 </template>
@@ -23,6 +25,7 @@
   import recommendMlist from './recommendMlist.vue'
   import exclusive from './exclusive.vue'
   import newMusic from './newMusic.vue'
+  import recommendMv from './recommendMv.vue'
     export default{
         data(){
             return{
@@ -33,7 +36,7 @@
         ready (){
         },
         components:{
-          banner,personal,recommendMlist,exclusive,newMusic
+          banner,personal,recommendMlist,exclusive,newMusic,recommendMv
         }
     }
 </script>
