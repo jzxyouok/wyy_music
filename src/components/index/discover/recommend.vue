@@ -10,6 +10,8 @@
         <recommend-mlist></recommend-mlist>
         <!--  独家放送  -->
         <exclusive></exclusive>
+        <!--  最新音乐  -->
+        <new-music></new-music>
       </div>
     </div>
 </template>
@@ -20,6 +22,7 @@
   import personal from './personal.vue'
   import recommendMlist from './recommendMlist.vue'
   import exclusive from './exclusive.vue'
+  import newMusic from './newMusic.vue'
     export default{
         data(){
             return{
@@ -30,7 +33,7 @@
         ready (){
         },
         components:{
-          banner,personal,recommendMlist,exclusive
+          banner,personal,recommendMlist,exclusive,newMusic
         }
     }
 </script>
