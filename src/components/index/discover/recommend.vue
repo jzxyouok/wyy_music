@@ -8,6 +8,8 @@
       <div class="uk-container">
         <!--  推荐歌单  -->
         <recommend-mlist></recommend-mlist>
+        <!--  独家放送  -->
+        <exclusive></exclusive>
       </div>
     </div>
 </template>
@@ -17,6 +19,7 @@
   import banner from './banner.vue'
   import personal from './personal.vue'
   import recommendMlist from './recommendMlist.vue'
+  import exclusive from './exclusive.vue'
     export default{
         data(){
             return{
@@ -27,7 +30,7 @@
         ready (){
         },
         components:{
-          banner,personal,recommendMlist
+          banner,personal,recommendMlist,exclusive
         }
     }
 </script>
