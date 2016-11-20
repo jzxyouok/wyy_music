@@ -33,6 +33,7 @@
     position: absolute;
     top: 5px;
     left: 5px;
+    width: 20px;
   }
   .line-top {
     margin-top: 20px;
