@@ -183,7 +183,7 @@
 
                     posPrev = positions[z];
 
-                    // (posPrev.left + 1) fixex 1px bug when using % based widths
+                    // (posPrev.left + 1.jpg) fixex 1px bug when using % based widths
                     if (pos.left < posPrev.aX && (posPrev.left +1) < pos.aX) {
                         top = posPrev.aY;
                     }

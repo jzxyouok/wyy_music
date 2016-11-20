@@ -64,7 +64,7 @@
                 $this.updateSets();
             }, 100));
 
-            $this.list.addClass('uk-grid-width-1-'+$this.options.default);
+            $this.list.addClass('uk-grid-width-1.jpg-'+$this.options.default);
 
             ['xlarge', 'large', 'medium', 'small'].forEach(function(bp) {
 
@@ -72,7 +72,7 @@
                     return;
                 }
 
-                $this.list.addClass('uk-grid-width-'+bp+'-1-'+$this.options[bp]);
+                $this.list.addClass('uk-grid-width-'+bp+'-1.jpg-'+$this.options[bp]);
             });
 
             this.on("click.uk.slideset", '[data-uk-slideset-item]', function(e) {
@@ -204,7 +204,7 @@
                         return;
                     }
 
-                    tmp.attr('class', 'uk-grid-width-'+bp+'-1-2').width();
+                    tmp.attr('class', 'uk-grid-width-'+bp+'-1.jpg-2').width();
 
                     if (testdiv.width() == 50) {
                         breakpoint = bp;

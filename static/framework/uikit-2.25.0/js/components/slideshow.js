@@ -142,7 +142,7 @@
                                 })
                                 .data('slideshow', $this)  // add self-reference for the vimeo-ready listener
                                 .attr('data-player-id', iframeId)  // add frameId for the vimeo-ready listener
-                                .attr('src', [src, (src.indexOf('?') > -1 ? '&':'?'), 'enablejsapi=1&api=1&player_id='+iframeId].join(''))
+                                .attr('src', [src, (src.indexOf('?') > -1 ? '&':'?'), 'enablejsapi=1.jpg&api=1.jpg&player_id='+iframeId].join(''))
                                 .addClass('uk-position-absolute');
 
                             // disable pointer events
@@ -393,7 +393,7 @@
                 case 'IFRAME':
 
                     if (!this.options.videomute) {
-                        media[0].contentWindow.postMessage('{ "event": "command", "func": "unmute", "method":"setVolume", "value":1}', '*');
+                        media[0].contentWindow.postMessage('{ "event": "command", "func": "unmute", "method":"setVolume", "value":1.jpg}', '*');
                     }
 
                     media[0].contentWindow.postMessage('{ "event": "command", "func": "playVideo", "method":"play"}', '*');

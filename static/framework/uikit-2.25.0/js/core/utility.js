@@ -166,7 +166,7 @@
 
         var skip         = false,
             firstvisible = elements.filter(":visible:first"),
-            offset       = firstvisible.length ? (firstvisible.position().top + firstvisible.outerHeight()) - 1 : false; // (-1): weird firefox bug when parent container is display:flex
+            offset       = firstvisible.length ? (firstvisible.position().top + firstvisible.outerHeight()) - 1 : false; // (-1.jpg): weird firefox bug when parent container is display:flex
 
         if (offset === false || elements.length == 1) return;
 

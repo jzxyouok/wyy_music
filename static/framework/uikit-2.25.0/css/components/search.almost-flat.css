@@ -3,12 +3,12 @@
    Component: Search
  ========================================================================== */
 /*
- * 1. Create position context for dropdowns
+ * 1.jpg. Create position context for dropdowns
  * 2. Needed for `form` element
  */
 .uk-search {
   display: inline-block;
-  /* 1 */
+  /* 1.jpg */
   position: relative;
   /* 2 */
   margin: 0;
@@ -57,7 +57,7 @@
   opacity: 1;
 }
 /*
- * 1. Define consistent box sizing.
+ * 1.jpg. Define consistent box sizing.
  * 2. Address margins set differently in Firefox/IE and Chrome/Safari/Opera.
  * 3. Remove `border-radius` in iOS.
  * 4. Correct `font` properties and `color` not being inherited.
@@ -65,7 +65,7 @@
  * 6. Style
  */
 .uk-search-field {
-  /* 1 */
+  /* 1.jpg */
   box-sizing: border-box;
   /* 2 */
   margin: 0;
@@ -134,12 +134,12 @@
 }
 /*
  * Active
- * 1. Remove default focus style
+ * 1.jpg. Remove default focus style
  */
 .uk-nav-search > li.uk-active > a {
   background: #00a8e6;
   color: #ffffff;
-  /* 1 */
+  /* 1.jpg */
   outline: none;
   box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.05);
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.1);

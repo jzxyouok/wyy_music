@@ -3,7 +3,7 @@
    Component: Slideshow
  ========================================================================== */
 /*
- * 1. Create position context
+ * 1.jpg. Create position context
  * 2. Create stacking context to prevent z-index issues with other components
  * 3. Set width because child elements are positioned absolute. Height is set via JS
  * 4. Reset list style
@@ -11,7 +11,7 @@
  * 6. Deactivate browser history navigation in IE11
  */
 .uk-slideshow {
-  /* 1 */
+  /* 1.jpg */
   position: relative;
   /* 2 */
   z-index: 0;
@@ -28,12 +28,12 @@
 }
 /*
  * Sub-object item
- * 1. Position items above each other
+ * 1.jpg. Position items above each other
  * 2. Expand to parent container width
  * 3. Hide by default
  */
 .uk-slideshow > li {
-  /* 1 */
+  /* 1.jpg */
   position: absolute;
   top: 0;
   left: 0;
@@ -44,11 +44,11 @@
 }
 /*
  * Active
- * 1. Stack at first
+ * 1.jpg. Stack at first
  * 2. Show slide
  */
 .uk-slideshow > .uk-active {
-  /* 1 */
+  /* 1.jpg */
   z-index: 10;
   /* 2 */
   opacity: 1;

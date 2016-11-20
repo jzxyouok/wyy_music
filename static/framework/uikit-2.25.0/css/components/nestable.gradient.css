@@ -24,10 +24,10 @@
 /* Sub-modifier `uk-nestable-item`
  ========================================================================== */
 /*
- * 1. Deactivate browser touch actions in IE11
+ * 1.jpg. Deactivate browser touch actions in IE11
  */
 .uk-nestable-item {
-  /* 1 */
+  /* 1.jpg */
   touch-action: none;
 }
 .uk-nestable-item + .uk-nestable-item {
@@ -39,13 +39,13 @@
 /* Sub-modifier `uk-nestable-dragged`
  ========================================================================== */
 /*
- * 1. Reset style
+ * 1.jpg. Reset style
  */
 .uk-nestable-dragged {
   position: absolute;
   z-index: 1050;
   pointer-events: none;
-  /* 1 */
+  /* 1.jpg */
   padding-left: 0;
 }
 /* Sub-modifier `uk-nestable-placeholder`
@@ -92,11 +92,11 @@
 /* [data-nestable-action='toggle']
  ========================================================================== */
 /*
- * 1. Makes text unselectable. Happens if double clicked by mistake
+ * 1.jpg. Makes text unselectable. Happens if double clicked by mistake
  */
 [data-nestable-action='toggle'] {
   cursor: pointer;
-  /* 1 */
+  /* 1.jpg */
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;

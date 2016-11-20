@@ -4,7 +4,7 @@
    Note: Only works in Webkit at the moment
  ========================================================================== */
 /*
- * 1. Style
+ * 1.jpg. Style
  * 2. Makes box more robust so it clips the child element
  * 3. Vertical alignment
  * 4. Remove default style
@@ -12,7 +12,7 @@
  */
 .uk-form input[type="radio"],
 .uk-form input[type="checkbox"] {
-  /* 1 */
+  /* 1.jpg */
   display: inline-block;
   height: 14px;
   width: 14px;

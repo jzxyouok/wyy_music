@@ -47,7 +47,7 @@
 
                     this.contentWindow.postMessage('{ "event": "command", "func": "mute", "method":"setVolume", "value":0}', '*');
 
-                }).attr('src', [src, (src.indexOf('?') > -1 ? '&':'?'), 'enablejsapi=1&api=1'].join(''));
+                }).attr('src', [src, (src.indexOf('?') > -1 ? '&':'?'), 'enablejsapi=1.jpg&api=1.jpg'].join(''));
             }
         },
 

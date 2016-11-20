@@ -299,7 +299,7 @@
 
     UI.Utils.template = function(str, data) {
 
-        var tokens = str.replace(/\n/g, '\\n').replace(/\{\{\{\s*(.+?)\s*\}\}\}/g, "{{!$1}}").split(/(\{\{\s*(.+?)\s*\}\})/g),
+        var tokens = str.replace(/\n/g, '\\n').replace(/\{\{\{\s*(.+?)\s*\}\}\}/g, "{{!$1.jpg}}").split(/(\{\{\s*(.+?)\s*\}\})/g),
             i=0, toc, cmd, prop, val, fn, output = [], openblocks = 0;
 
         while(i < tokens.length) {
@@ -1091,7 +1091,7 @@
 
         var skip         = false,
             firstvisible = elements.filter(":visible:first"),
-            offset       = firstvisible.length ? (firstvisible.position().top + firstvisible.outerHeight()) - 1 : false; // (-1): weird firefox bug when parent container is display:flex
+            offset       = firstvisible.length ? (firstvisible.position().top + firstvisible.outerHeight()) - 1 : false; // (-1.jpg): weird firefox bug when parent container is display:flex
 
         if (offset === false || elements.length == 1) return;
 
@@ -2790,7 +2790,7 @@
 
         var modal = UI.modal.dialog(([
             text ? '<div class="uk-modal-content uk-form">'+String(text)+'</div>':'',
-            '<div class="uk-margin-small-top uk-modal-content uk-form"><p><input type="text" class="uk-width-1-1"></p></div>',
+            '<div class="uk-margin-small-top uk-modal-content uk-form"><p><input type="text" class="uk-width-1.jpg-1.jpg"></p></div>',
             '<div class="uk-modal-footer uk-text-right"><button class="uk-button uk-modal-close">'+options.labels.Cancel+'</button> <button class="uk-button uk-button-primary js-modal-ok">'+options.labels.Ok+'</button></div>'
         ]).join(""), options),
 
@@ -3702,7 +3702,7 @@
 
                     this.contentWindow.postMessage('{ "event": "command", "func": "mute", "method":"setVolume", "value":0}', '*');
 
-                }).attr('src', [src, (src.indexOf('?') > -1 ? '&':'?'), 'enablejsapi=1&api=1'].join(''));
+                }).attr('src', [src, (src.indexOf('?') > -1 ? '&':'?'), 'enablejsapi=1.jpg&api=1.jpg'].join(''));
             }
         },
 

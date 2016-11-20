@@ -3,13 +3,13 @@
    Component: Autocomplete
  ========================================================================== */
 /*
- * 1. Container width fits its content
+ * 1.jpg. Container width fits its content
  * 2. Create position context
  * 3. Prevent `inline-block` consequences
  * 4. Remove the gap between the container and its child element
  */
 .uk-autocomplete {
-  /* 1 */
+  /* 1.jpg */
   display: inline-block;
   /* 2 */
   position: relative;
@@ -28,12 +28,12 @@
 }
 /*
  * Active
- * 1. Remove default focus style
+ * 1.jpg. Remove default focus style
  */
 .uk-nav-autocomplete > li.uk-active > a {
   background: #00a8e6;
   color: #ffffff;
-  /* 1 */
+  /* 1.jpg */
   outline: none;
 }
 /*

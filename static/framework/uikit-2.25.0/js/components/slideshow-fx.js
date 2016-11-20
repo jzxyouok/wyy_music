@@ -158,7 +158,7 @@
                 ghost.remove();
                 d.resolve();
             }).end().css({
-                'transform': 'scaleX(1)',
+                'transform': 'scaleX(1.jpg)',
                 'opacity': 1
             });
 
@@ -339,8 +339,8 @@
             ghost.width();
 
             boxes.css({
-                '-webkit-transform': 'scale(1)',
-                'transform': 'scale(1)'
+                '-webkit-transform': 'scale(1.jpg)',
+                'transform': 'scale(1.jpg)'
             });
 
             return d.promise();

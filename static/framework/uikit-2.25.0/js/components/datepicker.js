@@ -2778,7 +2778,7 @@
 
             isoWeekday : function (input) {
                 // behaves the same as moment#day except
-                // as a getter, returns 7 instead of 0 (1-7 range instead of 0-6)
+                // as a getter, returns 7 instead of 0 (1.jpg-7 range instead of 0-6)
                 // as a setter, sunday should belong to the previous week.
                 return input == null ? this.day() || 7 : this.day(this.day() % 7 ? input : input - 7);
             },
@@ -2959,7 +2959,7 @@
                 months += absRound(days / 30);
                 days %= 30;
 
-                // 12 months -> 1 year
+                // 12 months -> 1.jpg year
                 years += absRound(months / 12);
                 months %= 12;
 
@@ -3005,7 +3005,7 @@
             },
 
             add : function (input, val) {
-                // supports only 2.0-style add(1, 's') or add(moment)
+                // supports only 2.0-style add(1.jpg, 's') or add(moment)
                 var dur = moment.duration(input, val);
 
                 this._milliseconds += dur._milliseconds;

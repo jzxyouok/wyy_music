@@ -386,7 +386,7 @@
     }
 
     /**!
-     * @preserve Color animation 1.6.0
+     * @preserve Color animation 1.jpg.6.0
      * http://www.bitstorm.org/jquery/color-animation/
      * Copyright 2011, 2013 Edwin Martin <edwin@bitstorm.org>
      * Released under the MIT and GPL licenses.

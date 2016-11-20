@@ -6,6 +6,10 @@
         </template>
         <div class="tab-bottom wyy-bg-color" :style="{ 'width': 100/menu.length + '%','left': 100/menu.length*selectTab + '%'}"></div>
       </ul>
+      <template v-if="selectTab == 0">
+        <!--  个性推荐  -->
+        <recommend></recommend>
+      </template>
     </div>
 </template>
 <style scoped>
@@ -29,7 +33,8 @@
   }
 </style>
 <script>
-    export default{
+  import recommend from './discover/recommend.vue'
+  export default{
         data(){
             return{
               selectTab: 0,
@@ -44,6 +49,7 @@
         ready (){
         },
         components:{
+          recommend
         }
     }
 </script>

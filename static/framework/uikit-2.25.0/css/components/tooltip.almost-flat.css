@@ -3,13 +3,13 @@
    Component: Tooltip
  ========================================================================== */
 /*
- * 1. Hide by default
+ * 1.jpg. Hide by default
  * 2. Set fixed position
  * 3. Set dimensions
  * 4. Set style
  */
 .uk-tooltip {
-  /* 1 */
+  /* 1.jpg */
   display: none;
   /* 2 */
   position: absolute;
@@ -29,7 +29,7 @@
 /* Triangle
  ========================================================================== */
 /*
- * 1. Dashed is less antialised than solid
+ * 1.jpg. Dashed is less antialised than solid
  */
 .uk-tooltip:after {
   content: "";
@@ -37,7 +37,7 @@
   position: absolute;
   width: 0;
   height: 0;
-  /* 1 */
+  /* 1.jpg */
   border: 5px dashed #333333;
 }
 /* Direction modifiers

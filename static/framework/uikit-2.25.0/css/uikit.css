@@ -3,12 +3,12 @@
    Component: Base
  ========================================================================== */
 /*
- * 1. Normalize default `font-family` and set `font-size` to support `rem` units
+ * 1.jpg. Normalize default `font-family` and set `font-size` to support `rem` units
  * 2. Prevents iOS text size adjust after orientation change, without disabling user zoom
  * 3. Style
  */
 html {
-  /* 1 */
+  /* 1.jpg */
   font: normal 14px / 20px "Helvetica Neue", Helvetica, Arial, sans-serif;
   /* 2 */
   -webkit-text-size-adjust: 100%;
@@ -68,13 +68,13 @@ strong {
   font-weight: bold;
 }
 /*
- * 1. Address odd `em`-unit font size rendering in all browsers.
+ * 1.jpg. Address odd `em`-unit font size rendering in all browsers.
  * 2. Consolas has a better baseline in running text compared to `Courier`
  */
 :not(pre) > code,
 :not(pre) > kbd,
 :not(pre) > samp {
-  /* 1 */
+  /* 1.jpg */
   font-size: 12px;
   /* 2 */
   font-family: Consolas, monospace, serif;
@@ -146,12 +146,12 @@ video {
   vertical-align: middle;
 }
 /*
- * 1. Responsiveness: Sets a maximum width relative to the parent and auto scales the height
+ * 1.jpg. Responsiveness: Sets a maximum width relative to the parent and auto scales the height
  * 2. Corrects `max-width` behavior if padding and border are used
  * 3. Remove border when inside `a` element in IE 8/9/10.
  */
 img {
-  /* 1 */
+  /* 1.jpg */
   max-width: 100%;
   height: auto;
   /* 2 */
@@ -290,11 +290,11 @@ dd {
 /* Horizontal rules
  ========================================================================== */
 /*
- * 1. Address differences between Firefox and other browsers.
+ * 1.jpg. Address differences between Firefox and other browsers.
  * 2. Style
  */
 hr {
-  /* 1 */
+  /* 1.jpg */
   box-sizing: content-box;
   height: 0;
   /* 2 */
@@ -319,7 +319,7 @@ blockquote {
 /* Preformatted text
  ========================================================================== */
 /*
- * 1. Contain overflow in all browsers.
+ * 1.jpg. Contain overflow in all browsers.
  */
 pre {
   padding: 10px;
@@ -328,7 +328,7 @@ pre {
   color: #444444;
   -moz-tab-size: 4;
   tab-size: 4;
-  /* 1 */
+  /* 1.jpg */
   overflow: auto;
 }
 /* Selection pseudo-element
@@ -399,7 +399,7 @@ iframe {
    Component: Grid
  ========================================================================== */
 /*
- * 1. Makes grid more robust so that it can be used with other block elements like lists
+ * 1.jpg. Makes grid more robust so that it can be used with other block elements like lists
  */
 .uk-grid {
   display: -ms-flexbox;
@@ -408,7 +408,7 @@ iframe {
   -ms-flex-wrap: wrap;
   -webkit-flex-wrap: wrap;
   flex-wrap: wrap;
-  /* 1 */
+  /* 1.jpg */
   margin: 0;
   padding: 0;
   list-style: none;
@@ -429,12 +429,12 @@ iframe {
 }
 /*
  * Grid cell
- * 1. Space is allocated solely based on content dimensions
+ * 1.jpg. Space is allocated solely based on content dimensions
  * 2. Makes grid more robust so that it can be used with other block elements
  * 3. DEPRECATED Using `float` to support IE9
  */
 .uk-grid > * {
-  /* 1 */
+  /* 1.jpg */
   -ms-flex: none;
   -webkit-flex: none;
   flex: none;
@@ -598,19 +598,19 @@ iframe {
 /* Match panels in grids
  ========================================================================== */
 /*
- * 1. Behave like a block element
+ * 1.jpg. Behave like a block element
  */
 .uk-grid-match > * {
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
-  /* 1 */
+  /* 1.jpg */
   -ms-flex-wrap: wrap;
   -webkit-flex-wrap: wrap;
   flex-wrap: wrap;
 }
 .uk-grid-match > * > * {
-  /* 1 */
+  /* 1.jpg */
   -ms-flex: none;
   -webkit-flex: none;
   flex: none;
@@ -1224,11 +1224,11 @@ iframe {
    Component: Panel
  ========================================================================== */
 /*
- * 1. Needed for `a` elements
+ * 1.jpg. Needed for `a` elements
  * 2. Create position context for badges
  */
 .uk-panel {
-  /* 1 */
+  /* 1.jpg */
   display: block;
   /* 2 */
   position: relative;
@@ -1634,12 +1634,12 @@ iframe {
 }
 /*
  * Emulates image cover, works with video and image elements
- * 1. Parent container which clips resized object
+ * 1.jpg. Parent container which clips resized object
  * 2. Resizes the object to always covers its container
  * 3. Reset the responsive image CSS
  * 4. Center object
  */
-/* 1 */
+/* 1.jpg */
 .uk-cover {
   overflow: hidden;
 }
@@ -1750,7 +1750,7 @@ ul.uk-nav-sub {
 }
 /*
  * Hover
- * 1. Apply hover style also to focus state
+ * 1.jpg. Apply hover style also to focus state
  * 2. Remove default focus style
  */
 .uk-nav-side > li > a:hover,
@@ -1796,7 +1796,7 @@ ul.uk-nav-sub {
 }
 /*
  * Hover
- * 1. Apply hover style also to focus state
+ * 1.jpg. Apply hover style also to focus state
  * 2. Remove default focus style
  */
 .uk-nav-dropdown > li > a:hover,
@@ -1837,7 +1837,7 @@ ul.uk-nav-sub {
 }
 /*
  * Hover
- * 1. Apply hover style also to focus state
+ * 1.jpg. Apply hover style also to focus state
  * 2. Remove default focus style
  */
 .uk-nav-navbar > li > a:hover,
@@ -1880,7 +1880,7 @@ ul.uk-nav-sub {
 /*
  * Hover
  * No hover on touch devices because it behaves buggy in fixed offcanvas
- * 1. Apply hover style also to focus state
+ * 1.jpg. Apply hover style also to focus state
  * 2. Remove default focus style
  */
 .uk-nav-offcanvas > .uk-open > a,
@@ -1948,22 +1948,22 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
   float: left;
 }
 /*
- * 1. Create position context for dropdowns
+ * 1.jpg. Create position context for dropdowns
  */
 .uk-navbar-nav > li {
   float: left;
-  /* 1 */
+  /* 1.jpg */
   position: relative;
 }
 /*
- * 1. Dimensions
+ * 1.jpg. Dimensions
  * 2. Style
  */
 .uk-navbar-nav > li > a {
   display: block;
   box-sizing: border-box;
   text-decoration: none;
-  /* 1 */
+  /* 1.jpg */
   height: 40px;
   padding: 0 15px;
   line-height: 40px;
@@ -1979,7 +1979,7 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
 }
 /*
  * Hover
- * 1. Apply hover style also to focus state
+ * 1.jpg. Apply hover style also to focus state
  * 2. Also apply if dropdown is opened
  * 3. Remove default focus style
  */
@@ -2061,7 +2061,7 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
   text-decoration: none;
 }
 /*
- * 1. Apply hover style also to focus state
+ * 1.jpg. Apply hover style also to focus state
  * 2. Remove default focus style
  */
 .uk-navbar-brand:hover,
@@ -2079,7 +2079,7 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
   text-decoration: none;
 }
 /*
- * 1. Apply hover style also to focus state
+ * 1.jpg. Apply hover style also to focus state
  * 2. Remove default focus style
  */
 .uk-navbar-toggle:hover,
@@ -2090,12 +2090,12 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
   outline: none;
 }
 /*
- * 1. Center icon vertically
+ * 1.jpg. Center icon vertically
  */
 .uk-navbar-toggle:after {
   content: "\f0c9";
   font-family: FontAwesome;
-  /* 1 */
+  /* 1.jpg */
   vertical-align: middle;
 }
 .uk-navbar-toggle-alt:after {
@@ -2105,12 +2105,12 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
  ========================================================================== */
 /*
  * The element with this class needs to be last child in the navbar
- * 1. This hack is needed because other float elements shift centered text
+ * 1.jpg. This hack is needed because other float elements shift centered text
  */
 .uk-navbar-center {
   float: none;
   text-align: center;
-  /* 1 */
+  /* 1.jpg */
   max-width: 50%;
   margin-left: auto;
   margin-right: auto;
@@ -2124,7 +2124,7 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
    Component: Subnav
  ========================================================================== */
 /*
- * 1. Gutter
+ * 1.jpg. Gutter
  * 2. Remove default list style
  */
 .uk-subnav {
@@ -2134,7 +2134,7 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
   -ms-flex-wrap: wrap;
   -webkit-flex-wrap: wrap;
   flex-wrap: wrap;
-  /* 1 */
+  /* 1.jpg */
   margin-left: -10px;
   margin-top: -10px;
   /* 2 */
@@ -2142,12 +2142,12 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
   list-style: none;
 }
 /*
- * 1. Space is allocated solely based on content dimensions
+ * 1.jpg. Space is allocated solely based on content dimensions
  * 2. Horizontal gutter is using `padding` so `uk-width-*` classes can be applied
  * 3. Create position context for dropdowns
  */
 .uk-subnav > * {
-  /* 1 */
+  /* 1.jpg */
   -ms-flex: none;
   -webkit-flex: none;
   flex: none;
@@ -2180,7 +2180,7 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
 }
 /*
  * Hover
- * 1. Apply hover style also to focus state
+ * 1.jpg. Apply hover style also to focus state
  */
 .uk-subnav > * > :hover,
 .uk-subnav > * > :focus {
@@ -2212,7 +2212,7 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
 }
 /*
  * Hover
- * 1. Apply hover style also to focus state
+ * 1.jpg. Apply hover style also to focus state
  * 2. Remove default focus style
  */
 .uk-subnav-pill > * > :hover,
@@ -2243,11 +2243,11 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
    Component: Breadcrumb
  ========================================================================== */
 /*
- * 1. Remove default list style
+ * 1.jpg. Remove default list style
  * 2. Remove whitespace between child elements when using `inline-block`
  */
 .uk-breadcrumb {
-  /* 1 */
+  /* 1.jpg */
   padding: 0;
   list-style: none;
   /* 2 */
@@ -2282,12 +2282,12 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
    Component: Pagination
  ========================================================================== */
 /*
- * 1. Remove default list style
+ * 1.jpg. Remove default list style
  * 2. Center pagination by default
  * 3. Remove whitespace between child elements when using `inline-block`
  */
 .uk-pagination {
-  /* 1 */
+  /* 1.jpg */
   padding: 0;
   list-style: none;
   /* 2 */
@@ -2310,12 +2310,12 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
 /* Items
  ========================================================================== */
 /*
- * 1. Reset whitespace hack
+ * 1.jpg. Reset whitespace hack
  * 2. Remove the gap at the bottom of it container
  */
 .uk-pagination > li {
   display: inline-block;
-  /* 1 */
+  /* 1.jpg */
   font-size: 1rem;
   /* 2 */
   vertical-align: top;
@@ -2324,7 +2324,7 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
   margin-left: 5px;
 }
 /*
- * 1. Makes pagination more robust against different box-sizing use
+ * 1.jpg. Makes pagination more robust against different box-sizing use
  * 2. Reset text-align to center if alignment modifier is used
  */
 .uk-pagination > li > a,
@@ -2334,7 +2334,7 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
   padding: 3px 5px;
   line-height: 20px;
   text-decoration: none;
-  /* 1 */
+  /* 1.jpg */
   box-sizing: content-box;
   /* 2 */
   text-align: center;
@@ -2348,7 +2348,7 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
 }
 /*
  * Hover
- * 1. Apply hover style also to focus state
+ * 1.jpg. Apply hover style also to focus state
  * 2. Remove default focus style
  */
 .uk-pagination > li > a:hover,
@@ -2415,12 +2415,12 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
 }
 /*
  * Items
- * 1. Create position context for dropdowns
+ * 1.jpg. Create position context for dropdowns
  */
 .uk-tab > li {
   margin-bottom: -1px;
   float: left;
-  /* 1 */
+  /* 1.jpg */
   position: relative;
 }
 .uk-tab > li > a {
@@ -2436,7 +2436,7 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
 }
 /*
  * Hover
- * 1. Apply hover style also to focus state
+ * 1.jpg. Apply hover style also to focus state
  * 2. Also apply if dropdown is opened
  * 3. Remove default focus style
  */
@@ -2513,7 +2513,7 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
   clear: both;
 }
 /*
- * 1. Using `right` to prevent vertical scrollbar caused by centering if to many tabs
+ * 1.jpg. Using `right` to prevent vertical scrollbar caused by centering if to many tabs
  */
 .uk-tab-center .uk-tab {
   position: relative;
@@ -2559,12 +2559,12 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
 /* Modifier: 'tab-grid'
  ========================================================================== */
 /*
- * 1. Create position context to prevent hidden border because of negative `z-index`
+ * 1.jpg. Create position context to prevent hidden border because of negative `z-index`
  */
 .uk-tab-grid {
   margin-left: -5px;
   border-bottom: none;
-  /* 1 */
+  /* 1.jpg */
   position: relative;
   z-index: 0;
 }
@@ -2575,7 +2575,7 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
   right: 0;
   bottom: -1px;
   border-top: 1px solid #dddddd;
-  /* 1 */
+  /* 1.jpg */
   z-index: -1;
 }
 .uk-tab-grid > li:first-child > a {
@@ -2672,7 +2672,7 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
    Component: Thumbnav
  ========================================================================== */
 /*
- * 1. Gutter
+ * 1.jpg. Gutter
  * 2. Remove default list style
  */
 .uk-thumbnav {
@@ -2682,7 +2682,7 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
   -ms-flex-wrap: wrap;
   -webkit-flex-wrap: wrap;
   flex-wrap: wrap;
-  /* 1 */
+  /* 1.jpg */
   margin-left: -10px;
   margin-top: -10px;
   /* 2 */
@@ -2690,11 +2690,11 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
   list-style: none;
 }
 /*
- * 1. Space is allocated solely based on content dimensions
+ * 1.jpg. Space is allocated solely based on content dimensions
  * 2. Horizontal gutter is using `padding` so `uk-width-*` classes can be applied
  */
 .uk-thumbnav > * {
-  /* 1 */
+  /* 1.jpg */
   -ms-flex: none;
   -webkit-flex: none;
   flex: none;
@@ -2832,12 +2832,12 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
    Component: Table
  ========================================================================== */
 /*
- * 1. Remove most spacing between table cells.
+ * 1.jpg. Remove most spacing between table cells.
  * 2. Block element behavior
  * 3. Style
  */
 .uk-table {
-  /* 1 */
+  /* 1.jpg */
   border-collapse: collapse;
   border-spacing: 0;
   /* 2 */
@@ -2910,7 +2910,7 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
    Component: Form
  ========================================================================== */
 /*
- * 1. Define consistent box sizing.
+ * 1.jpg. Define consistent box sizing.
  *    Default is `content-box` with following exceptions set to `border-box`
  *    `button`, `select`, `input[type="checkbox"]` and `input[type="radio"]`
  *    `input[type="search"]` in Chrome, Safari and Opera
@@ -2922,7 +2922,7 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
 .uk-form input,
 .uk-form select,
 .uk-form textarea {
-  /* 1 */
+  /* 1.jpg */
   box-sizing: border-box;
   /* 2 */
   margin: 0;
@@ -2939,12 +2939,12 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
   text-transform: none;
 }
 /*
- * 1. Correct `font` properties not being inherited.
+ * 1.jpg. Correct `font` properties not being inherited.
  * 2. Don't inherit the `font-weight` and use `bold` instead.
  * NOTE: Both declarations don't work in Chrome, Safari and Opera.
  */
 .uk-form optgroup {
-  /* 1 */
+  /* 1.jpg */
   font: inherit;
   /* 2 */
   font-weight: bold;
@@ -3010,11 +3010,11 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
   padding: 0;
 }
 /*
- * 1. Remove default vertical scrollbar in IE 8/9/10/11.
+ * 1.jpg. Remove default vertical scrollbar in IE 8/9/10/11.
  * 2. Improve readability and alignment in all browsers.
  */
 .uk-form textarea {
-  /* 1 */
+  /* 1.jpg */
   overflow: auto;
   /* 2 */
   vertical-align: top;
@@ -3049,7 +3049,7 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
 /*
  * Controls
  * Except for `range`, `radio`, `checkbox`, `file`, `submit`, `reset`, `button` and `image`
- * 1. Must be `height` because `min-height` is not working in OSX
+ * 1.jpg. Must be `height` because `min-height` is not working in OSX
  * 2. Responsiveness: Sets a maximum width relative to the parent to scale on narrower viewports
  * 3. Vertical `padding` needed for `select` elements in Firefox
  * 4. Style
@@ -3071,7 +3071,7 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
 .uk-form input[type="search"],
 .uk-form input[type="tel"],
 .uk-form input[type="color"] {
-  /* 1 */
+  /* 1.jpg */
   height: 30px;
   /* 2 */
   max-width: 100%;
@@ -3150,7 +3150,7 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
 }
 /*
  * Legend
- * 1. Behave like block element
+ * 1.jpg. Behave like block element
  * 2. Correct `color` not being inherited in IE 8/9/10/11.
  * 3. Remove padding
  * 4. `margin-bottom` is not working in Safari and Opera.
@@ -3158,7 +3158,7 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
  * 5. Style
  */
 .uk-form legend {
-  /* 1 */
+  /* 1.jpg */
   width: 100%;
   /* 2 */
   border: 0;
@@ -3171,13 +3171,13 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
   line-height: 30px;
 }
 /*
- * 1. Fixes IE9
+ * 1.jpg. Fixes IE9
  */
 .uk-form legend:after {
   content: "";
   display: block;
   border-bottom: 1px solid #dddddd;
-  /* 1 */
+  /* 1.jpg */
   width: 100%;
 }
 /* Size modifiers
@@ -3348,12 +3348,12 @@ select.uk-form-width-mini {
 /* Sub-object: `uk-form-icon`
  ========================================================================== */
 /*
- * 1. Container width fits its content
+ * 1.jpg. Container width fits its content
  * 2. Create position context
  * 3. Prevent `inline-block` consequences
  */
 .uk-form-icon {
-  /* 1 */
+  /* 1.jpg */
   display: inline-block;
   /* 2 */
   position: relative;
@@ -3361,7 +3361,7 @@ select.uk-form-width-mini {
   max-width: 100%;
 }
 /*
- * 1. Make form element clickable through icon
+ * 1.jpg. Make form element clickable through icon
  */
 .uk-form-icon > [class*='uk-icon-'] {
   position: absolute;
@@ -3371,7 +3371,7 @@ select.uk-form-width-mini {
   font-size: 14px;
   color: #999999;
   text-align: center;
-  /* 1 */
+  /* 1.jpg */
   pointer-events: none;
 }
 .uk-form-icon:not(.uk-form-icon-flip) > input {
@@ -3397,7 +3397,7 @@ select.uk-form-width-mini {
   padding: 0;
 }
 /*
- * 1. Correct inability to style clickable `input` types in iOS.
+ * 1.jpg. Correct inability to style clickable `input` types in iOS.
  * 2. Remove margins in Chrome, Safari and Opera.
  * 3. Remove borders for `button`.
  * 4. Address `overflow` set to `hidden` in IE 8/9/10/11.
@@ -3410,7 +3410,7 @@ select.uk-form-width-mini {
  * 11. Required for `a`.
  */
 .uk-button {
-  /* 1 */
+  /* 1.jpg */
   -webkit-appearance: none;
   /* 2 */
   margin: 0;
@@ -3444,7 +3444,7 @@ select.uk-form-width-mini {
 }
 /*
  * Hover
- * 1. Apply hover style also to focus state
+ * 1.jpg. Apply hover style also to focus state
  * 2. Remove default focus style
  * 3. Required for `a` elements
  */
@@ -3583,14 +3583,14 @@ select.uk-form-width-mini {
 /* Sub-object `uk-button-group`
  ========================================================================== */
 /*
- * 1. Behave like buttons
+ * 1.jpg. Behave like buttons
  * 2. Create position context for dropdowns
  * 3. Remove whitespace between child elements when using `inline-block`
  * 4. Prevent buttons from wrapping
  * 5. Remove whitespace between child elements when using `inline-block`
  */
 .uk-button-group {
-  /* 1 */
+  /* 1.jpg */
   display: inline-block;
   vertical-align: middle;
   /* 2 */
@@ -3610,11 +3610,11 @@ select.uk-form-width-mini {
 /* Sub-object: `uk-button-dropdown`
  ========================================================================== */
 /*
- * 1. Behave like buttons
+ * 1.jpg. Behave like buttons
  * 2. Create position context for dropdowns
  */
 .uk-button-dropdown {
-  /* 1 */
+  /* 1.jpg */
   display: inline-block;
   vertical-align: middle;
   /* 2 */
@@ -3630,7 +3630,7 @@ select.uk-form-width-mini {
   font-style: normal;
 }
 /*
- * 1. Allow margin
+ * 1.jpg. Allow margin
  * 2. Prevent inherit font style
  * 4. Correct line-height
  * 5. Better font rendering
@@ -3638,7 +3638,7 @@ select.uk-form-width-mini {
  */
 [class*='uk-icon-'] {
   font-family: FontAwesome;
-  /* 1 */
+  /* 1.jpg */
   display: inline-block;
   /* 2 */
   font-weight: normal;
@@ -3709,7 +3709,7 @@ select.uk-form-width-mini {
 }
 /*
  * Hover
- * 1. Apply hover style also to focus state
+ * 1.jpg. Apply hover style also to focus state
  * 2. Remove default focus style
  */
 .uk-icon-button:hover,
@@ -5639,7 +5639,7 @@ select.uk-form-width-mini {
   padding: 0;
 }
 /*
- * 1. Correct inability to style clickable `input` types in iOS.
+ * 1.jpg. Correct inability to style clickable `input` types in iOS.
  * 2. Remove margins in Chrome, Safari and Opera.
  * 3. Remove borders for `button`.
  * 4. Address `overflow` set to `hidden` in IE 8/9/10/11.
@@ -5649,7 +5649,7 @@ select.uk-form-width-mini {
  * 8. Style
  */
 .uk-close {
-  /* 1 */
+  /* 1.jpg */
   -webkit-appearance: none;
   /* 2 */
   margin: 0;
@@ -5682,7 +5682,7 @@ select.uk-form-width-mini {
 }
 /*
  * Hover
- * 1. Apply hover style also to focus state
+ * 1.jpg. Apply hover style also to focus state
  * 2. Remove default focus style
  * 3. Required for `a` elements
  */
@@ -5840,14 +5840,14 @@ a.uk-badge:hover {
    Component: Thumbnail
  ========================================================================== */
 /*
- * 1. Container width fits its content
+ * 1.jpg. Container width fits its content
  * 2. Responsive behavior
  * 3. Corrects `max-width` behavior sed
  * 4. Required for `figure` element
  * 5. Style
  */
 .uk-thumbnail {
-  /* 1 */
+  /* 1.jpg */
   display: inline-block;
   /* 2 */
   max-width: 100%;
@@ -5862,7 +5862,7 @@ a.uk-badge:hover {
 }
 /*
  * Hover state for `a` elements
- * 1. Apply hover style also to focus state
+ * 1.jpg. Apply hover style also to focus state
  * 2. Needed for caption
  * 3. Remove default focus style
  */
@@ -5904,7 +5904,7 @@ a.uk-thumbnail:focus {
    Component: Overlay
  ========================================================================== */
 /*
- * 1. Container width fits its content
+ * 1.jpg. Container width fits its content
  * 2. Create position context
  * 3. Set max-width for responsive images to prevent `inline-block` consequences
  * 4. Remove the gap between the container and its child element
@@ -5913,7 +5913,7 @@ a.uk-thumbnail:focus {
  * 7. Reset margin
  */
 .uk-overlay {
-  /* 1 */
+  /* 1.jpg */
   display: inline-block;
   /* 2 */
   position: relative;
@@ -5941,11 +5941,11 @@ a.uk-thumbnail:focus {
 /* Sub-object `uk-overlay-panel`
  ========================================================================== */
 /*
- * 1. Position cover
+ * 1.jpg. Position cover
  * 2. Style
  */
 .uk-overlay-panel {
-  /* 1 */
+  /* 1.jpg */
   position: absolute;
   top: 0;
   bottom: 0;
@@ -6138,12 +6138,12 @@ a.uk-thumbnail:focus {
  * Sub-object `uk-overlay-area`
  ========================================================================== */
 /*
- * 1. Set position
+ * 1.jpg. Set position
  * 2. Set style
  * 3. Fade-in transition
  */
 .uk-overlay-area {
-  /* 1 */
+  /* 1.jpg */
   position: absolute;
   top: 0;
   bottom: 0;
@@ -6159,7 +6159,7 @@ a.uk-thumbnail:focus {
 }
 /*
  * Hover
- * 1. `uk-hover` to support touch devices
+ * 1.jpg. `uk-hover` to support touch devices
  * 2. Use optional `uk-overlay-toggle` to trigger the overlay earlier
  */
 .uk-overlay:hover .uk-overlay-area,
@@ -6197,7 +6197,7 @@ a.uk-thumbnail:focus {
   font-size: 0.001px;
 }
 /*
- * 1. Needed for vertical alignment
+ * 1.jpg. Needed for vertical alignment
  */
 .uk-overlay-area:not(:empty):before {
   content: '';
@@ -6206,13 +6206,13 @@ a.uk-thumbnail:focus {
   vertical-align: middle;
 }
 /*
- * 1. Set vertical alignment
+ * 1.jpg. Set vertical alignment
  * 2. Reset whitespace hack
  * 3. Set horizontal alignment
  * 4. Set style
  */
 .uk-overlay-area-content {
-  /* 1 */
+  /* 1.jpg */
   display: inline-block;
   box-sizing: border-box;
   width: 100%;
@@ -6242,12 +6242,12 @@ a.uk-thumbnail:focus {
  * Sub-object `uk-overlay-caption`
  ========================================================================== */
 /*
- * 1. Set position
+ * 1.jpg. Set position
  * 2. Set style
  * 3. Fade-in transition
  */
 .uk-overlay-caption {
-  /* 1 */
+  /* 1.jpg */
   position: absolute;
   bottom: 0;
   left: 0;
@@ -6264,7 +6264,7 @@ a.uk-thumbnail:focus {
 }
 /*
  * Hover
- * 1. `uk-hover` to support touch devices
+ * 1.jpg. `uk-hover` to support touch devices
  * 2. Use optional `uk-overlay-toggle` to trigger the overlay earlier
  */
 .uk-overlay:hover .uk-overlay-caption,
@@ -6693,7 +6693,7 @@ a.uk-thumbnail:focus {
   }
 }
 /*
- * Scale by 1.5
+ * Scale by 1.jpg.5
  * Used by slideshow component
  */
 @-webkit-keyframes uk-fade-scale-15 {
@@ -6717,7 +6717,7 @@ a.uk-thumbnail:focus {
   }
 }
 /*
- * Scale by 1.8
+ * Scale by 1.jpg.8
  */
 @-webkit-keyframes uk-fade-scale-18 {
   0% {
@@ -6976,14 +6976,14 @@ a.uk-thumbnail:focus {
    Component: Dropdown
  ========================================================================== */
 /*
- * 1. Hide by default
+ * 1.jpg. Hide by default
  * 2. Set position
  * 3. Box-sizing is needed for `uk-dropdown-justify`
  * 4. Set width
  */
 .uk-dropdown,
 .uk-dropdown-blank {
-  /* 1 */
+  /* 1.jpg */
   display: none;
   /* 2 */
   position: absolute;
@@ -6995,24 +6995,24 @@ a.uk-thumbnail:focus {
 }
 /*
  * Dropdown style
- * 1. Reset button group whitespace hack
+ * 1.jpg. Reset button group whitespace hack
  */
 .uk-dropdown {
   padding: 15px;
   background: #f5f5f5;
   color: #444444;
-  /* 1 */
+  /* 1.jpg */
   font-size: 1rem;
   vertical-align: top;
 }
 /*
- * 1. Show dropdown
+ * 1.jpg. Show dropdown
  * 2. Set animation
  * 3. Needed for scale animation
  */
 .uk-open > .uk-dropdown,
 .uk-open > .uk-dropdown-blank {
-  /* 1 */
+  /* 1.jpg */
   display: block;
   /* 2 */
   -webkit-animation: uk-fade 0.2s ease-in-out;
@@ -7162,7 +7162,7 @@ a.uk-thumbnail:focus {
  ========================================================================== */
 /*
  * This is the modal overlay and modal dialog container
- * 1. Hide by default
+ * 1.jpg. Hide by default
  * 2. Set fixed position
  * 3. Allow scrolling for the modal dialog
  * 4. Mask the background page
@@ -7171,7 +7171,7 @@ a.uk-thumbnail:focus {
  * 7. force hardware acceleration to prevent browser rendering hiccups
  */
 .uk-modal {
-  /* 1 */
+  /* 1.jpg */
   display: none;
   /* 2 */
   position: fixed;
@@ -7211,13 +7211,13 @@ a.uk-thumbnail:focus {
 /* Sub-object: `uk-modal-dialog`
  ========================================================================== */
 /*
- * 1. Create position context for caption, spinner and close button
+ * 1.jpg. Create position context for caption, spinner and close button
  * 2. Set box sizing
  * 3. Set style
  * 4. Slide-in transition
  */
 .uk-modal-dialog {
-  /* 1 */
+  /* 1.jpg */
   position: relative;
   /* 2 */
   box-sizing: border-box;
@@ -7383,13 +7383,13 @@ a.uk-thumbnail:focus {
  ========================================================================== */
 /*
  * This is the offcanvas overlay and bar container
- * 1. Hide by default
+ * 1.jpg. Hide by default
  * 2. Set fixed position
  * 3. Deactivate browser touch actions in IE11
  * 4. Mask the background page
  */
 .uk-offcanvas {
-  /* 1 */
+  /* 1.jpg */
   display: none;
   /* 2 */
   position: fixed;
@@ -7410,11 +7410,11 @@ a.uk-thumbnail:focus {
  ========================================================================== */
 /*
  * Prepares the whole HTML page to slide-out
- * 1. Fix the main page and disallow scrolling
+ * 1.jpg. Fix the main page and disallow scrolling
  * 2. Side-out transition
  */
 .uk-offcanvas-page {
-  /* 1 */
+  /* 1.jpg */
   position: fixed;
   /* 2 */
   -webkit-transition: margin-left 0.3s ease-in-out;
@@ -7424,14 +7424,14 @@ a.uk-thumbnail:focus {
  ========================================================================== */
 /*
  * This is the offcanvas bar
- * 1. Set fixed position
+ * 1.jpg. Set fixed position
  * 2. Size and style
  * 3. Allow scrolling
  * 4. Side-out transition
  * 5. Deactivate scroll chaining in IE11
  */
 .uk-offcanvas-bar {
-  /* 1 */
+  /* 1.jpg */
   position: fixed;
   top: 0;
   bottom: 0;
@@ -7483,13 +7483,13 @@ a.uk-thumbnail:focus {
    Component: Switcher
  ========================================================================== */
 /*
- * 1. Deactivate browser history navigation in IE11
+ * 1.jpg. Deactivate browser history navigation in IE11
  */
 .uk-switcher {
   margin: 0;
   padding: 0;
   list-style: none;
-  /* 1 */
+  /* 1.jpg */
   touch-action: cross-slide-y pinch-zoom double-tap-zoom;
 }
 /*
@@ -7670,7 +7670,7 @@ a.uk-thumbnail:focus {
  ========================================================================== */
 /*
  * Float blocks
- * 1. Prevent content overflow on small devices
+ * 1.jpg. Prevent content overflow on small devices
  */
 .uk-float-left {
   float: left;
@@ -7678,7 +7678,7 @@ a.uk-thumbnail:focus {
 .uk-float-right {
   float: right;
 }
-/* 1 */
+/* 1.jpg */
 [class*='uk-float-'] {
   max-width: 100%;
 }
@@ -7733,13 +7733,13 @@ a.uk-thumbnail:focus {
 }
 /*
  * Sub-object which can have any height
- * 1. Reset whitespace hack
+ * 1.jpg. Reset whitespace hack
  */
 .uk-vertical-align-middle,
 .uk-vertical-align-bottom {
   display: inline-block;
   max-width: 100%;
-  /* 1 */
+  /* 1.jpg */
   font-size: 1rem;
 }
 .uk-vertical-align-middle {
@@ -7773,7 +7773,7 @@ a.uk-thumbnail:focus {
  * Note: Images are already responsive by default, see Base component
  ========================================================================== */
 /*
- * 1. Corrects `max-width` and `max-height` behavior if padding and border are used
+ * 1.jpg. Corrects `max-width` and `max-height` behavior if padding and border are used
  */
 .uk-responsive-width,
 .uk-responsive-height {
@@ -8035,7 +8035,7 @@ a.uk-thumbnail:focus {
  ========================================================================== */
 /*
  * Display
- * 1. Required if child is a responsive image
+ * 1.jpg. Required if child is a responsive image
  */
 .uk-display-block {
   display: block !important;
@@ -8045,7 +8045,7 @@ a.uk-thumbnail:focus {
 }
 .uk-display-inline-block {
   display: inline-block !important;
-  /* 1 */
+  /* 1.jpg */
   max-width: 100%;
 }
 /*
@@ -8311,7 +8311,7 @@ a.uk-thumbnail:focus {
 /* Item dimensions
  ========================================================================== */
 /*
- * Initial: 0 1 auto
+ * Initial: 0 1.jpg auto
  * Content dimensions, but shrinks
  */
 /*
@@ -8324,19 +8324,19 @@ a.uk-thumbnail:focus {
   flex: none;
 }
 /*
- * Relative Flex: 1 1 auto
+ * Relative Flex: 1.jpg 1.jpg auto
  * Space is allocated considering content
- * 1. Fixes flex-shrink value in IE10
+ * 1.jpg. Fixes flex-shrink value in IE10
  */
 .uk-flex-item-auto {
   -ms-flex: auto;
   -webkit-flex: auto;
   flex: auto;
-  /* 1 */
+  /* 1.jpg */
   -ms-flex-negative: 1;
 }
 /*
- * Absolute Flex: 1 1 0%
+ * Absolute Flex: 1.jpg 1.jpg 0%
  * Space is allocated solely based on flex
  */
 .uk-flex-item-1 {
