@@ -1,6 +1,6 @@
 <template>
     <div class="recommend-mlist">
-      <common-title type="mlist"></common-title>
+      <common-title icon="static/wyy_res/index/discover/adz.png" title="推荐歌单"></common-title>
       <div class="uk-grid">
         <div v-for="item in list" class="uk-width-1-3 mlist">
           <div class="thumb-container">

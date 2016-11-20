@@ -1,8 +1,8 @@
 <template>
   <div class="title uk-clearfix">
-    <template v-if="type == 'mlist'">
-      <img class="title-img" src="static/wyy_res/index/discover/adz.png" />
-      <span class="title-name">推荐歌单</span>
+    <template>
+      <img class="title-img" :src="icon" />
+      <span class="title-name">{{ title }}</span>
       <span class="more">更多&nbsp;&gt;</span>
     </template>
   </div>
@@ -34,7 +34,8 @@
 <script>
     export default{
       props:{
-        type: String
+        icon: String,
+        title: String,
       },
         data(){
             return{
