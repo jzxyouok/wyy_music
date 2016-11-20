@@ -4,6 +4,7 @@ import vueRouter from 'vue-router'
 import routerMap from './global/router'
 import vueResource from 'vue-resource'
 import Vuikit from 'vuikit'
+import filter from './global/filter'
 
 Vue.use(vueRouter);
 Vue.use(vueResource);

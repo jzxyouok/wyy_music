@@ -4,13 +4,19 @@
       <banner></banner>
       <!--  私人FM、每日推荐与新歌榜单  -->
       <personal></personal>
+      <!--  主要内容  -->
+      <div class="uk-container">
+        <!--  推荐歌单  -->
+        <recommend-mlist></recommend-mlist>
+      </div>
     </div>
 </template>
 <style scoped>
 </style>
 <script>
-  import personal from './personal.vue'
   import banner from './banner.vue'
+  import personal from './personal.vue'
+  import recommendMlist from './recommendMlist.vue'
     export default{
         data(){
             return{
@@ -21,7 +27,7 @@
         ready (){
         },
         components:{
-          banner,personal
+          banner,personal,recommendMlist
         }
     }
 </script>
