@@ -27,7 +27,7 @@
   }
   .tab-bottom {
     position: absolute;
-    bottom: -2px;
+    bottom: 0;
     height: 2px;
     transition: all 0.2s ease;
   }
