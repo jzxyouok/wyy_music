@@ -203,9 +203,18 @@
             }
         },
         computed:{
-          percentage(){// 当前播放进度条所在位置
-            return Math.floor(this.currentTime);
-          },
+          percentage:{// 当前播放进度条所在位置
+            get(){
+              return Math.floor(this.currentTime);
+            },
+            set( percentage ){// 播放进度的控制
+              if ( this.audioObj == false ){//  存在媒体类型对象时
+                return
+              }
+              this.audioObj.currentTime = percentage;
+              this.currentTime = percentage;
+            }
+          }
         },
         methods:{
           audioPlay(){//  控制播放
