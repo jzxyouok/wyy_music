@@ -18,7 +18,7 @@
   .album {
     position: relative;
     width: 100%;
-    height: 70%;
+    height: 65%;
     /*  后期处理成两端渐变 */
     border-top: 1px solid #f3f3f3;
   }

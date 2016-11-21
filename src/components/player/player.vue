@@ -65,7 +65,7 @@
               <div class="uk-width-3-10">
                 <img class="icon-control pre-control" src="static/wyy_res/player/a9t.png" />
               </div>
-              <div class="uk-width-2-5">
+              <div class="uk-width-2-5 play-container">
                 <img v-if="!isPlaying" class="icon-control play-control" @click="audioPlay" src="static/wyy_res/player/ab2.png" />
                 <img v-else class="icon-control pause-control" @click="audioPause" src="static/wyy_res/player/ab0.png" />
               </div>
@@ -120,7 +120,9 @@
   /*  底部功能菜单  */
   .menu {
     width: 100%;
-    height: calc(30% - 61px);
+    height: calc(35% - 61px);
+    position: absolute;
+    bottom: 0;
     /*overflow: hidden;*/
   }
   .icon-container {
@@ -139,13 +141,14 @@
   .progress {
     height: 30px;
     line-height: 30px;
+    margin: 10px 0;
   }
   .time {
     font-size: 10px;
     color: #888;
   }
   .mine-control {
-    height: calc(100% - 70px);
+    height: calc(100% - 90px);
   }
   .play-mode,.icon-list {
     display: block;
@@ -157,11 +160,13 @@
     width: 70px;
     margin: 0 auto;
   }
+  .play-container {
+    max-height: 70px;
+    overflow: hidden;
+  }
   .play-control,.pause-control {
     display: block;
     width: 90px;
-    max-height: 90px;
-    overflow: hidden;
     margin: -10px auto 0;
   }
 </style>
