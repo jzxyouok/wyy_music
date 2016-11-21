@@ -15,6 +15,70 @@
         </div>
       <!--  显示专辑图片组件 -->
       <album></album>
+      <div class="menu">
+        <!--  收藏等功能列表 -->
+        <div class="uk-grid">
+          <div class="uk-width-4-5 uk-container-center">
+            <div class="uk-grid">
+              <div class="uk-width-1-4 icon-container">
+                <img class="icon-menu icon-collection" src="static/wyy_res/player/a_z.png" />
+                <!--<img class="icon-menu icon-collection" src="static/wyy_res/player/q5.png" />-->
+              </div>
+              <div class="uk-width-1-4 icon-container">
+                <img class="icon-menu icon-download" src="static/wyy_res/player/a_q.png" />
+                <!--<img class="icon-menu icon-download" src="static/wyy_res/player/a_s.png" />-->
+              </div>
+              <div class="uk-width-1-4 icon-container">
+                <img class="icon-menu icon-comment" src="static/wyy_res/player/a_m.png" />
+                <!--<img class="icon-menu icon-comment" src="static/wyy_res/player/a_n.png" />-->
+              </div>
+              <div class="uk-width-1-4 icon-container">
+                <img class="icon-menu icon-detail" src="static/wyy_res/player/aa4.png" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--  进度条 -->
+        <div class="uk-container progress">
+          <div class="uk-grid">
+            <div class="uk-width-1-10">
+              <span class="time start-time">00:03</span>
+            </div>
+            <div class="uk-width-4-5">
+              <!--  这个进度条太丑了，后期再调整  -->
+              <input type="range" class="uk-width-1-1" min="0" max="100" />
+            </div>
+            <div class="uk-width-1-10">
+              <span class="time end-time">03:55</span>
+            </div>
+          </div>
+        </div>
+        <!--  播放模式、控制、列表  -->
+        <div class="uk-grid mine-control">
+          <div class="uk-width-1-5">
+            <img class="play-mode" src="static/wyy_res/player/a_x.png" />
+            <!--<img class="play-mode" src="static/wyy_res/player/aag.png" />-->
+            <!--<img class="play-mode" src="static/wyy_res/player/aa6.png" />-->
+          </div>
+          <div class="uk-width-3-5">
+            <div class="uk-grid">
+              <div class="uk-width-3-10">
+                <img class="icon-control pre-control" src="static/wyy_res/player/a9t.png" />
+              </div>
+              <div class="uk-width-2-5">
+                <img class="icon-control play-control" src="static/wyy_res/player/ab2.png" />
+                <!--<img class="icon-control pause-control" src="static/wyy_res/player/ab0.png" />-->
+              </div>
+              <div class="uk-width-3-10">
+                <img class="icon-control next-control" src="static/wyy_res/player/a10.png" />
+              </div>
+            </div>
+          </div>
+          <div class="uk-width-1-5">
+            <img class="icon-list" src="static/wyy_res/player/aaj.png" />
+          </div>
+        </div>
+      </div>
     </div>
 </template>
 <style scoped>
@@ -52,6 +116,51 @@
     display: block;
     margin: 15px auto 0;
     width: 30px;
+  }
+  /*  底部功能菜单  */
+  .menu {
+    width: 100%;
+    height: calc(30% - 61px);
+    overflow: hidden;
+  }
+  .icon-container {
+    position: relative;
+    height: 40px;
+    overflow: hidden;
+  }
+  .icon-menu {
+    position: absolute;
+    top: -10px;
+    /*left: -15px;*/
+    width: 60px;
+    height: 60px;
+    margin: 0 auto;
+  }
+  .progress {
+    height: 30px;
+    line-height: 30px;
+  }
+  .time {
+    font-size: 10px;
+    color: #888;
+  }
+  .mine-control {
+    height: calc(100% - 70px);
+  }
+  .play-mode,.icon-list {
+    display: block;
+    width: 60px;
+    margin: 5px auto 0;
+  }
+  .pre-control,.next-control {
+    display: block;
+    width: 70px;
+    margin: 0 auto;
+  }
+  .play-control {
+    display: block;
+    width: 90px;
+    margin: -10px auto 0;
   }
 </style>
 <script>
