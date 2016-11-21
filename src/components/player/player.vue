@@ -199,6 +199,7 @@
               currentTime: 0,// 当前播放时间进度
               durationTime: 0,// 总播放时长
               isPlaying: false,//  当前是否在播放
+              timer: '',//  定时获取播放时间的定时器
               album: 'static/wyy_res/player/album.jpg'
             }
         },
@@ -222,10 +223,11 @@
             this.durationTime = this.audioObj.duration;// 获取媒体总时长
             this.audioObj.play();
             this.audioObj.onplaying = function () {
+              let audio = this;
               self.isPlaying = true;
-            }
-            this.audioObj.onprogress = function () {//  获取当前播放进度，未缓存进度时
-              self.currentTime = this.currentTime;
+              self.timer = setInterval( function () {
+                self.currentTime = audio.currentTime;
+              },1000)
             }
             this.audioObj.onended = function () {//  结束播放
               self.isPlaying = false;
@@ -234,6 +236,7 @@
           },
           audioPause(){// 播放暂停
             let self = this;
+            clearInterval(self.timer);//  不再获取进度条时间
             this.audioObj.pause();
             this.audioObj.onpause = function () {
               self.isPlaying = false;
