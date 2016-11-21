@@ -14,7 +14,7 @@
           </div>
         </div>
       <!--  显示专辑图片组件 -->
-      <album></album>
+      <album :is-playing="isPlaying"></album>
       <div class="menu">
         <!--  收藏等功能列表 -->
         <div class="uk-grid">

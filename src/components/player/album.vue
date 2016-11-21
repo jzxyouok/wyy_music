@@ -5,7 +5,7 @@
       <!--  磁碟  -->
       <div class="diskette">
         <div class="diskette-bg"></div>
-        <div class="diskette-container">
+        <div class="diskette-container rotating-album" :class="{ 'running': !isPlaying }">
           <!--  磁碟图 -->
           <div class="diskette-img"></div>
           <!--  专辑图 -->
@@ -82,13 +82,33 @@
     border-radius: 50%;
     background-size: 100% 100%;
   }
+  /*  磁碟旋转动画  */
+  .rotating-album {
+    animation: rotating 20s linear 0.5s infinite;
+  }
+  .running {
+  /*暂停动画并保存当前动画位置*/
+    animation-play-state: paused;
+  }
+  @keyframes rotating {
+    from{
+      transform: rotate(0);
+    }
+    to{
+      transform: rotate(360deg);
+    }
+  }
 </style>
 <script>
     export default{
       props:{
-        albumImg: {
+        albumImg: {//  专辑封面
           type: String,
           default: '/static/wyy_res/player/album.jpg'
+        },
+        isPlaying: {//  当前播放状态
+          type: Boolean,
+          default: false
         }
       },
         data(){
