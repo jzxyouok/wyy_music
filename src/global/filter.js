@@ -12,3 +12,14 @@ vue.filter('transformCount', val=>{
     return Math.ceil( val/100000000 ) + '亿';
   }
 });
+vue.filter('transformMediaTime',time=>{
+  // 返回播放时间格式，传入参数为秒，转化为00:00格式
+  if ( time == 0 ){
+    return '00:00'
+  }else {// 时长大于一个小时的未计入该考虑范围内
+    // 保持分钟和秒数都为2位数
+    let minutes = Math.floor(time/60) > 9 ? Math.floor(time/60) : '0'+ Math.floor(time/60);
+    let seconds = Math.floor(time%60) > 9 ? Math.floor(time%60) : '0'+ Math.floor(time%60);
+    return minutes + ':' + seconds;
+  }
+});
