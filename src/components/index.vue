@@ -5,6 +5,9 @@
     </div>
 </template>
 <style scoped>
+  .home {
+    padding-bottom: 60px;
+  }
 </style>
 <script>
   import actionBar from './index/actionBar.vue'

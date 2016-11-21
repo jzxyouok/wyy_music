@@ -24,6 +24,10 @@ export default {
   body {
     color: #333;
   }
+  /*  列表高度和悬浮播放控件高度 */
+  .list-height {
+    height: 60px;
+  }
   /*  清浮动工具类  */
   .clearfix:before,.clearfix:after {
     content: ' ';
