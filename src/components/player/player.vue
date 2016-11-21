@@ -46,7 +46,7 @@
             </div>
             <div class="uk-width-4-5">
               <!--  这个进度条太丑了，后期再调整  -->
-              <input type="range" class="uk-width-1-1" min="0" max="100" />
+              <input type="range" class="uk-width-1-1" v-model="percentage" min="0" :max="Math.floor(durationTime)" />
             </div>
             <div class="uk-width-1-10">
               <span class="time end-time">{{ durationTime | transformMediaTime }}</span>
@@ -201,6 +201,11 @@
               isPlaying: false,//  当前是否在播放
               album: 'static/wyy_res/player/album.jpg'
             }
+        },
+        computed:{
+          percentage(){// 当前播放进度条所在位置
+            return Math.floor(this.currentTime);
+          },
         },
         methods:{
           audioPlay(){//  控制播放
