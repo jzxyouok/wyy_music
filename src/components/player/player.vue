@@ -1,6 +1,7 @@
 <template>
     <div class="player">
-        <div class="title uk-grid">
+      <div class="player-bg" :style="{ 'background': 'url(' + album + ') no-repeat center center' }"></div>
+      <div class="title uk-grid">
           <div class="uk-width-1-5">
             <img src="static/wyy_res/player/i0.png" class="icon-btn" />
           </div>
@@ -18,6 +19,19 @@
   .player {
     width: 100%;
     height: 100%;
+    position: relative;
+  }
+  .player-bg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background-size: 100% 100%!important;
+    /*  高斯模糊背景  */
+    -webkit-filter: blur(20px);
+    filter: blur(20px);
   }
   .title {
     height: 60px;
@@ -42,6 +56,7 @@
     export default{
         data(){
             return{
+              album: 'static/wyy_res/player/album.jpg'
             }
         },
         methods:{
