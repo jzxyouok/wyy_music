@@ -66,8 +66,8 @@
                 <img class="icon-control pre-control" src="static/wyy_res/player/a9t.png" />
               </div>
               <div class="uk-width-2-5">
-                <img class="icon-control play-control" src="static/wyy_res/player/ab2.png" />
-                <!--<img class="icon-control pause-control" src="static/wyy_res/player/ab0.png" />-->
+                <img v-if="!isPlaying" class="icon-control play-control" @click="audioPlay" src="static/wyy_res/player/ab2.png" />
+                <img v-else class="icon-control pause-control" @click="audioPause" src="static/wyy_res/player/ab0.png" />
               </div>
               <div class="uk-width-3-10">
                 <img class="icon-control next-control" src="static/wyy_res/player/a10.png" />
@@ -170,12 +170,29 @@
     export default{
         data(){
             return{
+              audioObj: '',
+              isPlaying: false,//  当前是否在播放
               album: 'static/wyy_res/player/album.jpg'
             }
         },
         methods:{
+          audioPlay(){//  控制播放
+            let self = this;
+            this.audioObj.play();
+            this.audioObj.onplaying = function () {
+              self.isPlaying = true;
+            }
+          },
+          audioPause(){// 播放暂停
+            let self = this;
+            this.audioObj.pause();
+            this.audioObj.onpause = function () {
+              self.isPlaying = false;
+            }
+          },
         },
         mounted (){
+          this.audioObj = document.getElementById('music');
         },
         components:{
           album
