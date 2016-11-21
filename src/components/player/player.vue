@@ -121,7 +121,7 @@
   .menu {
     width: 100%;
     height: calc(30% - 61px);
-    overflow: hidden;
+    /*overflow: hidden;*/
   }
   .icon-container {
     position: relative;
@@ -157,9 +157,11 @@
     width: 70px;
     margin: 0 auto;
   }
-  .play-control {
+  .play-control,.pause-control {
     display: block;
     width: 90px;
+    max-height: 90px;
+    overflow: hidden;
     margin: -10px auto 0;
   }
 </style>
