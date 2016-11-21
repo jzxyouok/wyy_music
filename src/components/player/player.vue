@@ -13,6 +13,8 @@
             <img src="static/wyy_res/player/wk.png" class="icon-btn" />
           </div>
         </div>
+      <!--  显示专辑图片组件 -->
+      <album></album>
     </div>
 </template>
 <style scoped>
@@ -53,6 +55,7 @@
   }
 </style>
 <script>
+  import album from './album.vue'
     export default{
         data(){
             return{
@@ -64,6 +67,7 @@
         mounted (){
         },
         components:{
+          album
         }
     }
 </script>
