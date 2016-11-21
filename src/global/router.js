@@ -20,8 +20,12 @@ const routerMap = [
     ],
     redirect: '/index/discover',//  默认显示
   },
-  { path: '*',
+/*  { path: '*',
     redirect: '/index'
-  },
+  },*/
+  {
+    path: '/player',// 音频播放界面
+    component: require('../components/player/player.vue')
+  }
 ];
 export default routerMap

@@ -1,14 +1,17 @@
 <template>
   <div id="app">
     <router-view></router-view>
+    <music-play></music-play>
   </div>
 </template>
 
 <script>
+import musicPlay from './components/common/musicPlay.vue'
 
 export default {
   name: 'app',
   components: {
+    musicPlay
   }
 }
 </script>
@@ -20,6 +23,11 @@ export default {
   }
   .wyy-bg-color {
     background-color: #CE3D3E;
+  }
+  /*  宽度和高度 */
+  html, body, #app {
+    width: 100%;
+    height: 100%;
   }
   body {
     color: #333;
