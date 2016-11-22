@@ -16,10 +16,10 @@
           <li class="list-item">
             <div class="uk-grid">
               <div class="uk-width-1-10">
-                <div class="number wyy-gray-color">{{ index+1 }}</div>
-                <!--<img class="icon-menu" src="static/wyy_res/others/ahm.png" />-->
+                <div v-if="isPlayingIndex != index" class="number wyy-gray-color">{{ index+1 }}</div>
+                <img v-else class="icon-menu" src="static/wyy_res/others/ahm.png" />
               </div>
-              <div class="list-item-hr uk-width-8-10">
+              <div @click="playThis(item.src,index)" class="list-item-hr uk-width-8-10">
                 <h3 class="music-name">
                   <span>{{ item.name }}</span>
                   <span v-if="item.mv != false" class="has-mv"></span></h3>
@@ -115,11 +115,27 @@
         },
         data(){
             return{
+              audioObj: '',
+              isPlayingIndex: -1,// 正在播放的音乐位置索引
             }
         },
         methods:{
+          playThis( src , index ){
+            if ( this.isPlayingIndex == index ){// 如果正在播放当前音乐，则跳转到播放页面
+              this.$router.push({
+                path:'/player'
+              });
+              return
+            }
+            this.audioObj.src = 'http://www.kittyjs.com/' + src;
+            this.audioObj.oncanplay = function () {
+              this.play();
+            };
+            this.isPlayingIndex = index;
+          },
         },
         mounted (){
+          this.audioObj = document.getElementById('music');
         },
         components:{
         }
