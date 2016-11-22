@@ -12,22 +12,24 @@
         </div>
       </div>
       <ul class="list-content">
-        <li class="list-item">
-          <div class="uk-grid">
-            <div class="uk-width-1-10">
-              <div class="number wyy-gray-color">1</div>
-              <!--<img class="icon-menu" src="static/wyy_res/others/ahm.png" />-->
+        <template v-for="(item,index) in list">
+          <li class="list-item">
+            <div class="uk-grid">
+              <div class="uk-width-1-10">
+                <div class="number wyy-gray-color">{{ index+1 }}</div>
+                <!--<img class="icon-menu" src="static/wyy_res/others/ahm.png" />-->
+              </div>
+              <div class="list-item-hr uk-width-8-10">
+                <h3 class="music-name">{{ item.name }}<span v-if="item.mv != false" class="has-mv"></span></h3>
+                <p class="music-msg wyy-gray-color">{{ item.author + '-' + item.name }}</p>
+              </div>
+              <div class="list-item-hr uk-width-1-10">
+                <img class="icon-menu" src="static/wyy_res/common/xf.png" />
+              </div>
             </div>
-            <div class="list-item-hr uk-width-8-10">
-              <h3 class="music-name">It's All in Vain<span class="has-mv"></span></h3>
-              <p class="music-msg wyy-gray-color">Wet - It's All in Vain</p>
-            </div>
-            <div class="list-item-hr uk-width-1-10">
-              <img class="icon-menu" src="static/wyy_res/common/xf.png" />
-            </div>
-          </div>
 
-        </li>
+          </li>
+        </template>
       </ul>
     </div>
 </template>

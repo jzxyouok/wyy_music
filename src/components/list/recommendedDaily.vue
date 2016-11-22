@@ -26,7 +26,7 @@
         </p>
       </div>
       <!--  歌曲列表  -->
-      <music-list></music-list>
+      <music-list :list="list" :total="total"></music-list>
     </div>
 </template>
 <style scoped>
@@ -87,9 +87,25 @@
     export default{
         data(){
             return{
+              list: [],
+              total: 10,//  写死吧，反正也就是10条,哈哈
             }
         },
+        created(){
+          this.loadData();
+        },
         methods:{
+          loadData(){
+            this.$http({ url: 'static/api/music.php'}).then(function (res) {
+//              console.log( res.data )
+              let data = JSON.parse(res.data);
+              if ( data.status == 200 ){
+                this.list = data.data;
+              }else {
+                //  错误信息
+              }
+            })
+          },
         },
         mounted (){
         },

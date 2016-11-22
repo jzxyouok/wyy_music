@@ -10,6 +10,8 @@ Vue.use(vueRouter);
 Vue.use(vueResource);
 Vue.use(Vuikit);
 
+Vue.http.options.root = process.env.NODE_ENV !== 'production' ?  'api' : '';
+
 //  创建路由实例配置
 const router = new vueRouter({
   routes: routerMap,
