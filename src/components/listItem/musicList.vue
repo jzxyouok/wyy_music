@@ -20,7 +20,9 @@
                 <!--<img class="icon-menu" src="static/wyy_res/others/ahm.png" />-->
               </div>
               <div class="list-item-hr uk-width-8-10">
-                <h3 class="music-name">{{ item.name }}<span v-if="item.mv != false" class="has-mv"></span></h3>
+                <h3 class="music-name">
+                  <span>{{ item.name }}</span>
+                  <span v-if="item.mv != false" class="has-mv"></span></h3>
                 <p class="music-msg wyy-gray-color">{{ item.author + '-' + item.name }}</p>
               </div>
               <div class="list-item-hr uk-width-1-10">
@@ -72,16 +74,27 @@
   }
   .list-item .music-name {
     margin: 5px 0;
+    height: 24px;
+    font-size: 0;
+  }
+  .music-name span {
+    font-size: 18px;
+  }
+  .music-name span:first-child {
+    display: inline-block;
+    width: calc(100% - 35px);
     overflow: hidden;
     -ms-text-overflow: ellipsis;
     text-overflow: ellipsis;
     white-space: nowrap;
+    line-height: 24px;
   }
   .music-name .has-mv {
     display: inline-block;
     width: 30px;
     height: 14px;
     margin-left: 5px;
+    margin-bottom: 5px;
     background: url("/static/wyy_res/others/l5.png") no-repeat;
     background-size: 100% 100%;
   }
