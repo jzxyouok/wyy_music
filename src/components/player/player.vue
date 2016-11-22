@@ -6,8 +6,8 @@
             <img @click="goBack" src="static/wyy_res/player/i0.png" class="icon-btn" />
           </div>
           <div class="uk-width-3-5">
-            <h3>Anna Binaku</h3>
-            <p>my hood</p>
+            <h3>{{ mediaObj.name }}</h3>
+            <p>{{ mediaObj.author | transformAuthors }}</p>
           </div>
           <div class="uk-width-1-5">
             <img src="static/wyy_res/player/wk.png" class="icon-btn" />
@@ -196,6 +196,7 @@
         data(){
             return{
               audioObj: '',
+              mediaObj: {},// 存储歌曲信息
               currentTime: 0,// 当前播放时间进度
               durationTime: 0,// 总播放时长
               isPlaying: false,//  当前是否在播放
@@ -242,9 +243,22 @@
               self.isPlaying = false;
             }
           },
+          loadData( id ){// 加载歌曲所需的资源
+            this.$http({ url: 'static/api/music.php', params:{ mId: id }}).then(function (res) {
+//              console.log( res )
+              if ( res.data.status == 200 ){
+                this.mediaObj = res.data.data;
+              }else {
+                //  错误信息
+              }
+            })
+          },
         },
         mounted (){
           this.audioObj = document.getElementById('music');
+          if ( this.$route.query.mId != '' ){
+            this.loadData( this.$route.query.mId )
+          }
         },
         components:{
           album

@@ -123,7 +123,10 @@
           playThis( src , index ){
             if ( this.isPlayingIndex == index ){// 如果正在播放当前音乐，则跳转到播放页面
               this.$router.push({
-                path:'/player'
+                path:'/player',
+                query: {
+                  mId: index
+                }
               });
               return
             }

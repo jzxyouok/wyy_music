@@ -98,9 +98,8 @@
           loadData(){
             this.$http({ url: 'static/api/music.php'}).then(function (res) {
 //              console.log( res.data )
-              let data = JSON.parse(res.data);
-              if ( data.status == 200 ){
-                this.list = data.data;
+              if ( res.data.status == 200 ){
+                this.list = res.data.data;
               }else {
                 //  错误信息
               }

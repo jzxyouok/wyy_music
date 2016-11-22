@@ -1,6 +1,6 @@
 <template>
     <div class="music-play">
-        <audio id="music" src="http://www.kittyjs.com/static/music/Anna Binaku - my hood.mp3"></audio>
+        <audio id="music"></audio>
     </div>
 </template>
 <style scoped>

@@ -15,7 +15,14 @@ Vue.use(Vuikit);
 Vue.mixin(mixin);
 
 Vue.http.options.root = process.env.NODE_ENV !== 'production' ?  'api' : '';
-
+//  请求中断器
+Vue.http.interceptors.push((req, next) => {
+  // 解析请求返回体
+  next((response) => {
+    // modify response
+    response.data = JSON.parse( response.data );
+  });
+});
 //  创建路由实例配置
 const router = new vueRouter({
   routes: routerMap,
