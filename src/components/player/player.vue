@@ -219,8 +219,12 @@
         methods:{
           audioPlay(){//  控制播放
             let self = this;
-            this.durationTime = this.audioObj.duration;// 获取媒体总时长
-            this.audioObj.play();
+            this.audioObj.onloadedmetadata = function () {//  当元数据加载完成时才获取总时长
+              self.durationTime = self.audioObj.duration;// 获取媒体总时长
+            };
+            this.audioObj.oncanplay = function () {
+              self.audioObj.play();
+            };
             this.audioObj.onplaying = function () {
               let audio = this;
               self.isPlaying = true;
