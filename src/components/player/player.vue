@@ -3,7 +3,7 @@
       <div class="player-bg" :style="{ 'background': 'url(' + album + ') no-repeat center center' }"></div>
       <div class="title uk-grid">
           <div class="uk-width-1-5">
-            <img src="static/wyy_res/player/i0.png" class="icon-btn" />
+            <img @click="goBack" src="static/wyy_res/player/i0.png" class="icon-btn" />
           </div>
           <div class="uk-width-3-5">
             <h3>Anna Binaku</h3>
