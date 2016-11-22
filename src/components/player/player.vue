@@ -219,6 +219,11 @@
         methods:{
           audioPlay(){//  控制播放
             let self = this;
+            if ( this.audioObj.src == false ) {
+              this.audioObj.src = process.env.NODE_ENV !== 'production' ? 'http://www.kittyjs.com/'+ this.mediaObj.src : this.mediaObj.src;
+            }else {
+              this.audioObj.play();
+            }
             this.audioObj.onloadedmetadata = function () {//  当元数据加载完成时才获取总时长
               self.durationTime = self.audioObj.duration;// 获取媒体总时长
             };
