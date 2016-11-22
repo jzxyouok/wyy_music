@@ -5,10 +5,14 @@ import routerMap from './global/router'
 import vueResource from 'vue-resource'
 import Vuikit from 'vuikit'
 import filter from './global/filter'
+import mixin from './global/mixin'
 
 Vue.use(vueRouter);
 Vue.use(vueResource);
 Vue.use(Vuikit);
+
+//  使用混合对象
+Vue.mixin(mixin);
 
 Vue.http.options.root = process.env.NODE_ENV !== 'production' ?  'api' : '';
 

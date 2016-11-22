@@ -3,7 +3,7 @@
       <head-height>
         <div class="uk-grid uk-container">
           <div class="uk-width-1-10">
-            <img class="icon-btn" src="static/wyy_res/player/i0.png" />
+            <img @click="goBack" class="icon-btn" src="static/wyy_res/player/i0.png" />
           </div>
           <div class="uk-width-4-5">
             <h2 class="head-title">每日歌曲推荐</h2>
