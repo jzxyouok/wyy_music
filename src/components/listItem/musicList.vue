@@ -72,6 +72,10 @@
   }
   .list-item .music-name {
     margin: 5px 0;
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
   .music-name .has-mv {
     display: inline-block;
@@ -84,6 +88,10 @@
   .list-item .music-msg {
     margin: 0;
     font-size: 12px;
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 </style>
 <script>
