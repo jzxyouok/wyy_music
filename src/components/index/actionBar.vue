@@ -1,49 +1,38 @@
 <template>
     <div class="header wyy-bg-color">
-      <div class="action-bar">
-        <tab>
-          <tab-item default-color="transparent">
+        <ul class="action-bar uk-grid">
+          <li class="action-tab uk-width-1-3">
             <img v-show="selectTab == 0" class="actionbar-img" src="static/wyy_res/index/actionbar_discover_selected.png">
             <img v-show="selectTab != 0" class="actionbar-img" @click="selectTab = 0" src="static/wyy_res/index/actionbar_discover_normal.png">
-          </tab-item>
-          <tab-item>
+          </li>
+          <li class="action-tab uk-width-1-3">
             <img v-show="selectTab == 1" class="actionbar-img" src="static/wyy_res/index/actionbar_music_selected.png">
             <img v-show="selectTab != 1" class="actionbar-img" @click="selectTab = 1" src="static/wyy_res/index/actionbar_music_normal.png">
-          </tab-item>
-          <tab-item>
+          </li>
+          <li class="action-tab uk-width-1-3">
             <img v-show="selectTab == 2" class="actionbar-img" src="static/wyy_res/index/actionbar_friends_selected.png">
             <img v-show="selectTab != 2" class="actionbar-img" @click="selectTab = 2" src="static/wyy_res/index/actionbar_friends_normal.png">
-          </tab-item>
-        </tab>
-      </div>
-
+          </li>
+        </ul>
     </div>
 </template>
 <style scoped>
   .header {
     width: 100%;
-    /*height: 60px;*/
-    padding: 8px 0;
   }
   .action-bar {
-    width: 60%;
+    width: 50%;
     margin: 0 auto;
   }
-  /*  取消框架白色背景  */
-  .vux-tab {
-    background-color: transparent;
-  }
-  /*  取消框架底部背景  */
-  .vux-tab .vux-tab-item {
-    background: none;
+  .action-tab {
+    max-height: 60px;
+    overflow: hidden;
   }
   .actionbar-img {
-    height: 42px;
+    margin-top: -3px;
   }
 </style>
 <script>
-  import tab from 'vux/tab/tab'
-  import tabItem from 'vux/tab/tab-item'
     export default{
         data(){
             return{
@@ -55,7 +44,6 @@
         ready (){
         },
         components:{
-          tab,tabItem
         }
     }
 </script>

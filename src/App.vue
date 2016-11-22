@@ -47,6 +47,9 @@ export default {
     margin: 0;
     padding: 0;
   }
+  li {
+    list-style: none;
+  }
   /*  框架重设  */
   /*  间距  */
 .uk-container {
