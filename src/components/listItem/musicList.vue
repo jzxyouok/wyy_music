@@ -16,10 +16,10 @@
           <li class="list-item">
             <div class="uk-grid">
               <div class="uk-width-1-10">
-                <div v-if="isPlayingIndex != index" class="number wyy-gray-color">{{ index+1 }}</div>
+                <div v-if="isPlayingIndex != item.id" class="number wyy-gray-color">{{ index+1 }}</div>
                 <img v-else class="icon-menu" src="static/wyy_res/others/ahm.png" />
               </div>
-              <div @click="playThis(item.src,index)" class="list-item-hr uk-width-8-10">
+              <div @click="playThis(item.src,item.id)" class="list-item-hr uk-width-8-10">
                 <h3 class="music-name">
                   <span>{{ item.name }}</span>
                   <span v-if="item.mv != false" class="has-mv"></span></h3>
