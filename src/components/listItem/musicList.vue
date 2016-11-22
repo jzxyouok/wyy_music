@@ -1,0 +1,104 @@
+<template>
+    <div class="music-list uk-container">
+      <div class="list-title uk-grid">
+        <div class="uk-width-1-10">
+          <img class="icon-btn" src="static/wyy_res/common/xl.png" />
+        </div>
+        <div class="uk-width-8-10">
+          <h2 class="title">播放全部<span class="wyy-gray-color">(共{{ total }}首)</span></h2>
+        </div>
+        <div class="uk-width-1-10">
+          <img class="icon-btn" src="static/wyy_res/others/xc.png" />
+        </div>
+      </div>
+      <ul class="list-content">
+        <li class="list-item">
+          <div class="uk-grid">
+            <div class="uk-width-1-10">
+              <div class="number wyy-gray-color">1</div>
+              <!--<img class="icon-menu" src="static/wyy_res/others/ahm.png" />-->
+            </div>
+            <div class="list-item-hr uk-width-8-10">
+              <h3 class="music-name">It's All in Vain<span class="has-mv"></span></h3>
+              <p class="music-msg wyy-gray-color">Wet - It's All in Vain</p>
+            </div>
+            <div class="list-item-hr uk-width-1-10">
+              <img class="icon-menu" src="static/wyy_res/common/xf.png" />
+            </div>
+          </div>
+
+        </li>
+      </ul>
+    </div>
+</template>
+<style scoped>
+  .list-title {
+    height: 60px;
+    border-bottom: 1px solid #f3f3f3;
+  }
+  .list-title .icon-btn {
+    display: block;
+    margin: 15px auto 0;
+    width: 30px;
+  }
+  .list-title .title {
+    height: 30px;
+    margin-top: 15px;
+    padding-left: 5px;
+  }
+  .title span{
+    font-size: 16px;
+  }
+  /*  列表分割线 */
+  .list-item-hr {
+    border-bottom: 1px solid #f3f3f3;
+  }
+  .list-item {
+    height: 60px;
+  }
+  .list-item .number {
+    height: 30px;
+    margin: 15px auto;
+    line-height: 30px;
+    text-align: center;
+    font-size: 18px;
+  }
+  .list-item .icon-menu {
+    display: block;
+    height: 20px;
+    margin: 20px auto;
+  }
+  .list-item .music-name {
+    margin: 5px 0;
+  }
+  .music-name .has-mv {
+    display: inline-block;
+    width: 30px;
+    height: 14px;
+    margin-left: 5px;
+    background: url("/static/wyy_res/others/l5.png") no-repeat;
+    background-size: 100% 100%;
+  }
+  .list-item .music-msg {
+    margin: 0;
+    font-size: 12px;
+  }
+</style>
+<script>
+    export default{
+        props:{
+          list: Array,
+          total: [String,Number]
+        },
+        data(){
+            return{
+            }
+        },
+        methods:{
+        },
+        mounted (){
+        },
+        components:{
+        }
+    }
+</script>

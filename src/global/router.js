@@ -24,6 +24,10 @@ const routerMap = [
     path: '/player',// 音频播放界面
     component: require('../components/player/player.vue')
   },
+  {
+    path: '/recommendedDaily',// 每日推荐列表
+    component: require('../components/list/recommendedDaily.vue')
+  },
     { path: '*',
    redirect: '/index'
    },

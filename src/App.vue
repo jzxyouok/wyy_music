@@ -19,10 +19,16 @@ export default {
 <style>
 /*  app主体色类  */
   .wyy-color {
+    /*  主字体颜色 */
     color: #CE3D3E;
   }
   .wyy-bg-color {
+    /*  主背景色  */
     background-color: #CE3D3E;
+  }
+  .wyy-gray-color {
+    /*  灰色字体颜色  */
+    color: #888;
   }
   /*  宽度和高度 */
   html, body, #app {

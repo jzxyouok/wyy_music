@@ -7,10 +7,12 @@
           <p class="personal-name">私人FM</p>
         </div>
         <div class="uk-width-1-3 personal-music">
-          <div class="personal-img" :style="{ 'background-image': 'url(' + (touchTwo ? imgs[3] : imgs[2]) + ')' }"
-               @mouseover="touchTwo = true" @mouseout="touchTwo = false">
-            <span class="today wyy-color">{{ new Date().getDate() }}</span>
-          </div>
+          <router-link to="/recommendedDaily">
+            <div class="personal-img" :style="{ 'background-image': 'url(' + (touchTwo ? imgs[3] : imgs[2]) + ')' }"
+                 @mouseover="touchTwo = true" @mouseout="touchTwo = false">
+              <span class="today wyy-color">{{ new Date().getDate() }}</span>
+            </div>
+          </router-link>
           <p class="personal-name">每日歌曲推荐</p>
         </div>
         <div class="uk-width-1-3 personal-new">
