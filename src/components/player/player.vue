@@ -1,6 +1,6 @@
 <template>
     <div class="player">
-      <div class="player-bg" :style="{ 'background': 'url(' + album + ') no-repeat center center' }"></div>
+      <canvas id="musicBg"></canvas>
       <div class="title uk-grid">
           <div class="uk-width-1-5">
             <img @click="goBack" src="static/wyy_res/player/i0.png" class="icon-btn" />
@@ -87,17 +87,14 @@
     height: 100%;
     position: relative;
   }
-  .player-bg {
-    width: 100%;
-    height: 100%;
+  #musicBg {
+    /*  禁止stackblur设定宽度和高度  */
+    width: 100%!important;
+    height: 100%!important;
     position: absolute;
     top: 0;
     left: 0;
     z-index: -1;
-    background-size: 100% 100%!important;
-    /*  高斯模糊背景  */
-    -webkit-filter: blur(20px);
-    filter: blur(20px);
   }
   .title {
     height: 60px;
@@ -192,6 +189,7 @@
 </style>
 <script>
   import album from './album.vue'
+  import stackblur from 'stackblur-canvas'
     export default{
         data(){
             return{
@@ -247,11 +245,21 @@
             this.$http({ url: 'static/api/music.php', params:{ mId: id }}).then(function (res) {
 //              console.log( res )
               if ( res.data.status == 200 ){
+                if ( res.data.data.albumSrc != false ){
+                  this.album = res.data.data.albumSrc
+                }
                 this.mediaObj = res.data.data;
               }else {
                 //  错误信息
               }
             })
+          },
+          createBg(){//  创建高斯模糊背景
+            let img = new Image();
+            img.src = this.album;
+            img.onload = function () {
+              stackblur.image(this, 'musicBg', 180);
+            }
           },
         },
         mounted (){
@@ -259,6 +267,8 @@
           if ( this.$route.query.mId != '' ){
             this.loadData( this.$route.query.mId )
           }
+          //  默认封面背景
+          this.createBg();
         },
         components:{
           album
