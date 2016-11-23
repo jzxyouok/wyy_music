@@ -2,6 +2,7 @@
     <div class="home">
       <action-bar></action-bar>
       <router-view></router-view>
+      <buttom-player></buttom-player>
     </div>
 </template>
 <style scoped>
@@ -11,6 +12,7 @@
 </style>
 <script>
   import actionBar from './index/actionBar.vue'
+  import buttomPlayer from './common/bottomPlayer.vue'
     export default{
         data(){
             return{
@@ -21,7 +23,7 @@
         ready (){
         },
         components:{
-          actionBar
+          actionBar,buttomPlayer
         }
     }
 </script>
