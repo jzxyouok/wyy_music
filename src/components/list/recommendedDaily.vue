@@ -6,7 +6,7 @@
             <img @click="goBack" class="icon-btn" src="static/wyy_res/player/i0.png" />
           </div>
           <div class="uk-width-4-5">
-            <h2 class="head-title">每日歌曲推荐</h2>
+            <h3 class="head-title">每日歌曲推荐</h3>
           </div>
           <div class="uk-width-1-10">
             <img class="icon-btn" src="static/wyy_res/others/a4x.png" />
@@ -34,10 +34,10 @@
     padding-bottom: 60px;
   }
   .icon-btn {
-    width: 30px;
+    width: 24px;
   }
   .icon-btn, .head-title {
-    margin-top: 15px;
+    margin-top: 22px;
     color: #fff;
   }
   .ad-date {

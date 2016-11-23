@@ -5,7 +5,7 @@
           <img class="icon-btn" src="static/wyy_res/common/xl.png" />
         </div>
         <div class="uk-width-8-10">
-          <h2 class="title">播放全部<span class="wyy-gray-color">(共{{ total }}首)</span></h2>
+          <h3 class="title">播放全部<span class="wyy-gray-color">(共{{ total }}首)</span></h3>
         </div>
         <div class="uk-width-1-10">
           <img class="icon-btn" src="static/wyy_res/others/xc.png" />
@@ -20,9 +20,9 @@
                 <img v-else class="icon-menu" src="static/wyy_res/others/ahm.png" />
               </div>
               <div @click="playThis(item.src,item.id)" class="list-item-hr uk-width-8-10">
-                <h3 class="music-name">
+                <h4 class="music-name">
                   <span>{{ item.name }}</span>
-                  <span v-if="item.mv != false" class="has-mv"></span></h3>
+                  <span v-if="item.mv != false" class="has-mv"></span></h4>
                 <p class="music-msg wyy-gray-color">{{ item.author + '-' + item.name }}</p>
               </div>
               <div class="list-item-hr uk-width-1-10">
@@ -42,16 +42,15 @@
   }
   .list-title .icon-btn {
     display: block;
-    margin: 15px auto 0;
-    width: 30px;
+    margin: 18px auto 0;
+    width: 24px;
   }
   .list-title .title {
-    height: 30px;
-    margin-top: 15px;
+    margin-top: 18px;
     padding-left: 5px;
   }
   .title span{
-    font-size: 16px;
+    font-size: 14px;
   }
   /*  列表分割线 */
   .list-item-hr {
@@ -78,7 +77,7 @@
     font-size: 0;
   }
   .music-name span {
-    font-size: 18px;
+    font-size: 16px;
   }
   .music-name span:first-child {
     display: inline-block;
@@ -100,7 +99,7 @@
   }
   .list-item .music-msg {
     margin: 0;
-    font-size: 12px;
+    font-size: 10px;
     overflow: hidden;
     -ms-text-overflow: ellipsis;
     text-overflow: ellipsis;
