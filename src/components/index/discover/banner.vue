@@ -10,6 +10,7 @@
           <div class="swiper-slide"><img src="static/wyy_res/index/discover/banner/6.jpg" /></div>
           <div class="swiper-slide"><img src="static/wyy_res/index/discover/banner/7.jpg" /></div>
         </div>
+        <div class="swiper-pagination"></div>
       </div>
     </div>
 </template>
@@ -28,6 +29,8 @@
         mounted (){
           var swiper = new Swiper('.swiper-container', {
             autoplay: 5000,//可选选项，自动滑动
+            pagination : '.swiper-pagination',//  分页器
+            autoplayDisableOnInteraction : false,// 用户操作后重启autoplay
           });
         },
         components:{

@@ -67,4 +67,8 @@ export default {
 .uk-grid>* {
   padding-left: 5px;
 }
+/*  swiper激活的分页器背景色 */
+.swiper-pagination-bullet-active {
+  background: #CE3D3E!important;
+}
 </style>
