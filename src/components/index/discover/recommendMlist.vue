@@ -4,7 +4,7 @@
       <div class="uk-grid">
         <div v-for="item in list" class="uk-width-1-3 mlist">
           <router-link :to="{ path: '/kindOfMusic' }">
-            <div class="thumb-container">
+            <div class="thumb-container uk-position-relative">
               <img class="thumb" :src="item.thumb" />
               <div class="user-view">
                 <img class="wyy-icon" src="static/wyy_res/index/discover/p5.png" />
@@ -28,19 +28,20 @@
   }
   .mlist .user-view {
     position: absolute;
-    width: 80%;
+    width: 100%;
     height: 20px;
     top: 0;
     right: 0;
-    background: linear-gradient(90deg,transparent,rgba(0,0,0,0.3));
+    background: linear-gradient(90deg,transparent,rgba(0,0,0,0.1));
     color: #fff;
     font-size: 12px;
     text-align: right;
     padding-right: 5px;
   }
   .user-view .wyy-icon {
-    width: 14px;
-    height: 14px;
+    width: 12px;
+    height: 12px;
+    margin-bottom: 1px;
   }
   .user-view .mlist-name {
     display: inline-block;

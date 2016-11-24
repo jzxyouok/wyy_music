@@ -3,10 +3,10 @@
       <common-title icon="static/wyy_res/index/discover/adv.png" title="推荐MV"></common-title>
       <div class="uk-grid">
         <div v-for="item in list" class="uk-width-1-2 mlist">
-          <div class="thumb-container">
+          <div class="thumb-container uk-position-relative">
             <img class="thumb" :src="item.thumb" />
             <div class="user-view">
-                <img class="wyy-icon" src="static/wyy_res/index/discover/ae9.png" />
+                <img class="wyy-icon" src="static/wyy_res/common/vw.png" />
                 <span class="view-count">{{ item.viewCount | transformCount }}</span>
             </div>
           </div>
@@ -27,7 +27,7 @@
   }
   .mlist .user-view {
     position: absolute;
-    width: 80%;
+    width: 100%;
     height: 20px;
     top: 0;
     right: 0;
@@ -38,8 +38,9 @@
     padding-right: 5px;
   }
   .user-view .wyy-icon {
-    width: 14px;
-    height: 14px;
+    width: 16px;
+    height: 10px;
+    margin-bottom: 2px;
   }
   .mv-author {
     color: #888;
