@@ -204,9 +204,9 @@
           createBg(){//  创建高斯模糊背景
             let img = new Image();
             img.src = this.listDetail.listAlbum;
-//            img.onload = function () {
+            img.onload = function () {
               stackblur.image(img, 'listDetailBg', 180);
-//            }
+            }
           },
         },
         mounted (){

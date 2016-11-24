@@ -54,5 +54,7 @@ vue.filter('transformAuthors', str=>{
   //  返回歌曲作者的格式以'/'分割(默认',')
   if ( str ){
     return str.split(',').join('/')
+  }else {
+    return '未知'
   }
 });

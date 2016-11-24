@@ -6,7 +6,7 @@
             <img @click="goBack" src="static/wyy_res/player/i0.png" class="icon-btn" />
           </div>
           <div class="uk-width-3-5">
-            <h3>{{ mediaObj.name }}</h3>
+            <h3>{{ mediaObj.name || '未知'}}</h3>
             <p>{{ mediaObj.author | transformAuthors }}</p>
           </div>
           <div class="uk-width-1-5">
@@ -256,6 +256,7 @@
               if ( res.data.status == 200 ){
                 if ( res.data.data.albumSrc != false ){
                   this.album = res.data.data.albumSrc
+                  this.createBg()
                 }
                 this.mediaObj = res.data.data;
               }else {
@@ -266,9 +267,9 @@
           createBg(){//  创建高斯模糊背景
             let img = new Image();
             img.src = this.album;
-//            img.onload = function () {
+            img.onload = function () {
               stackblur.image(img, 'musicBg', 180);
-//            }
+            }
           },
         },
         mounted (){
