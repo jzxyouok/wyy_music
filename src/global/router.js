@@ -28,6 +28,10 @@ const routerMap = [
     path: '/recommendedDaily',// 每日推荐列表
     component: require('../components/list/recommendedDaily.vue')
   },
+  {
+    path: '/kindOfMusic',// 公共歌单列表
+    component: require('../components/list/kindOfMusic.vue')
+  },
     { path: '*',
    redirect: '/index'
    },

@@ -30,6 +30,10 @@ export default {
     /*  灰色字体颜色  */
     color: #888;
   }
+  .white-color {
+    /*  白色字体  */
+    color: #fff;
+  }
   /*  宽度和高度 */
   html, body, #app {
     width: 100%;

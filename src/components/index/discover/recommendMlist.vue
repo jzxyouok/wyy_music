@@ -3,13 +3,15 @@
       <common-title icon="static/wyy_res/index/discover/adz.png" title="推荐歌单"></common-title>
       <div class="uk-grid">
         <div v-for="item in list" class="uk-width-1-3 mlist">
-          <div class="thumb-container">
-            <img class="thumb" :src="item.thumb" />
-            <div class="user-view">
+          <router-link :to="{ path: '/kindOfMusic' }">
+            <div class="thumb-container">
+              <img class="thumb" :src="item.thumb" />
+              <div class="user-view">
                 <img class="wyy-icon" src="static/wyy_res/index/discover/p5.png" />
                 <span class="view-count">{{ item.viewCount | transformCount }}</span>
+              </div>
             </div>
-          </div>
+          </router-link>
           <p class="mlist-name">{{ item.title }}</p>
         </div>
       </div>
