@@ -266,9 +266,9 @@
           createBg(){//  创建高斯模糊背景
             let img = new Image();
             img.src = this.album;
-            img.onload = function () {
-              stackblur.image(this, 'musicBg', 180);
-            }
+//            img.onload = function () {
+              stackblur.image(img, 'musicBg', 180);
+//            }
           },
         },
         mounted (){
