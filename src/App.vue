@@ -55,6 +55,12 @@ export default {
     display: table;
     clear: both;
   }
+  .text-ellipsis {
+    /*  缩略显示过长文字类 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
   /*  通用样式  */
   ul {
     margin: 0;

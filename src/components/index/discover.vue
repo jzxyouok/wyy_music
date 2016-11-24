@@ -10,6 +10,10 @@
         <!--  个性推荐  -->
         <recommend></recommend>
       </template>
+      <template v-if="selectTab == 1">
+        <!--  歌单列表  -->
+        <music-list></music-list>
+      </template>
     </div>
 </template>
 <style scoped>
@@ -34,6 +38,7 @@
 </style>
 <script>
   import recommend from './discover/recommend.vue'
+  import musicList from './discover/musicList.vue'
   export default{
         data(){
             return{
@@ -49,7 +54,7 @@
         ready (){
         },
         components:{
-          recommend
+          recommend,musicList
         }
     }
 </script>
