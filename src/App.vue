@@ -39,8 +39,11 @@ export default {
     width: 100%;
     height: 100%;
   }
-  body {
+  body,a {
     color: #333;
+  }
+  a {
+    text-decoration: none;
   }
   /*  列表高度和悬浮播放控件高度 */
   .list-height {
