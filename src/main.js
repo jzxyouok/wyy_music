@@ -6,7 +6,10 @@ import vueResource from 'vue-resource'
 import Vuikit from 'vuikit'
 import filter from './global/filter'
 import mixin from './global/mixin'
+import Vuex from 'vuex'
+import storeOption from './global/store'
 
+Vue.use(Vuex);
 Vue.use(vueRouter);
 Vue.use(vueResource);
 Vue.use(Vuikit);
@@ -28,10 +31,13 @@ const router = new vueRouter({
   routes: routerMap,
 })
 
+//  状态管理
+const store = new Vuex.Store(storeOption);
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   template: '<App/>',
   router,
+  store,
   components: { App }
 })

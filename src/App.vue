@@ -1,17 +1,18 @@
 <template>
   <div id="app">
     <router-view></router-view>
-    <music-play></music-play>
+    <audio id="music"></audio>
   </div>
 </template>
 
 <script>
-import musicPlay from './components/common/musicPlay.vue'
 
 export default {
   name: 'app',
   components: {
-    musicPlay
+  },
+  mounted(){
+    this.$store.commit('init');
   }
 }
 </script>
