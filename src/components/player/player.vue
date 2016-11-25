@@ -10,7 +10,7 @@
             <p>{{ mediaObj.author | transformAuthors }}</p>
           </div>
           <div class="uk-width-1-5">
-            <img src="static/wyy_res/player/wk.png" class="icon-btn" />
+            <img src="static/wyy_res/common/iu.png" class="icon-btn" />
           </div>
         </div>
       <!--  显示专辑图片组件 -->
@@ -66,11 +66,11 @@
                 <img class="icon-control pre-control" src="static/wyy_res/player/a9t.png" />
               </div>
               <div class="uk-width-2-5 play-container">
-                <img v-if="!isPlaying" class="icon-control play-control" @click="audioPlay" src="static/wyy_res/player/ab2.png" />
-                <img v-else class="icon-control pause-control" @click="audioPause" src="static/wyy_res/player/ab0.png" />
+                <img v-if="!isPlaying" class="icon-control play-control" @click="audioPlay" src="static/wyy_res/player/a9r.png" />
+                <img v-else class="icon-control pause-control" @click="audioPause" src="static/wyy_res/player/a9p.png" />
               </div>
               <div class="uk-width-3-10">
-                <img class="icon-control next-control" src="static/wyy_res/player/a10.png" />
+                <img class="icon-control next-control" src="static/wyy_res/player/a9n.png" />
               </div>
             </div>
           </div>
@@ -117,22 +117,22 @@
   /*  底部功能菜单  */
   .menu {
     width: 100%;
-    height: calc(35% - 61px);
+    /*height: calc(35% - 61px);*/
     position: absolute;
     bottom: 0;
     /*overflow: hidden;*/
   }
   .icon-container {
     position: relative;
-    height: 40px;
+    height: 60px;
     overflow: hidden;
   }
   .icon-menu {
     position: absolute;
     top: -10px;
     /*left: -15px;*/
-    width: 60px;
-    height: 60px;
+    width: 100%;
+    /*height: 60px;*/
     margin: 0 auto;
   }
   .progress {
@@ -161,11 +161,14 @@
   }
 /*  更改浏览器默认的系统主题样式-结束  */
   .time {
+    display: inline-block;
     font-size: 10px;
+    line-height: 40px;
     color: #888;
   }
   .mine-control {
-    height: calc(100% - 90px);
+    height: 70px;
+    padding: 10px 0;
   }
   .play-mode,.icon-list {
     display: block;
