@@ -1,16 +1,15 @@
 <template>
     <div class="bottom-player">
-      <router-link to="/player">
         <div class="uk-grid uk-container">
-          <div class="uk-width-7-10">
+          <div @click="gotoPlay" class="uk-width-7-10">
             <div class="uk-grid">
               <div class="uk-width-1-5">
                 <img class="bottom-album" src="static/wyy_res/player/album.jpg" />
               </div>
               <div class="uk-width-4-5">
                 <!--  如果名字过长，后期将进行滚动显示  -->
-                <h4 class="music-name">Ninna Nanna</h4>
-                <p class="music-author">Mariangela</p>
+                <h3 class="music-name text-ellipsis">{{ mediaObj.name || '未知'}}</h3>
+                <p class="music-author text-ellipsis">{{ mediaObj.author | transformAuthors }}</p>
               </div>
             </div>
           </div>
@@ -20,8 +19,8 @@
                 <img class="bottom-btn btn-list" src="static/wyy_res/common/playbar_btn_playlist.png" />
               </div>
               <div class="bottom-height uk-width-1-3 uk-vertical-align">
-                <img class="bottom-btn btn-control" src="static/wyy_res/common/playbar_btn_play.png" />
-                <!--<img class="bottom-btn btn-control" src="static/wyy_res/common/playbar_btn_pause.png" />-->
+                <img v-if="!isPlaying" @click.stop="autoPlay" class="bottom-btn btn-control" src="static/wyy_res/common/playbar_btn_play.png" />
+                <img v-else @click.stop="pauseMusic" class="bottom-btn btn-control" src="static/wyy_res/common/playbar_btn_pause.png" />
               </div>
               <div class="bottom-height uk-width-1-3 uk-vertical-align">
                 <img class="bottom-btn btn-next" src="static/wyy_res/common/playbar_btn_next.png" />
@@ -29,8 +28,6 @@
             </div>
           </div>
         </div>
-      </router-link>
-
     </div>
 </template>
 <style scoped>
@@ -72,7 +69,24 @@
             return{
             }
         },
+        computed:{
+          mediaObj(){
+            return this.$store.state.currentMusic
+          },
+          isPlaying(){
+            return this.$store.state.isPlaying
+          },
+        },
         methods:{
+          autoPlay(){
+            this.$store.dispatch('play');
+          },
+          pauseMusic(){
+            this.$store.commit('pauseMusic');
+          },
+          gotoPlay(){// 去到播放界面
+            this.$router.push({ path: '/player', query: { mId: this.$store.state.currentMusic.id }})
+          },
         },
         mounted (){
         },

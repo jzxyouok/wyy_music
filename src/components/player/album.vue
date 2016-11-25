@@ -1,9 +1,9 @@
 <template>
     <div class="album">
       <!--  控制杆 -->
-      <div class="joystick">
+      <!--<div class="joystick">
         <img :class="{ 'img-control': isPlaying }" src="static/wyy_res/player/aao.png" />
-      </div>
+      </div>-->
       <!--  磁碟  -->
       <div class="diskette">
         <div class="diskette-bg"></div>
@@ -26,7 +26,7 @@
     overflow: hidden;
   }
   /*  控制杆 */
-  .album .joystick {
+/*  .album .joystick {
     height: 28%;
     width: 42%;
     position: absolute;
@@ -49,7 +49,7 @@
   .joystick .img-control {
     top: -22px;
     transform: rotate(15deg);
-  }
+  }*/
   /*  磁碟  */
   .album .diskette {
     position: absolute;
@@ -100,15 +100,25 @@
   }
   /*  磁碟旋转动画  */
   .rotating-album {
+    -webkit-animation: rotating 20s linear 0.5s infinite;
     animation: rotating 20s linear 0.5s infinite;
   }
   .running {
   /*暂停动画并保存当前动画位置*/
+    -webkit-animation-play-state: paused;
     animation-play-state: paused;
+  }
+  @-webkit-keyframes rotating {
+    from{
+      transform: rotate(0deg);
+    }
+    to{
+      transform: rotate(360deg);
+    }
   }
   @keyframes rotating {
     from{
-      transform: rotate(0);
+      transform: rotate(0deg);
     }
     to{
       transform: rotate(360deg);
