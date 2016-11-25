@@ -2,7 +2,7 @@
     <div class="discover">
       <ul class="dis-tabs clearfix">
         <template v-for="(item,index) in menu">
-          <li class="dis-tab" :class="{ 'wyy-color': selectTab == index }" :style="{ 'width': 100/menu.length + '%'}" @click="selected( index )">{{ item }}</li>
+          <li class="dis-tab" :class="{ 'wyy-color': selectTab == index }" :style="{ 'width': 100/menu.length + '%'}" @click="selectTab = index">{{ item }}</li>
         </template>
         <div class="tab-bottom wyy-bg-color" :style="{ 'width': 100/menu.length + '%','left': 100/menu.length*selectTab + '%'}"></div>
       </ul>
@@ -50,16 +50,36 @@
   export default{
         data(){
             return{
-              selectTab: 0,
+//              selectTab: 0,
               menu: ['个性推荐','歌单','主播电台','排行榜']
             }
         },
-        methods:{
-          selected( index ){
-            this.selectTab = index
+        computed:{
+          selectTab:{
+            get(){
+              return this.$route.query.discover !== undefined ? this.$route.query.discover : 0;
+            },
+            set( val ){
+              this.$router.push({
+                path: '/index/discover',
+                query: {
+                  discover: val
+                }
+              })
+            }
           },
         },
-        ready (){
+        methods:{
+          /*selected( index ){
+            this.selectTab = index;
+//            this.$route.query.discover = index;
+            this.$router.push({
+              path: '/index/discover',
+              query: {
+                discover: index
+              }
+            })
+          },*/
         },
         components:{
           recommend,musicList

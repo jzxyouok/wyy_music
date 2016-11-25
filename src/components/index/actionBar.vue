@@ -9,15 +9,15 @@
           <ul class="action-bar uk-grid">
             <li class="action-tab uk-width-1-3">
               <img v-show="selectTab == 0" class="actionbar-img" src="static/wyy_res/index/actionbar_discover_selected.png">
-              <img v-show="selectTab != 0" class="actionbar-img" @click="selectTab = 0" src="static/wyy_res/index/actionbar_discover_normal.png">
+              <img v-show="selectTab != 0" class="actionbar-img" @click="chooseTab(0)" src="static/wyy_res/index/actionbar_discover_normal.png">
             </li>
             <li class="action-tab uk-width-1-3">
               <img v-show="selectTab == 1" class="actionbar-img" src="static/wyy_res/index/actionbar_music_selected.png">
-              <img v-show="selectTab != 1" class="actionbar-img" @click="selectTab = 1" src="static/wyy_res/index/actionbar_music_normal.png">
+              <img v-show="selectTab != 1" class="actionbar-img" @click="chooseTab(1)" src="static/wyy_res/index/actionbar_music_normal.png">
             </li>
             <li class="action-tab uk-width-1-3">
               <img v-show="selectTab == 2" class="actionbar-img" src="static/wyy_res/index/actionbar_friends_selected.png">
-              <img v-show="selectTab != 2" class="actionbar-img" @click="selectTab = 2" src="static/wyy_res/index/actionbar_friends_normal.png">
+              <img v-show="selectTab != 2" class="actionbar-img" @click="chooseTab(2)" src="static/wyy_res/index/actionbar_friends_normal.png">
             </li>
           </ul>
         </div>
@@ -63,6 +63,37 @@
             }
         },
         methods:{
+          chooseTab( index ){
+            this.selectTab = index;
+            if ( index == 0 ){
+              this.$router.push({
+                path: '/index/discover',
+                query: {
+                  discover: this.$route.query.discover ,//  记录各个模块之前所在的位置
+                  music: this.$route.query.music,
+                  friends: this.$route.query.friends,
+                }
+              })
+            }else if ( index == 1 ){
+              this.$router.push({
+                path: '/index/music',
+                query: {
+                  discover: this.$route.query.discover ,//  记录各个模块之前所在的位置
+                  music: this.$route.query.music,
+                  friends: this.$route.query.friends,
+                }
+              })
+            }else {
+              this.$router.push({
+                path: '/index/friends',
+                query: {
+                  discover: this.$route.query.discover ,//  记录各个模块之前所在的位置
+                  music: this.$route.query.music,
+                  friends: this.$route.query.friends,
+                }
+              })
+            }
+          },
         },
         ready (){
         },
