@@ -39,14 +39,18 @@ var store = {
         state.audioObj.pause();
       }
     },
-  },
-  actions:{
-    play( { commit,state } , currentMusic ){// 播放当前音频
+    getCurrentMusic( state , currentMusic ){//  获取当前播放音频对象
       state.currentMusic = currentMusic;
       state.audioObj.src = process.env.NODE_ENV !== 'production' ? 'http://www.kittyjs.com/'+ currentMusic.src : currentMusic.src;
-      state.audioObj.oncanplay = function () {
-        this.play();
-      };
+    },
+    setCurrentTime( state , time ){
+      state.currentTime = time;
+      state.audioObj.currentTime = time;
+    },
+  },
+  actions:{
+    play( { commit,state } ){// 播放当前音频并生成当前音频所在的播放列表
+      state.audioObj.play();
       /*if ( state.list != false ){// 获取上一首和下一首的歌曲信息
         state.list.forEach((value,index)=>{
           if ( value.id == state.currentMusic.id ){

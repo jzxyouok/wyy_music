@@ -6,8 +6,8 @@
             <img @click="goBack" src="static/wyy_res/player/i0.png" class="icon-btn" />
           </div>
           <div class="uk-width-3-5">
-            <h3>{{ mediaObj.name || '未知'}}</h3>
-            <p>{{ mediaObj.author | transformAuthors }}</p>
+            <h3 class="text-ellipsis">{{ mediaObj.name || '未知'}}</h3>
+            <p class="text-ellipsis">{{ mediaObj.author | transformAuthors }}</p>
           </div>
           <div class="uk-width-1-5">
             <img src="static/wyy_res/common/iu.png" class="icon-btn" />
@@ -196,62 +196,37 @@
     export default{
         data(){
             return{
-              audioObj: '',
-              mediaObj: {},// 存储歌曲信息
-              currentTime: 0,// 当前播放时间进度
-              durationTime: 0,// 总播放时长
-              isPlaying: false,//  当前是否在播放
-              timer: '',//  定时获取播放时间的定时器
               album: 'static/wyy_res/player/album.jpg'
             }
         },
         computed:{
+          mediaObj(){
+            return this.$store.state.currentMusic
+          },
+          isPlaying(){
+            return this.$store.state.isPlaying
+          },
+          currentTime(){
+            return this.$store.state.currentTime
+          },
+          durationTime(){
+            return this.$store.state.durationTime
+          },
           percentage:{// 当前播放进度条所在位置
             get(){
               return Math.floor(this.currentTime);
             },
             set( percentage ){// 播放进度的控制
-              if ( this.audioObj == false ){//  存在媒体类型对象时
-                return
-              }
-              this.audioObj.currentTime = percentage;
-              this.currentTime = percentage;
+              this.$store.commit('setCurrentTime', percentage);
             }
           }
         },
         methods:{
           audioPlay(){//  控制播放
-            let self = this;
-            if ( this.audioObj.src == false ) {
-              this.audioObj.src = process.env.NODE_ENV !== 'production' ? 'http://www.kittyjs.com/'+ this.mediaObj.src : this.mediaObj.src;
-            }else {
-              this.audioObj.play();
-            }
-            this.audioObj.onloadedmetadata = function () {//  当元数据加载完成时才获取总时长
-              self.durationTime = self.audioObj.duration;// 获取媒体总时长
-            };
-            this.audioObj.oncanplay = function () {
-              self.audioObj.play();
-            };
-            this.audioObj.onplaying = function () {
-              let audio = this;
-              self.isPlaying = true;
-              self.timer = setInterval( function () {
-                self.currentTime = audio.currentTime;
-              },1000)
-            }
-            this.audioObj.onended = function () {//  结束播放
-              self.isPlaying = false;
-              self.currentTime = 0;
-            }
+           this.$store.dispatch('play');
           },
-          audioPause(){// 播放暂停
-            let self = this;
-            clearInterval(self.timer);//  不再获取进度条时间
-            this.audioObj.pause();
-            this.audioObj.onpause = function () {
-              self.isPlaying = false;
-            }
+          audioPause(){// 暂停
+            this.$store.commit('pauseMusic');
           },
           loadData( id ){// 加载歌曲所需的资源
             this.$http({ url: 'static/api/music.php', params:{ mId: id }}).then(function (res) {
@@ -261,7 +236,7 @@
                   this.album = res.data.data.albumSrc
                   this.createBg()
                 }
-                this.mediaObj = res.data.data;
+                this.$store.commit('getCurrentMusic', res.data.data );
               }else {
                 //  错误信息
               }
@@ -276,7 +251,6 @@
           },
         },
         mounted (){
-          this.audioObj = document.getElementById('music');
           if ( this.$route.query.mId != '' ){
             this.loadData( this.$route.query.mId )
           }
