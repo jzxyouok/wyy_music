@@ -251,7 +251,7 @@
           },
         },
         mounted (){
-          if ( this.$route.query.mId != '' ){
+          if ( this.$route.query.mId != '' && !this.isPlaying ){
             this.loadData( this.$route.query.mId )
           }
           //  默认封面背景
