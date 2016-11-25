@@ -2,7 +2,7 @@
     <div class="album">
       <!--  控制杆 -->
       <!--<div class="joystick">
-        <img :class="{ 'img-control': isPlaying }" src="static/wyy_res/player/aao.png" />
+        <img :class="{ 'img-control': isPlaying }" src="static/wyy_res/aao.png" />
       </div>-->
       <!--  磁碟  -->
       <div class="diskette">
@@ -11,7 +11,9 @@
           <!--  磁碟图 -->
           <div class="diskette-img"></div>
           <!--  专辑图 -->
-          <div class="diskette-album" :style="{ 'background-image': 'url(' + albumImg + ')' }"></div>
+          <div class="diskette-album">
+            <img :src="albumImg" id="album" />
+          </div>
         </div>
       </div>
     </div>
@@ -96,7 +98,12 @@
     width: 70%;
     height: 70%;
     border-radius: 50%;
-    background-size: 100% 100%;
+    /*background-size: 100% 100%;*/
+  }
+  .diskette-album img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
   }
   /*  磁碟旋转动画  */
   .rotating-album {
@@ -130,7 +137,7 @@
       props:{
         albumImg: {//  专辑封面
           type: String,
-          default: '/static/wyy_res/player/album.jpg'
+          default: '/static/wyy_res/album.jpg'
         },
         isPlaying: {//  当前播放状态
           type: Boolean,
