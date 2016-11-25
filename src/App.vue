@@ -18,6 +18,7 @@ export default {
 </script>
 
 <style>
+  @import "~swiper/dist/css/swiper.min.css";
 /*  app主体色类  */
   .wyy-color {
     /*  主字体颜色 */
@@ -35,6 +36,9 @@ export default {
     /*  白色字体  */
     color: #fff;
   }
+  .white-color-bg {
+    background-color: #fcfdfd;
+  }
   /*  宽度和高度 */
   html, body, #app {
     width: 100%;
@@ -45,16 +49,6 @@ export default {
   }
   a {
     text-decoration: none;
-  }
-  /*  列表高度和悬浮播放控件高度 */
-  .list-height {
-    height: 60px;
-  }
-  /*  清浮动工具类  */
-  .clearfix:before,.clearfix:after {
-    content: ' ';
-    display: table;
-    clear: both;
   }
   .text-ellipsis {
     /*  缩略显示过长文字类 */
@@ -80,9 +74,5 @@ export default {
 }
 .uk-grid>* {
   padding-left: 5px;
-}
-/*  swiper激活的分页器背景色 */
-.swiper-pagination-bullet-active {
-  background: #CE3D3E!important;
 }
 </style>

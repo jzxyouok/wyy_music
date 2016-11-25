@@ -3,14 +3,14 @@
       <canvas id="musicBg"></canvas>
       <div class="title uk-grid">
           <div class="uk-width-1-5">
-            <img @click="goBack" src="static/wyy_res/player/i0.png" class="icon-btn" />
+            <img @click="goBack" src="static/wyy_res/i0.png" class="icon-btn" />
           </div>
           <div class="uk-width-3-5">
             <h3 class="text-ellipsis">{{ mediaObj.name || '未知'}}</h3>
             <p class="text-ellipsis">{{ mediaObj.author | transformAuthors }}</p>
           </div>
           <div class="uk-width-1-5">
-            <img src="static/wyy_res/common/iu.png" class="icon-btn" />
+            <img src="static/wyy_res/a4x.png" class="icon-btn" />
           </div>
         </div>
       <!--  显示专辑图片组件 -->
@@ -21,19 +21,19 @@
           <div class="uk-width-4-5 uk-container-center">
             <div class="uk-grid">
               <div class="uk-width-1-4 icon-container">
-                <img class="icon-menu icon-collection" src="static/wyy_res/player/a_z.png" />
-                <!--<img class="icon-menu icon-collection" src="static/wyy_res/player/q5.png" />-->
+                <img class="icon-menu icon-collection" src="static/wyy_res/a_z.png" />
+                <!--<img class="icon-menu icon-collection" src="static/wyy_res/q5.png" />-->
               </div>
               <div class="uk-width-1-4 icon-container">
-                <img class="icon-menu icon-download" src="static/wyy_res/player/a_q.png" />
-                <!--<img class="icon-menu icon-download" src="static/wyy_res/player/a_s.png" />-->
+                <img class="icon-menu icon-download" src="static/wyy_res/a_q.png" />
+                <!--<img class="icon-menu icon-download" src="static/wyy_res/a_s.png" />-->
               </div>
               <div class="uk-width-1-4 icon-container">
-                <img class="icon-menu icon-comment" src="static/wyy_res/player/a_m.png" />
-                <!--<img class="icon-menu icon-comment" src="static/wyy_res/player/a_n.png" />-->
+                <img class="icon-menu icon-comment" src="static/wyy_res/a_m.png" />
+                <!--<img class="icon-menu icon-comment" src="static/wyy_res/a_n.png" />-->
               </div>
               <div class="uk-width-1-4 icon-container">
-                <img class="icon-menu icon-detail" src="static/wyy_res/player/aa4.png" />
+                <img class="icon-menu icon-detail" src="static/wyy_res/aa4.png" />
               </div>
             </div>
           </div>
@@ -56,26 +56,26 @@
         <!--  播放模式、控制、列表  -->
         <div class="uk-grid mine-control">
           <div class="uk-width-1-5">
-            <img class="play-mode" src="static/wyy_res/player/a_x.png" />
-            <!--<img class="play-mode" src="static/wyy_res/player/aag.png" />-->
-            <!--<img class="play-mode" src="static/wyy_res/player/aa6.png" />-->
+            <img class="play-mode" src="static/wyy_res/a_x.png" />
+            <!--<img class="play-mode" src="static/wyy_res/aag.png" />-->
+            <!--<img class="play-mode" src="static/wyy_res/aa6.png" />-->
           </div>
           <div class="uk-width-3-5">
             <div class="uk-grid">
               <div class="uk-width-3-10">
-                <img class="icon-control pre-control" src="static/wyy_res/player/a9t.png" />
+                <img class="icon-control pre-control" src="static/wyy_res/a9t.png" />
               </div>
               <div class="uk-width-2-5 play-container">
-                <img v-if="!isPlaying" class="icon-control play-control" @click="audioPlay" src="static/wyy_res/player/a9r.png" />
-                <img v-else class="icon-control pause-control" @click="audioPause" src="static/wyy_res/player/a9p.png" />
+                <img v-if="!isPlaying" class="icon-control play-control" @click="audioPlay" src="static/wyy_res/a9r.png" />
+                <img v-else class="icon-control pause-control" @click="audioPause" src="static/wyy_res/a9p.png" />
               </div>
               <div class="uk-width-3-10">
-                <img class="icon-control next-control" src="static/wyy_res/player/a9n.png" />
+                <img class="icon-control next-control" src="static/wyy_res/a9n.png" />
               </div>
             </div>
           </div>
           <div class="uk-width-1-5">
-            <img class="icon-list" src="static/wyy_res/player/aaj.png" />
+            <img class="icon-list" src="static/wyy_res/aaj.png" />
           </div>
         </div>
       </div>
@@ -196,7 +196,7 @@
     export default{
         data(){
             return{
-              album: 'static/wyy_res/player/album.jpg'
+              album: 'static/wyy_res/album.jpg'
             }
         },
         computed:{

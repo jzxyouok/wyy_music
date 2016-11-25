@@ -1,6 +1,6 @@
 <template>
     <div class="music-list uk-container">
-      <div class="list-title uk-grid">
+      <!--<div class="list-title uk-grid">
         <div class="uk-width-1-10">
           <img class="icon-btn" src="static/wyy_res/common/xl.png" />
         </div>
@@ -10,14 +10,14 @@
         <div class="uk-width-1-10">
           <img class="icon-btn" src="static/wyy_res/others/xc.png" />
         </div>
-      </div>
+      </div>-->
       <ul class="list-content">
         <template v-for="(item,index) in list">
           <li class="list-item">
             <div class="uk-grid">
               <div class="uk-width-1-10">
                 <div v-if="isPlayingIndex != item.id" class="number wyy-gray-color">{{ index+1 }}</div>
-                <img v-else class="icon-menu" src="static/wyy_res/others/ahm.png" />
+                <img v-else class="icon-menu" src="static/wyy_res/ahm.png" />
               </div>
               <div @click="playThis(item,item.id)" class="list-item-hr uk-width-8-10">
                 <h4 class="music-name">
@@ -26,7 +26,7 @@
                 <p class="music-msg wyy-gray-color">{{ item.author + '-' + item.name }}</p>
               </div>
               <div class="list-item-hr uk-width-1-10">
-                <img class="icon-menu" src="static/wyy_res/common/xf.png" />
+                <img class="icon-menu" src="static/wyy_res/xf.png" />
               </div>
             </div>
 
@@ -94,7 +94,7 @@
     height: 14px;
     margin-left: 5px;
     margin-bottom: 5px;
-    background: url("/static/wyy_res/others/l5.png") no-repeat;
+    background: url("/static/wyy_res/l5.png") no-repeat;
     background-size: 100% 100%;
   }
   .list-item .music-msg {

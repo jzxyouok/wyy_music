@@ -1,12 +1,11 @@
 <template>
     <div class="recommend-mlist">
-      <common-title icon="static/wyy_res/index/discover/adv.png" title="推荐MV"></common-title>
-      <div class="uk-grid">
+      <div class="uk-grid uk-container">
         <div v-for="item in list" class="uk-width-1-2 mlist">
           <div class="thumb-container uk-position-relative">
             <img class="thumb" :src="item.thumb" />
             <div class="user-view">
-                <img class="wyy-icon" src="static/wyy_res/common/vw.png" />
+                <img class="wyy-icon" src="static/wyy_res/vw.png" />
                 <span class="view-count">{{ item.viewCount | transformCount }}</span>
             </div>
           </div>
@@ -48,43 +47,42 @@
   }
 </style>
 <script>
-  import commonTitle from '../common/commonTitle.vue'
     export default{
         data(){
             return{
               list: [
                 {
-                  thumb: 'static/wyy_res/index/discover/mv1.jpg',
+                  thumb: 'static/wyy_res/mv1.jpg',
                   title: 'We Don\'t Talk Anymore (Official Live Performance)',
                   viewCount: '754856',
                   author: 'Charlie Puth',
                 },
                 {
-                  thumb: 'static/wyy_res/index/discover/mv2.jpg',
+                  thumb: 'static/wyy_res/mv2.jpg',
                   title: 'Counting Stars',
                   viewCount: '14727',
                   author: 'Alex Goot',
                 },
                 {
-                  thumb: 'static/wyy_res/index/discover/mv3.jpg',
+                  thumb: 'static/wyy_res/mv3.jpg',
                   title: 'Beauty and a Beat',
                   viewCount: '272727',
                   author: 'Alex Goot',
                 },
                 {
-                  thumb: 'static/wyy_res/index/discover/mv1.jpg',
+                  thumb: 'static/wyy_res/mv1.jpg',
                   title: 'We Don\'t Talk Anymore (Official Live Performance)',
                   viewCount: '75258277',
                   author: 'Charlie Puth',
                 },
                 {
-                  thumb: 'static/wyy_res/index/discover/mv2.jpg',
+                  thumb: 'static/wyy_res/mv2.jpg',
                   title: 'Counting Stars',
                   viewCount: '141',
                   author: 'Alex Goot',
                 },
                 {
-                  thumb: 'static/wyy_res/index/discover/mv3.jpg',
+                  thumb: 'static/wyy_res/mv3.jpg',
                   title: 'Beauty and a Beat',
                   viewCount: '75758252',
                   author: 'Alex Goot',
@@ -97,7 +95,6 @@
         mounted (){
         },
         components:{
-          commonTitle
         }
     }
 </script>

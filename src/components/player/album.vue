@@ -85,7 +85,7 @@
     z-index: 4;
     width: 100%;
     height: 100%;
-    background: url("/static/wyy_res/player/a9f.png") no-repeat 0 0;
+    background: url("/static/wyy_res/a9f.png") no-repeat 0 0;
     background-size: 100% 100%;
   }
   .diskette-container .diskette-album {

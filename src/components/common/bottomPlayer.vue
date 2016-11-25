@@ -4,7 +4,7 @@
           <div @click="gotoPlay" class="uk-width-7-10">
             <div class="uk-grid">
               <div class="uk-width-1-5">
-                <img class="bottom-album" src="static/wyy_res/player/album.jpg" />
+                <img class="bottom-album" src="static/wyy_res/album.jpg" />
               </div>
               <div class="uk-width-4-5">
                 <!--  如果名字过长，后期将进行滚动显示  -->
@@ -16,14 +16,14 @@
           <div class="uk-width-3-10">
             <div class="uk-grid">
               <div class="bottom-height uk-width-1-3 uk-vertical-align">
-                <img class="bottom-btn btn-list" src="static/wyy_res/common/playbar_btn_playlist.png" />
+                <img class="bottom-btn btn-list" src="static/wyy_res/playbar_btn_playlist.png" />
               </div>
               <div class="bottom-height uk-width-1-3 uk-vertical-align">
-                <img v-if="!isPlaying" @click.stop="autoPlay" class="bottom-btn btn-control" src="static/wyy_res/common/playbar_btn_play.png" />
-                <img v-else @click.stop="pauseMusic" class="bottom-btn btn-control" src="static/wyy_res/common/playbar_btn_pause.png" />
+                <img v-if="!isPlaying" @click.stop="autoPlay" class="bottom-btn btn-control" src="static/wyy_res/playbar_btn_play.png" />
+                <img v-else @click.stop="pauseMusic" class="bottom-btn btn-control" src="static/wyy_res/playbar_btn_pause.png" />
               </div>
               <div class="bottom-height uk-width-1-3 uk-vertical-align">
-                <img class="bottom-btn btn-next" src="static/wyy_res/common/playbar_btn_next.png" />
+                <img class="bottom-btn btn-next" src="static/wyy_res/playbar_btn_next.png" />
               </div>
             </div>
           </div>
