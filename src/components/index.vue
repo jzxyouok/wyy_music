@@ -7,6 +7,7 @@
 </template>
 <style scoped>
   .home {
+    padding-top: 60px;
     padding-bottom: 60px;
   }
 </style>

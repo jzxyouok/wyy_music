@@ -17,8 +17,16 @@
     </div>
 </template>
 <style scoped>
+  .discover {
+    padding-top: 44px;
+  }
   .dis-tabs {
-    position: relative;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    background: #fff;
   }
   .dis-tab {
     list-style: none;
