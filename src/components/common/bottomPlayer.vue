@@ -16,7 +16,7 @@
           <div class="uk-width-3-10">
             <div class="uk-grid">
               <div class="bottom-height uk-width-1-3 uk-vertical-align">
-                <img class="bottom-btn btn-list" src="static/wyy_res/playbar_btn_playlist.png" />
+                <img @click="togglePlayingList" class="bottom-btn btn-list" src="static/wyy_res/playbar_btn_playlist.png" />
               </div>
               <div class="bottom-height uk-width-1-3 uk-vertical-align">
                 <img v-if="!isPlaying" @click.stop="autoPlay" class="bottom-btn btn-control" src="static/wyy_res/playbar_btn_play.png" />
@@ -38,6 +38,7 @@
     position: fixed;
     left: 0;
     bottom: 0;
+    z-index: 9;
     background-color: rgba(255,255,255,0.9);
   }
   .bottom-player .bottom-album {
@@ -86,6 +87,9 @@
           },
           gotoPlay(){// 去到播放界面
             this.$router.push({ path: '/player', query: { mId: this.$store.state.currentMusic.id }})
+          },
+          togglePlayingList(){
+            this.$store.commit('togglePlayingList');
           },
         },
         mounted (){

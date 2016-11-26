@@ -2,14 +2,16 @@
   <div id="app">
     <router-view></router-view>
     <audio id="music"></audio>
+    <playing-list></playing-list>
   </div>
 </template>
 
 <script>
-
+import playingList from './components/common/playingList.vue'
 export default {
   name: 'app',
   components: {
+    playingList
   },
   mounted(){
     this.$store.commit('init');

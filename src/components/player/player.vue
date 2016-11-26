@@ -75,7 +75,7 @@
             </div>
           </div>
           <div class="uk-width-1-5">
-            <img class="icon-list" src="static/wyy_res/aaj.png" />
+            <img @click="togglePlayingList" class="icon-list" src="static/wyy_res/aaj.png" />
           </div>
         </div>
       </div>
@@ -227,6 +227,9 @@
           },
           audioPause(){// 暂停
             this.$store.commit('pauseMusic');
+          },
+          togglePlayingList(){//  显示悬浮的正在播放列表
+            this.$store.commit('togglePlayingList');
           },
           loadData( id ){// 加载歌曲所需的资源
             this.$http({ url: 'static/api/music.php', params:{ mId: id }}).then(function (res) {

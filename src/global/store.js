@@ -12,6 +12,7 @@ var store = {
     timer: '',//  定时器对象
     prevMusic: {},// 上一首播放的音频
     nextMusic: {},// 下一首播放的音频
+    showPlayingList: false,// 显示悬浮的当前播放列表tab
   },
   mutations: {
     init( state ){
@@ -46,6 +47,9 @@ var store = {
     setCurrentTime( state , time ){
       state.currentTime = time;
       state.audioObj.currentTime = time;
+    },
+    togglePlayingList( state ){
+      state.showPlayingList = !state.showPlayingList
     },
   },
   actions:{
