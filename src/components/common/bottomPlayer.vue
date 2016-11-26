@@ -8,8 +8,8 @@
               </div>
               <div class="uk-width-4-5">
                 <!--  如果名字过长，后期将进行滚动显示  -->
-                <h3 class="music-name text-ellipsis">{{ mediaObj.name || '未知'}}</h3>
-                <p class="music-author text-ellipsis">{{ mediaObj.author | transformAuthors }}</p>
+                <h3 class="music-name text-ellipsis">{{ currentMusic.name || '未知'}}</h3>
+                <p class="music-author text-ellipsis">{{ currentMusic.author | transformAuthors }}</p>
               </div>
             </div>
           </div>
@@ -19,11 +19,11 @@
                 <img @click="togglePlayingList" class="bottom-btn btn-list" src="static/wyy_res/playbar_btn_playlist.png" />
               </div>
               <div class="bottom-height uk-width-1-3 uk-vertical-align">
-                <img v-if="!isPlaying" @click.stop="autoPlay" class="bottom-btn btn-control" src="static/wyy_res/playbar_btn_play.png" />
+                <img v-if="!isPlaying" @click.stop="audioPlay" class="bottom-btn btn-control" src="static/wyy_res/playbar_btn_play.png" />
                 <img v-else @click.stop="pauseMusic" class="bottom-btn btn-control" src="static/wyy_res/playbar_btn_pause.png" />
               </div>
               <div class="bottom-height uk-width-1-3 uk-vertical-align">
-                <img class="bottom-btn btn-next" src="static/wyy_res/playbar_btn_next.png" />
+                <img @click="nextMusic" class="bottom-btn btn-next" src="static/wyy_res/playbar_btn_next.png" />
               </div>
             </div>
           </div>
@@ -71,19 +71,38 @@
             }
         },
         computed:{
-          mediaObj(){
+          currentMusic(){
             return this.$store.state.currentMusic
+          },
+          playingList(){//  正在播放的列表
+            return this.$store.state.list;
           },
           isPlaying(){
             return this.$store.state.isPlaying
           },
         },
         methods:{
-          autoPlay(){
+          audioPlay(){
             this.$store.commit('play');
           },
           pauseMusic(){
             this.$store.commit('pauseMusic');
+          },
+          nextMusic(){//  下一首
+            for ( let i =0; i < this.playingList.length; i++ ){
+              // 这里使用for循环是因为在foreach中，当索引小于数组长度时，value.id == self.currentMusic.id 总是成立，无法立即跳出循环
+              // 会不停的匹配当前播放音乐，而播放上一首的方法中同样存在这个问题
+              if ( this.playingList[i].id == this.currentMusic.id ){// 假定当前为循环模式
+                if ( i == this.playingList.length - 1 ){//  当前为列表最后一首
+                  this.$store.commit('getCurrentMusic', this.playingList[0]);
+                  break
+                }else {
+                  this.$store.commit('getCurrentMusic', this.playingList[i+1]);
+                  break
+                }
+              }
+            }
+            this.audioPlay();
           },
           gotoPlay(){// 去到播放界面
             this.$router.push({ path: '/player', query: { mId: this.$store.state.currentMusic.id }})

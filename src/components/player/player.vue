@@ -6,8 +6,8 @@
             <img @click="goBack" src="static/wyy_res/i0.png" class="icon-btn" />
           </div>
           <div class="uk-width-3-5">
-            <h3 class="text-ellipsis">{{ mediaObj.name || '未知'}}</h3>
-            <p class="text-ellipsis">{{ mediaObj.author | transformAuthors }}</p>
+            <h3 class="text-ellipsis">{{ currentMusic.name || '未知'}}</h3>
+            <p class="text-ellipsis">{{ currentMusic.author | transformAuthors }}</p>
           </div>
           <div class="uk-width-1-5">
             <img src="static/wyy_res/a4x.png" class="icon-btn" />
@@ -63,14 +63,14 @@
           <div class="uk-width-3-5">
             <div class="uk-grid">
               <div class="uk-width-3-10">
-                <img class="icon-control pre-control" src="static/wyy_res/a9t.png" />
+                <img @click="prevMusic" class="icon-control pre-control" src="static/wyy_res/a9t.png" />
               </div>
               <div class="uk-width-2-5 play-container">
                 <img v-if="!isPlaying" class="icon-control play-control" @click="audioPlay" src="static/wyy_res/a9r.png" />
                 <img v-else class="icon-control pause-control" @click="audioPause" src="static/wyy_res/a9p.png" />
               </div>
               <div class="uk-width-3-10">
-                <img class="icon-control next-control" src="static/wyy_res/a9n.png" />
+                <img @click="nextMusic" class="icon-control next-control" src="static/wyy_res/a9n.png" />
               </div>
             </div>
           </div>
@@ -200,8 +200,11 @@
             }
         },
         computed:{
-          mediaObj(){
+          currentMusic(){
             return this.$store.state.currentMusic
+          },
+          playingList(){//  正在播放的列表
+            return this.$store.state.list;
           },
           isPlaying(){
             return this.$store.state.isPlaying
@@ -228,22 +231,38 @@
           audioPause(){// 暂停
             this.$store.commit('pauseMusic');
           },
+          prevMusic(){//  上一首
+            for ( let i =0; i < this.playingList.length; i++ ){
+              if ( this.playingList[i].id == this.currentMusic.id ){// 假定当前为循环模式
+                if ( i == 0 ){//  当前为列表第一首
+                  this.$store.commit('getCurrentMusic', this.playingList[this.playingList.length-1]);
+                  break
+                }else {
+                  this.$store.commit('getCurrentMusic', this.playingList[i-1]);
+                  break
+                }
+              }
+            }
+            this.audioPlay();
+          },
+          nextMusic(){//  下一首
+            for ( let i =0; i < this.playingList.length; i++ ){
+              // 这里使用for循环是因为在foreach中，当索引小于数组长度时，value.id == self.currentMusic.id 总是成立，无法立即跳出循环
+              // 会不停的匹配当前播放音乐，而播放上一首的方法中同样存在这个问题
+              if ( this.playingList[i].id == this.currentMusic.id ){// 假定当前为循环模式
+                if ( i == this.playingList.length - 1 ){//  当前为列表最后一首
+                  this.$store.commit('getCurrentMusic', this.playingList[0]);
+                  break
+                }else {
+                  this.$store.commit('getCurrentMusic', this.playingList[i+1]);
+                  break
+                }
+              }
+            }
+            this.audioPlay();
+          },
           togglePlayingList(){//  显示悬浮的正在播放列表
             this.$store.commit('togglePlayingList');
-          },
-          loadData( id ){// 加载歌曲所需的资源
-            this.$http({ url: 'static/api/music.php', params:{ mId: id }}).then(function (res) {
-//              console.log( res )
-              if ( res.data.status == 200 ){
-                if ( res.data.data.albumSrc != false ){
-                  this.album = res.data.data.albumSrc
-                  this.createBg()
-                }
-                this.$store.commit('getCurrentMusic', res.data.data );
-              }else {
-                //  错误信息
-              }
-            })
           },
           createBg(){//  创建高斯模糊背景
             let img = new Image();
@@ -254,9 +273,6 @@
           },
         },
         mounted (){
-          if ( this.$route.query.mId != '' && !this.isPlaying ){
-            this.loadData( this.$route.query.mId )
-          }
           //  默认封面背景
           this.createBg();
         },
