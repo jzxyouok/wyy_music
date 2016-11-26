@@ -19,7 +19,7 @@
                 <div v-if="isPlayingIndex != item.id" class="number wyy-gray-color">{{ index+1 }}</div>
                 <img v-else class="icon-menu" src="static/wyy_res/ahm.png" />
               </div>
-              <div @click="playThis(item,item.id)" class="list-item-hr uk-width-8-10">
+              <div @click="playThis(item)" class="list-item-hr uk-width-8-10">
                 <h4 class="music-name">
                   <span>{{ item.name }}</span>
                   <span v-if="item.mv != false" class="has-mv"></span></h4>
@@ -123,13 +123,10 @@
           },
         },
         methods:{
-          playThis( item , id ){
-            if ( this.isPlayingIndex == id ){// 如果正在播放当前音乐，则跳转到播放页面
+          playThis( item ){
+            if ( this.isPlayingIndex == item.id ){// 如果正在播放当前音乐，则跳转到播放页面
               this.$router.push({
                 path:'/player',
-                query: {
-                  mId: id
-                }
               });
               return
             }

@@ -105,7 +105,7 @@
             this.audioPlay();
           },
           gotoPlay(){// 去到播放界面
-            this.$router.push({ path: '/player', query: { mId: this.$store.state.currentMusic.id }})
+            this.$router.push({ path: '/player' })
           },
           togglePlayingList(){
             this.$store.commit('togglePlayingList');
