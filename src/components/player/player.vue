@@ -14,10 +14,11 @@
           </div>
         </div>
       <!--  显示专辑图片组件 -->
-      <album :is-playing="isPlaying"></album>
+      <album v-show="false" :is-playing="isPlaying"></album>
+      <lyric :src="currentMusic.lrc"></lyric>
       <div class="menu">
         <!--  收藏等功能列表 -->
-        <div class="uk-grid">
+        <div v-show="false" class="uk-grid">
           <div class="uk-width-4-5 uk-container-center">
             <div class="uk-grid">
               <div class="uk-width-1-4 icon-container">
@@ -140,26 +141,6 @@
     line-height: 30px;
     margin: 10px 0;
   }
-  /*  更改浏览器默认的系统主题样式-开始  */
-  input[type="range"] {
-    -webkit-appearance: none;
-    background-color: #888;
-    height: 2px;
-  }
-  /*滑块*/
-  input[type=range]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    position: relative;
-    height: 15px;
-    width: 15px;
-    border: 0;
-    border-radius: 50%;
-    background: #fff;
-    cursor: pointer;
-    -webkit-box-shadow: 0 2px 7px -5px rgba(0, 0, 0, 1);
-    box-shadow: 0 2px 7px -5px rgba(0, 0, 0, 1);
-  }
-/*  更改浏览器默认的系统主题样式-结束  */
   .time {
     display: inline-block;
     font-size: 10px;
@@ -193,6 +174,7 @@
 <script>
   import album from './album.vue'
   import stackblur from 'stackblur-canvas'
+  import lyric from './lyric.vue'
     export default{
         data(){
             return{
@@ -277,7 +259,7 @@
           this.createBg();
         },
         components:{
-          album
+          album,lyric
         }
     }
 </script>

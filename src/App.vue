@@ -77,4 +77,24 @@ export default {
 .uk-grid>* {
   padding-left: 5px;
 }
+  /*  更改浏览器默认的系统主题样式-开始  */
+  input[type="range"] {
+    -webkit-appearance: none;
+    background-color: #888;
+    height: 2px;
+  }
+  /*滑块*/
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    position: relative;
+    height: 15px;
+    width: 15px;
+    border: 0;
+    border-radius: 50%;
+    background: #fff;
+    cursor: pointer;
+    -webkit-box-shadow: 0 2px 7px -5px rgba(0, 0, 0, 1);
+    box-shadow: 0 2px 7px -5px rgba(0, 0, 0, 1);
+  }
+  /*  更改浏览器默认的系统主题样式-结束  */
 </style>
