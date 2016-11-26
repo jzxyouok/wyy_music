@@ -8,12 +8,13 @@
         <input type="range" class="uk-width-1-1" style="margin-top: 14px;">
       </div>
     </div>
-    <div class="lyric-container uk-container">
-      <div :style="{ 'transform': 'translateY(' + translateY + 'px)'}" class="move-lyric">
-        <template v-for="item in lyricArr">
-          <div v-if="item.type == 'lyric'" class="lyric-sentence">
-            <div class="wyy-gray-color uk-text-center">{{ item.lyric }}</div>
-            <div class="wyy-gray-color uk-text-center">{{ item.translateLyric }}</div>
+    <div class="lyric-container uk-container uk-position-relative">
+      <div :style="{ 'top': translateY + 'px'}" class="move-lyric">
+        <template v-for="(item,index) in lyricArr">
+          <div v-if="item.type == 'lyric'" class="lyric-sentence lyric-height uk-text-center"
+               :class="{'white-color': currentIndex == index }">
+            <div>{{ item.lyric }}</div>
+            <div>{{ item.translateLyric }}</div>
           </div>
         </template>
       </div>
@@ -25,7 +26,7 @@
     width: 90%;
     margin: 0 auto;
     height: calc(100% - 200px);
-    background-color: #000;
+    /*background-color: #000;*/
   }
   .lyric .volume {
     height: 30px;
@@ -40,12 +41,21 @@
     overflow: hidden;
   }
   .lyric-container .move-lyric {
-    margin-top: 50%;
+    position: absolute;
+    left: 0;
+    z-index: 11;
+    margin-top: 70%;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease ;
   }
   .lyric-container .lyric-sentence{
     font-size: 16px;
-    margin-bottom: 20px;
+    padding-bottom: 20px;
     word-break: break-word;
+    color: #b8bbbf;
+  }
+  .lyric-container .white-color {
+    color: #fff;
   }
 </style>
 <script>
@@ -56,11 +66,39 @@
     data(){
       return {
         lyricArr: [],// 歌词,包含时间、歌词和翻译的对象数组
+        currentIndex: -1,// 当前滚动到第几个item
+        times: [],//  时间的数组
+        translateY: 0,
       }
     },
     computed:{
-      translateY(){
-        return 0
+      currentTime(){//  当前播放时间
+        return this.$store.state.currentTime
+      },
+    },
+    watch:{
+      currentTime( val ){
+        if ( val < this.times[0] ){//  重新开始一首歌
+          this.currentIndex = -1;
+          return
+        }
+        for ( let i = 0; i < this.times.length; i++ ){
+          if ( val >= this.times[i] && i == this.times.length -1 ){// 最后一句歌词
+            this.currentIndex = i;
+            break
+          }else if ( val >= this.times[i] && val < this.times[i+1] ){
+            this.currentIndex = i;
+            break
+          }
+        }
+      },
+      currentIndex( val ){//  用于判断滚动的Item项需要偏移的高度
+        if ( val == -1 ){//  重置
+          this.translateY = 0;
+          return
+        }
+        let nodeList = document.getElementsByClassName('lyric-height');
+        this.translateY -= nodeList[val].offsetHeight;
       },
     },
     methods: {
@@ -68,6 +106,7 @@
         //  所有操作都是在有歌词文件的情况下完成，如果歌曲没有歌词，将不会进行请求
         this.$http({ url: 'static/lyric/Beauty and a Beat'}).then(function (res) {
 //          console.log(res)
+          let self = this;
           let timeReg = /\[\d\d:\d\d\.?\d*\]/g;//  匹配时间段，如[00:14.879]
           let timeFormatReg = /\d\d:\d\d\.?\d*/g;//  匹配时间格式用来进行必要的转换，如[00:14.879] => 转化为秒
           let msgReg = /\[\w{1,2}:\w+\]/ig;//  匹配其他信息,如[by:idiotest]
@@ -87,6 +126,7 @@
             let min = value.match(timeFormatReg)[0].split(':')[0];//  获取分钟
             let sec = value.match(timeFormatReg)[0].split(':')[1];//  获取秒
             lyric[index].time = min*60 + sec*1;// 先把时间字符串转化为数字再进行叠加
+            self.times.push(min*60 + sec*1);
           })
           if ( res.data.translateLyric != '' ){// 翻译,根据原语言时间来匹配翻译
             lyricTranslate = res.data.translateLyric.split('\n');
