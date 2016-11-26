@@ -134,6 +134,10 @@
               return
             }
             this.$store.commit('getCurrentMusic',item);
+            this.$store.commit({//  以对象风格的提交，当然也可以直接传递数组
+              type: 'getList',
+              list: this.list,
+            });
             this.$store.dispatch('play');
 //            this.isPlayingIndex = id;
           },

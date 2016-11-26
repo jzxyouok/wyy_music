@@ -32,9 +32,9 @@ var store = {
         state.isPlaying = false;
       }
     },
-/*    getList( state , list ){//  获取当前播放列表,因为没有真实后台数据，所以整个列表只能作为信息传递过来了
-
-    },*/
+    getList( state , list ){//  获取当前播放列表,因为没有真实后台数据，所以整个列表只能作为信息传递过来了
+      state.list = list.list;
+    },
     pauseMusic( state ){// 暂停播放
       if ( state.audioObj != '' ){
         state.audioObj.pause();

@@ -16,15 +16,15 @@
     <div class="white-color-bg list-container uk-container">
       <div @touchstart="touchingStart($event)" @touchmove="touchingMove($event)" @touchend="touchingEnd($event)"
            class="list-item-container" :style="{ 'transform': 'translateY(' + translateY + 'px)' }">
-        <template v-for="n in 20">
+        <template v-for="item in list">
           <div class="list-item uk-grid">
-            <div class="uk-width-1-10">
+            <div v-if="isPlayingIndex == item.id" class="uk-width-1-10">
               <img class="icon-playing" src="static/wyy_res/ahm.png" />
             </div>
-            <div class="uk-width-7-10">
-              <h3 class="music-name">Mi Amor<span class="music-author wyy-gray-color">- Matt Hunter</span></h3>
+            <div @touchstart="touchingStart" @touchend="playThis( item , $event )" :class="[{'uk-width-7-10': isPlayingIndex == item.id },{'uk-width-9-10': isPlayingIndex != item.id }]">
+              <h3 class="music-name text-ellipsis">{{ item.name }}<span class="music-author wyy-gray-color">{{ '-' + item.author }}</span></h3>
             </div>
-            <div class="uk-width-1-10">
+            <div v-if="isPlayingIndex == item.id" class="uk-width-1-10">
               <img class="icon-detail" src="static/wyy_res/aas.png" />
             </div>
             <div class="uk-width-1-10">
@@ -118,11 +118,15 @@
       return {
         translateY: 0,// 偏移量
         startPos: {},// 触摸开始位置
+        startTouchingPos: {},// 为单个音乐项目准备的触摸开始位置
       }
     },
     computed:{
       list(){
         return this.$store.state.list;
+      },
+      isPlayingIndex(){
+        return this.$store.state.currentMusic.id
       },
       showPlayingList(){
         return this.$store.state.showPlayingList;
@@ -133,6 +137,7 @@
 //        console.log(e)
         e.preventDefault();// 阻止默认的滚屏事件
         this.startPos = e.touches[0];
+        this.startTouchingPos = e.touches[0];// 用于判断区别滚动的开始位置
       },
       touchingMove( e ){// 触摸滚动时
 //        console.log(e)
@@ -142,7 +147,7 @@
         if ( diffY > 0 && diffY < diffX || diffY < 0 && diffY > diffX ){// 认为水平偏移，不滚动
           return
         }
-        console.log(diffY)
+//        console.log(diffY)
         if ( Math.abs(diffY) < 5 ){// 防止移动过程中偏移过小造成的抖动
           return
         }else if ( diffY > 20 ){// 用户可以向下滑动大距离隐藏列表
@@ -153,6 +158,7 @@
       },
       touchingEnd( e ){// 触摸结束位置
 //        console.log(e)
+        e.preventDefault();// 阻止默认的滚屏事件
         let diffY = e.changedTouches[0].clientY - this.startPos.clientY;// Y轴偏移量
         let diffX = e.changedTouches[0].clientX - this.startPos.clientX;// X轴偏移量
         if ( diffY > 0 && diffY < diffX || diffY < 0 && diffY > diffX ){// 认为水平偏移，不滚动
@@ -165,6 +171,17 @@
       },
       togglePlayingList(){
         this.$store.commit('togglePlayingList');
+      },
+      playThis( item , e ){
+        if ( e.changedTouches[0].clientY != this.startTouchingPos.clientY || e.changedTouches[0].clientX != this.startTouchingPos.clientX ){
+          //  与滚动事件会发生冲突，故做个是否是需要滚动还是点击播放的判断
+          return
+        }
+        if ( this.isPlayingIndex == item.id ){// 如果正在播放当前音乐，则跳转到播放页面
+          return
+        }
+        this.$store.commit('getCurrentMusic',item);
+        this.$store.dispatch('play');
       },
     },
     mounted (){
