@@ -138,7 +138,7 @@
               type: 'getList',
               list: this.list,
             });
-            this.$store.dispatch('play');
+            this.$store.commit('play');
 //            this.isPlayingIndex = id;
           },
         },

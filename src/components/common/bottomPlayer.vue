@@ -80,7 +80,7 @@
         },
         methods:{
           autoPlay(){
-            this.$store.dispatch('play');
+            this.$store.commit('play');
           },
           pauseMusic(){
             this.$store.commit('pauseMusic');

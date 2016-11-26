@@ -223,7 +223,7 @@
         },
         methods:{
           audioPlay(){//  控制播放
-           this.$store.dispatch('play');
+           this.$store.commit('play');
           },
           audioPause(){// 暂停
             this.$store.commit('pauseMusic');

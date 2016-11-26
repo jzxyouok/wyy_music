@@ -181,7 +181,7 @@
           return
         }
         this.$store.commit('getCurrentMusic',item);
-        this.$store.dispatch('play');
+        this.$store.commit('play');
       },
     },
     mounted (){

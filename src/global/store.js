@@ -35,6 +35,25 @@ var store = {
     getList( state , list ){//  获取当前播放列表,因为没有真实后台数据，所以整个列表只能作为信息传递过来了
       state.list = list.list;
     },
+    play( state ){// 播放当前音频并生成当前音频所在的播放列表
+      state.audioObj.play();
+      if ( state.list != false ){// 获取上一首和下一首的歌曲信息
+        state.list.forEach((value,index)=>{
+          if ( value.id == state.currentMusic.id ){// 假定当前为循环模式
+            if ( index == 0 ){//  当前为列表第一首
+              state.prevMusic = state.list[state.list.length-1];
+              state.nextMusic = state.list[index+1];
+            }else if ( index == state.list.length -1 ){// 当前为最后一首
+              state.prevMusic = state.list[index-1];
+              state.nextMusic = state.list[0];
+            }else {
+              state.prevMusic = state.list[index-1];
+              state.nextMusic = state.list[index+1];
+            }
+          }
+        })
+      }
+    },
     pauseMusic( state ){// 暂停播放
       if ( state.audioObj != '' ){
         state.audioObj.pause();
@@ -53,25 +72,6 @@ var store = {
     },
   },
   actions:{
-    play( { commit,state } ){// 播放当前音频并生成当前音频所在的播放列表
-      state.audioObj.play();
-      /*if ( state.list != false ){// 获取上一首和下一首的歌曲信息
-        state.list.forEach((value,index)=>{
-          if ( value.id == state.currentMusic.id ){
-            if ( index == 0 ){//  当前为列表第一首
-              state.prevMusic = state.list[state.list.length-1];
-              state.nextMusic = state.list[index+1];
-            }else if ( index == state.list.length -1 ){// 当前为最后一首
-              state.prevMusic = state.list[index-1];
-              state.nextMusic = state.list[0];
-            }else {
-              state.prevMusic = state.list[index-1];
-              state.nextMusic = state.list[index+1];
-            }
-          }
-        })
-      }*/
-    },
   }
 };
 export default store
