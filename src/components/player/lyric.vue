@@ -8,7 +8,7 @@
         <input type="range" min="0" max="20" v-model="volume" class="uk-width-1-1" style="margin-top: 14px;">
       </div>
     </div>
-    <div class="lyric-container uk-container uk-position-relative">
+    <div @touchstart="touchingStart($event)" @touchend="touchingEndPos($event)" class="lyric-container uk-container uk-position-relative">
       <div :style="{ 'top': translateY + 'px'}" class="move-lyric">
         <template v-for="(item,index) in lyricArr">
           <div v-if="item.type == 'lyric'" class="lyric-sentence lyric-height uk-text-center"
@@ -69,6 +69,7 @@
         currentIndex: -1,// 当前滚动到第几个item
         times: [],//  时间的数组
         translateY: 0,
+        startTouchingPos: {},
       }
     },
     computed:{
@@ -174,6 +175,19 @@
           this.lyricArr = lyric.concat(msgList);
 //          console.log( this.lyricArr )
         })
+      },
+      touchingStart( e ){// 触摸开始位置
+//        console.log(e)
+        e.preventDefault();// 阻止默认的滚屏事件
+        this.startTouchingPos = e.touches[0];// 用于判断区别滚动的开始位置
+      },
+      touchingEndPos( e ){
+        e.preventDefault();// 阻止默认的滚屏事件
+        if ( e.changedTouches[0].clientY != this.startTouchingPos.clientY || e.changedTouches[0].clientX != this.startTouchingPos.clientX ){
+          //  非点击判断
+          return
+        }
+        this.$store.commit('toggleDisplayLrc');
       },
     },
     mounted (){

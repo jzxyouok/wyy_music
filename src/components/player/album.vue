@@ -1,5 +1,5 @@
 <template>
-    <div class="album">
+    <div @touchstart="touchingStart($event)" @touchend="touchingEndPos($event)" class="album">
       <!--  控制杆 -->
       <!--<div class="joystick">
         <img :class="{ 'img-control': isPlaying }" src="static/wyy_res/aao.png" />
@@ -22,7 +22,7 @@
   .album {
     position: relative;
     width: 100%;
-    height: 65%;
+    height: calc(100% - 260px);
     /*  后期处理成两端渐变 */
     border-top: 1px solid #f3f3f3;
     overflow: hidden;
@@ -55,30 +55,27 @@
   /*  磁碟  */
   .album .diskette {
     position: absolute;
-    top: 5%;
+    top: 50%;
     left: 50%;
-    z-index: 1;
-    width: 90%;
-    height: 90%;
-    margin-left: -45%;
+    width: 260px;
+    height: 260px;
+    margin: -130px 0 0 -130px;
   }
   .diskette .diskette-bg, .diskette .diskette-container {
     position: absolute;
-    top: 10%;
-    left: 50%;
-    z-index: 2;
-    width: 80vw;
-    height: 80vw;
-    margin-left: -40vw;
+    top: 0;
+    left: 0;
+    /*z-index: 2;*/
+    width: 100%;
+    height: 100%;
     border-radius: 50%;
     background-color: rgba(255,255,255,0.1);
   }
   .diskette .diskette-container {
-    z-index: 3;
-    top: 11%;
-    width: 78vw;
-    height: 78vw;
-    margin-left: -39vw;
+    top: 1%;
+    left: 1%;
+    width: 98%;
+    height: 98%;
   }
   .diskette-container .diskette-img {
     position: absolute;
@@ -117,10 +114,10 @@
   }
   @-webkit-keyframes rotating {
     from{
-      transform: rotate(0deg);
+      -webkit-transform: rotate(0deg);
     }
     to{
-      transform: rotate(360deg);
+      -webkit-transform: rotate(360deg);
     }
   }
   @keyframes rotating {
@@ -146,9 +143,23 @@
       },
         data(){
             return{
+              startTouchingPos: {},
             }
         },
         methods:{
+          touchingStart( e ){// 触摸开始位置
+//        console.log(e)
+            e.preventDefault();// 阻止默认的滚屏事件
+            this.startTouchingPos = e.touches[0];// 用于判断区别滚动的开始位置
+          },
+          touchingEndPos( e ){
+            e.preventDefault();// 阻止默认的滚屏事件
+            if ( e.changedTouches[0].clientY != this.startTouchingPos.clientY || e.changedTouches[0].clientX != this.startTouchingPos.clientX ){
+              //  非点击判断
+              return
+            }
+            this.$store.commit('toggleDisplayLrc');
+          },
         },
         mounted (){
         },

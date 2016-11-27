@@ -1,5 +1,5 @@
 <template>
-    <div class="player">
+    <div class="player" :class="{'player-bg': displayLrc }">
       <canvas id="musicBg"></canvas>
       <div class="title uk-grid">
           <div class="uk-width-1-5">
@@ -14,11 +14,11 @@
           </div>
         </div>
       <!--  显示专辑图片组件 -->
-      <album v-show="false" :is-playing="isPlaying"></album>
-      <lyric :src="currentMusic.lrc"></lyric>
+      <album v-show="!displayLrc" :is-playing="isPlaying"></album>
+      <lyric v-show="displayLrc" :src="currentMusic.lrc"></lyric>
       <div class="menu">
         <!--  收藏等功能列表 -->
-        <div v-show="false" class="uk-grid">
+        <div v-show="!displayLrc" class="uk-grid">
           <div class="uk-width-4-5 uk-container-center">
             <div class="uk-grid">
               <div class="uk-width-1-4 icon-container">
@@ -87,6 +87,9 @@
     width: 100%;
     height: 100%;
     position: relative;
+  }
+  .player-bg {
+    background-color: rgba(0,0,0,0.3);
   }
   #musicBg {
     /*  禁止stackblur设定宽度和高度  */
@@ -190,6 +193,9 @@
           },
           isPlaying(){
             return this.$store.state.isPlaying
+          },
+          displayLrc(){// 是否显示歌词界面
+            return this.$store.state.displayLrc
           },
           currentTime(){
             return this.$store.state.currentTime

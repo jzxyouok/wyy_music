@@ -16,6 +16,7 @@ var store = {
     nextMusic: {},// 下一首播放的音频
     showPlayingList: false,// 显示悬浮的当前播放列表tab
     volume: '',// 正在播放的音频声音大小
+    displayLrc: false,//  播放界面显示歌词组件
   },
   mutations: {
     init( state ){
@@ -63,6 +64,9 @@ var store = {
     },
     togglePlayingList( state ){
       state.showPlayingList = !state.showPlayingList
+    },
+    toggleDisplayLrc( state ){// 显示专辑图或者歌词界面
+      state.displayLrc = !state.displayLrc;
     },
   },
   actions:{
