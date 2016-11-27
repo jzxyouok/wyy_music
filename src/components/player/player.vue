@@ -14,8 +14,8 @@
           </div>
         </div>
       <!--  显示专辑图片组件 -->
-      <album v-show="!displayLrc" :is-playing="isPlaying"></album>
-      <lyric v-show="displayLrc" :src="currentMusic.lrc"></lyric>
+      <album :is-playing="isPlaying" :class="{ 'to-bottom': displayLrc }"></album>
+      <lyric :src="currentMusic.lrc" :class="{ 'to-bottom': !displayLrc }"></lyric>
       <div class="menu">
         <!--  收藏等功能列表 -->
         <div v-show="!displayLrc" class="uk-grid">
@@ -87,6 +87,8 @@
     width: 100%;
     height: 100%;
     position: relative;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease ;
   }
   .player-bg {
     background-color: rgba(0,0,0,0.3);
@@ -172,6 +174,12 @@
     display: block;
     width: 90px;
     margin: -10px auto 0;
+  }
+  .to-bottom {
+    /*  用于降低封面图或者歌词所在的层级和隐藏界面，防止两个组件的touch事件同时触发 */
+    opacity: 0;
+    z-index: -999;
+    height: 0!important;
   }
 </style>
 <script>

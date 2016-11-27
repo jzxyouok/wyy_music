@@ -1,5 +1,5 @@
 <template>
-  <div class="lyric">
+  <div class="lyric uk-position-relative">
     <div class="volume uk-grid">
       <div class="uk-width-1-10">
         <img class="icon-volume" src="static/wyy_res/aai.png">
@@ -44,7 +44,8 @@
     position: absolute;
     left: 0;
     z-index: 11;
-    margin-top: 70%;
+    /*  具体不知道，随便算的 */
+    margin-top: 55%;
     -webkit-transition: all 0.5s ease;
     transition: all 0.5s ease ;
   }
@@ -108,16 +109,22 @@
         }
         let height = 0;
         let nodeList = document.getElementsByClassName('lyric-height');
-        for ( let i = 0; i < val; i++ ){
+        for ( let i = 0; i < val + 1; i++ ){//  需要循环val次
           height += nodeList[i].offsetHeight
         }
         this.translateY = -height;
+      },
+      src( val ){
+        if ( !val ){
+          return
+        }
+        this.loadLyric();
       },
     },
     methods: {
       loadLyric(){
         //  所有操作都是在有歌词文件的情况下完成，如果歌曲没有歌词，将不会进行请求
-        this.$http({ url: 'static/lyric/Beauty and a Beat'}).then(function (res) {
+        this.$http({ url: (process.env.NODE_ENV !== 'production' ?  this.src : '/' + this.src) }).then(function (res) {
 //          console.log(res)
           let self = this;
           let timeReg = /\[\d\d:\d\d\.?\d*\]/g;//  匹配时间段，如[00:14.879]
