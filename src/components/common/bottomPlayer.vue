@@ -96,6 +96,11 @@
             this.$store.commit('pauseMusic');
           },
           nextMusic(){//  下一首
+            if ( this.playStyle == 0 || this.playStyle == 1 ){
+              this.$store.dispatch('playNext');
+              return
+            }
+            //  只有单曲循环模式才会获取下一首
             for ( let i =0; i < this.playingList.length; i++ ){
               // 这里使用for循环是因为在foreach中，当索引小于数组长度时，value.id == self.currentMusic.id 总是成立，无法立即跳出循环
               // 会不停的匹配当前播放音乐，而播放上一首的方法中同样存在这个问题

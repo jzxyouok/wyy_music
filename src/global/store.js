@@ -52,7 +52,7 @@ var store = {
       state.audioObj.play();
     },
     changePlayStyle( state, val ){
-      console.log(val)
+      // console.log(val)
       state.playStyle = val;
     },
     pauseMusic( state ){// 暂停播放
