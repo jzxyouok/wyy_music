@@ -7,7 +7,7 @@
       <!--  磁碟  -->
       <div class="diskette">
         <div class="diskette-bg"></div>
-        <div class="diskette-container rotating-album" :class="{ 'running': !isPlaying }">
+        <div class="diskette-container rotating-album" :class="{ 'pausing': !isPlaying }">
           <!--  磁碟图 -->
           <div class="diskette-img"></div>
           <!--  专辑图 -->
@@ -104,29 +104,8 @@
   }
   /*  磁碟旋转动画  */
   .rotating-album {
-    -webkit-animation: rotating 20s linear 0.5s infinite;
-    animation: rotating 20s linear 0.5s infinite;
-  }
-  .running {
-  /*暂停动画并保存当前动画位置*/
-    -webkit-animation-play-state: paused;
-    animation-play-state: paused;
-  }
-  @-webkit-keyframes rotating {
-    from{
-      -webkit-transform: rotate(0deg);
-    }
-    to{
-      -webkit-transform: rotate(360deg);
-    }
-  }
-  @keyframes rotating {
-    from{
-      transform: rotate(0deg);
-    }
-    to{
-      transform: rotate(360deg);
-    }
+    -webkit-animation: rotating 20s linear 0.5s running infinite;
+    /*animation: rotating 20s linear 0.5s running infinite;*/
   }
 </style>
 <script>

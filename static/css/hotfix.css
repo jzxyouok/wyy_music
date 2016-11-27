@@ -1,0 +1,21 @@
+@-webkit-keyframes rotating {
+  0% {
+    -webkit-transform: rotate3d(0,0,1,0deg);
+  }
+  100% {
+    -webkit-transform: rotate3d(0,0,1,360deg);
+  }
+}
+/*@keyframes rotating {
+  0% {
+    -webkit-transform: rotate3d(0,0,1,0deg);
+  }
+  100% {
+    -webkit-transform: rotate3d(0,0,1,360deg);
+  }
+}*/
+  .pausing {
+    /*暂停动画并保存当前动画位置*/
+    -webkit-animation-play-state: paused!important;
+    /*animation-play-state: paused!important;*/
+  }
