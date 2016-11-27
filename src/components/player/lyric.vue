@@ -5,7 +5,7 @@
         <img class="icon-volume" src="static/wyy_res/aai.png">
       </div>
       <div class="uk-width-9-10">
-        <input type="range" class="uk-width-1-1" style="margin-top: 14px;">
+        <input type="range" min="0" max="20" v-model="volume" class="uk-width-1-1" style="margin-top: 14px;">
       </div>
     </div>
     <div class="lyric-container uk-container uk-position-relative">
@@ -74,6 +74,14 @@
     computed:{
       currentTime(){//  当前播放时间
         return this.$store.state.currentTime
+      },
+      volume:{
+        get(){
+          return this.$store.state.volume
+        },
+        set( value ){
+          this.$store.commit('setVolume', value)
+        },
       },
     },
     watch:{
@@ -166,6 +174,7 @@
     },
     mounted (){
       this.loadLyric();
+      this.$store.commit('getVolume');
     },
     components: {
     }

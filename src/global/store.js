@@ -15,6 +15,7 @@ var store = {
     prevMusic: {},// 上一首播放的音频
     nextMusic: {},// 下一首播放的音频
     showPlayingList: false,// 显示悬浮的当前播放列表tab
+    volume: '',// 正在播放的音频声音大小
   },
   mutations: {
     init( state ){
@@ -33,6 +34,13 @@ var store = {
         clearInterval(state.timer);//  不再获取进度条时间
         state.isPlaying = false;
       }
+    },
+    getVolume( state ){// 获取当前音频音量，总步长为20
+      state.volume = state.audioObj.volume*20;
+    },
+    setVolume( state , value ){
+      state.audioObj.volume = value/20;
+      state.volume = value;
     },
     getList( state , list ){//  获取当前播放列表,因为没有真实后台数据，所以整个列表只能作为信息传递过来了
       state.list = list.list;

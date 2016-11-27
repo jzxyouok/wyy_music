@@ -80,7 +80,7 @@ export default {
   /*  更改浏览器默认的系统主题样式-开始  */
   input[type="range"] {
     -webkit-appearance: none;
-    background-color: #888;
+    background-color: rgba(255,255,255,0.1);
     height: 2px;
   }
   /*滑块*/
