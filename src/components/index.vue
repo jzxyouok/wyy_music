@@ -1,5 +1,5 @@
 <template>
-    <div class="home">
+    <div class="home" :class="{'home-padding-bottom': playingList != '' }">
       <action-bar></action-bar>
       <div class="content">
         <ul class="dis-tabs uk-clearfix">
@@ -25,14 +25,16 @@
           </div>
         </div>
       </div>
-      <buttom-player></buttom-player>
+      <buttom-player v-if="playingList != ''"></buttom-player>
     </div>
 </template>
 <style scoped>
   .home {
     padding-top: 60px;
-    padding-bottom: 60px;
     background-color: #f2f4f5;
+  }
+  .home-padding-bottom {
+    padding-bottom: 60px;
   }
   .content {
     padding-top: 44px;
@@ -89,6 +91,9 @@
                 }
               });
             }
+          },
+          playingList(){
+            return this.$store.state.list;
           },
           slideIndex(){
             return this.swiperObj.realIndex

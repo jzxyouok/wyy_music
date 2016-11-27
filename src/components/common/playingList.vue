@@ -10,7 +10,7 @@
             <h3 class="list-title uk-text-center">播放列表（32）</h3>
           </div>
           <div class="uk-width-1-5 span-clear">
-            <span class="span-btn wyy-gray-color">清空</span>
+            <span @click="clearPlayingList" class="span-btn wyy-gray-color">清空</span>
           </div>
         </div>
       </div>
@@ -174,6 +174,11 @@
       },
       togglePlayingList(){
         this.$store.commit('togglePlayingList');
+      },
+      clearPlayingList(){
+        this.$store.commit('clearList');
+        this.$store.commit('togglePlayingList');
+        this.goBack();
       },
       playThis( item , e ){
         if ( e.changedTouches[0].clientY != this.startTouchingPos.clientY || e.changedTouches[0].clientX != this.startTouchingPos.clientX ){

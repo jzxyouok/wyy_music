@@ -48,6 +48,11 @@ var store = {
     getList( state , list ){//  获取当前播放列表,因为没有真实后台数据，所以整个列表只能作为信息传递过来了
       state.list = list.list;
     },
+    clearList( state ){
+      state.list = [];
+      state.audioObj.pause();
+      state.currentMusic = {};
+    },
     play( state ){// 播放当前音频并生成当前音频所在的播放列表
       state.audioObj.play();
     },
