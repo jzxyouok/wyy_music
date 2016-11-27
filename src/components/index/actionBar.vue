@@ -1,14 +1,16 @@
 <template>
     <div class="header wyy-bg-color">
-      <div class="uk-grid uk-container">
-        <div class="uk-width-1-10">
-          <img class="icon-music" src="static/wyy_res/actionbar_discover.png">
-        </div>
-        <div class="uk-width-8-10">
-          <h3 class="app-title white-color">vue-music-player</h3>
-        </div>
-        <div class="uk-width-1-10">
-          <img class="icon-search" src="static/wyy_res/it.png">
+      <div class="uk-container">
+        <div class="uk-grid">
+          <div class="uk-width-1-10">
+            <img class="icon-music" src="static/wyy_res/actionbar_discover.png">
+          </div>
+          <div class="uk-width-8-10">
+            <h3 class="app-title white-color">音乐你我他</h3>
+          </div>
+          <div class="uk-width-1-10">
+            <img class="icon-search" src="static/wyy_res/it.png">
+          </div>
         </div>
       </div>
     </div>

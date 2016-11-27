@@ -1,33 +1,31 @@
 <template>
     <div class="bottom-player">
-        <div class="uk-grid uk-container">
-          <div @click="gotoPlay" class="uk-width-7-10">
-            <div class="uk-grid">
-              <div class="uk-width-1-5">
-                <img class="bottom-album" src="static/wyy_res/album.jpg" />
-              </div>
-              <div class="uk-width-4-5">
-                <!--  如果名字过长，后期将进行滚动显示  -->
-                <h3 class="music-name text-ellipsis">{{ currentMusic.name || '未知'}}</h3>
-                <p class="music-author text-ellipsis">{{ currentMusic.author | transformAuthors }}</p>
-              </div>
-            </div>
+      <div class="uk-container uk-clearfix">
+        <div @click="gotoPlay" class="uk-float-left left-control">
+          <div class="uk-float-left">
+            <img class="bottom-album" src="static/wyy_res/album.jpg" />
           </div>
-          <div class="uk-width-3-10">
-            <div class="uk-grid">
-              <div class="bottom-height uk-width-1-3 uk-vertical-align">
-                <img @click="togglePlayingList" class="bottom-btn btn-list" src="static/wyy_res/playbar_btn_playlist.png" />
-              </div>
-              <div class="bottom-height uk-width-1-3 uk-vertical-align">
-                <img v-if="!isPlaying" @click.stop="audioPlay" class="bottom-btn btn-control" src="static/wyy_res/playbar_btn_play.png" />
-                <img v-else @click.stop="pauseMusic" class="bottom-btn btn-control" src="static/wyy_res/playbar_btn_pause.png" />
-              </div>
-              <div class="bottom-height uk-width-1-3 uk-vertical-align">
-                <img @click="nextMusic" class="bottom-btn btn-next" src="static/wyy_res/playbar_btn_next.png" />
-              </div>
+          <div class="uk-float-left">
+            <!--  如果名字过长，后期将进行滚动显示  -->
+            <h3 class="music-name text-ellipsis">{{ currentMusic.name || '未知'}}</h3>
+            <p class="music-author text-ellipsis">{{ currentMusic.author | transformAuthors }}</p>
+          </div>
+        </div>
+        <div class="uk-float-left right-control">
+          <div class="uk-grid">
+            <div class="bottom-height uk-width-1-3 uk-vertical-align">
+              <img @click="togglePlayingList" class="bottom-btn btn-list" src="static/wyy_res/playbar_btn_playlist.png" />
+            </div>
+            <div class="bottom-height uk-width-1-3 uk-vertical-align">
+              <img v-if="!isPlaying" @click.stop="audioPlay" class="bottom-btn btn-control" src="static/wyy_res/playbar_btn_play.png" />
+              <img v-else @click.stop="pauseMusic" class="bottom-btn btn-control" src="static/wyy_res/playbar_btn_pause.png" />
+            </div>
+            <div class="bottom-height uk-width-1-3 uk-vertical-align">
+              <img @click="nextMusic" class="bottom-btn btn-next" src="static/wyy_res/playbar_btn_next.png" />
             </div>
           </div>
         </div>
+      </div>
     </div>
 </template>
 <style scoped>
@@ -62,6 +60,12 @@
    }
   .bottom-height {
     height: 50px;
+  }
+  .bottom-player .left-control {
+    width: calc(100% - 120px)
+  }
+  .bottom-player .right-control {
+    width: 120px;
   }
 </style>
 <script>

@@ -1,15 +1,17 @@
 <template>
   <div v-show="showPlayingList" @click.self="togglePlayingList" class="playing-list">
     <div class="list-head white-color-bg">
-      <div class="uk-grid uk-container">
-        <div class="uk-width-1-5">
-          <span class="span-btn wyy-gray-color">收藏全部</span>
-        </div>
-        <div class="uk-width-3-5">
-          <h3 class="list-title uk-text-center">播放列表（32）</h3>
-        </div>
-        <div class="uk-width-1-5 span-clear">
-          <span class="span-btn wyy-gray-color">清空</span>
+      <div class="uk-container">
+        <div class="uk-grid">
+          <div class="uk-width-1-5">
+            <span class="span-btn wyy-gray-color">收藏全部</span>
+          </div>
+          <div class="uk-width-3-5">
+            <h3 class="list-title uk-text-center">播放列表（32）</h3>
+          </div>
+          <div class="uk-width-1-5 span-clear">
+            <span class="span-btn wyy-gray-color">清空</span>
+          </div>
         </div>
       </div>
     </div>
@@ -22,7 +24,7 @@
               <img class="icon-playing" src="static/wyy_res/ahm.png" />
             </div>
             <div @touchstart="touchingStart" @touchend="playThis( item , $event )" :class="[{'uk-width-7-10': isPlayingIndex == item.id },{'uk-width-9-10': isPlayingIndex != item.id }]">
-              <h3 class="music-name text-ellipsis">{{ item.name }}<span class="music-author wyy-gray-color">{{ '-' + item.author }}</span></h3>
+              <div class="music-name text-ellipsis" :class="{'wyy-color': isPlayingIndex == item.id }">{{ item.name }}<span class="music-author" :class="{'wyy-gray-color': isPlayingIndex != item.id }">{{ ' - ' + item.author }}</span></div>
             </div>
             <div v-if="isPlayingIndex == item.id" class="uk-width-1-10">
               <img class="icon-detail" src="static/wyy_res/aas.png" />
@@ -87,29 +89,30 @@
     margin-top: 0;
   }
   .list-item .music-name {
-    margin-top: 13px;
+    margin-top: 15px;
+    font-size: 16px;
   }
   .music-name span {
-    font-size: 14px;
+    font-size: 12px;
   }
   .list-item .icon-playing, .list-item .icon-detail, .list-item .icon-delete {
     display: block;
     margin: 0 auto;
   }
   .list-item .icon-playing {
-    width: 26px;
-    height: 23px;
-    margin-top: 14px;
+    width: 20px;
+    height: 18px;
+    margin-top: 16px;
   }
   .list-item .icon-detail {
-    width: 20px;
-    height: 20px;
-    margin-top: 15px;
+    width: 16px;
+    height: 16px;
+    margin-top: 17px;
   }
   .list-item .icon-delete {
-    width: 36px;
-    height: 36px;
-    margin-top: 7px;
+    width: 30px;
+    height: 30px;
+    margin-top: 10px;
   }
 </style>
 <script>
@@ -148,13 +151,13 @@
           return
         }
 //        console.log(diffY)
-        if ( Math.abs(diffY) < 5 ){// 防止移动过程中偏移过小造成的抖动
+        if ( Math.abs(diffY) < 20 ){// 防止移动过程中偏移过小造成的抖动
           return
-        }else if ( diffY > 20 ){// 用户可以向下滑动大距离隐藏列表
+        }else if ( diffY > 80 ){// 用户可以向下滑动大距离隐藏列表
           this.$store.commit('togglePlayingList');
         }
         this.startPos = e.touches[0];
-        this.translateY += diffY;
+        this.translateY += diffY * 2;
       },
       touchingEnd( e ){// 触摸结束位置
 //        console.log(e)
@@ -164,7 +167,7 @@
         if ( diffY > 0 && diffY < diffX || diffY < 0 && diffY > diffX ){// 认为水平偏移，不滚动
           return
         }
-        this.translateY += diffY;
+        this.translateY += diffY * 2;
         if ( this.translateY > 0 ){// 超出向下滚动范围，重置偏移量
           this.translateY = 0;
         }

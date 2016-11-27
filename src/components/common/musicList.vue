@@ -36,6 +36,9 @@
     </div>
 </template>
 <style scoped>
+  .music-list {
+    padding-right: 0;
+  }
   .list-title {
     height: 60px;
     border-bottom: 1px solid #f3f3f3;
@@ -54,7 +57,7 @@
   }
   /*  列表分割线 */
   .list-item-hr {
-    border-bottom: 1px solid #f3f3f3;
+    border-bottom: 1px solid #ddd;
   }
   .list-item {
     height: 60px;

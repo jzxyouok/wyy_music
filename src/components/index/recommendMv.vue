@@ -1,16 +1,18 @@
 <template>
     <div class="recommend-mlist">
-      <div class="uk-grid uk-container">
-        <div v-for="item in list" class="uk-width-1-2 mlist">
-          <div class="thumb-container uk-position-relative">
-            <img class="thumb" :src="item.thumb" />
-            <div class="user-view">
+      <div class="uk-container">
+        <div class="uk-grid">
+          <div v-for="item in list" class="uk-width-1-2 mlist">
+            <div class="thumb-container uk-position-relative">
+              <img class="thumb" :src="item.thumb" />
+              <div class="user-view">
                 <img class="wyy-icon" src="static/wyy_res/vw.png" />
                 <span class="view-count">{{ item.viewCount | transformCount }}</span>
+              </div>
             </div>
+            <p class="mv-name">{{ item.title }}</p>
+            <p class="mv-author">{{ item.author }}</p>
           </div>
-          <p class="mv-name">{{ item.title }}</p>
-          <p class="mv-author">{{ item.author }}</p>
         </div>
       </div>
     </div>
