@@ -14,7 +14,7 @@ export default {
     playingList
   },
   mounted(){
-    this.$store.commit('init');
+    this.$store.dispatch('autoNext');
   }
 }
 </script>

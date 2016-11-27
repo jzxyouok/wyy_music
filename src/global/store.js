@@ -12,11 +12,13 @@ var store = {
     currentTime: '',// 当前播放的音频的当前播放时间
     durationTime: '',// 当前播放的音频的总时长
     timer: '',//  定时器对象
+    timerTimeout: '',//  计时器对象
     prevMusic: {},// 上一首播放的音频
     nextMusic: {},// 下一首播放的音频
     showPlayingList: false,// 显示悬浮的当前播放列表tab
     volume: '',// 正在播放的音频声音大小
     displayLrc: false,//  播放界面显示歌词组件
+    playStyle: 0,// 默认播放模式，0=>列表循环，1=>列表随机，2=>单曲循环
   },
   mutations: {
     init( state ){
@@ -49,6 +51,10 @@ var store = {
     play( state ){// 播放当前音频并生成当前音频所在的播放列表
       state.audioObj.play();
     },
+    changePlayStyle( state, val ){
+      console.log(val)
+      state.playStyle = val;
+    },
     pauseMusic( state ){// 暂停播放
       if ( state.audioObj != '' ){
         state.audioObj.pause();
@@ -70,6 +76,39 @@ var store = {
     },
   },
   actions:{
+    autoNext(context){
+      if ( context.state.audioObj == '' ){
+        context.commit('init')
+      }
+      context.state.audioObj.onended = function () {
+        context.dispatch('playNext');
+      }
+    },
+    playNext( { commit, state } ){//  一首歌曲完了自动播放下一首，播放模式，0=>列表循环，1=>列表随机，2=>单曲循环
+      if ( state.playStyle == 0 ){
+        state.list.forEach(( value, index )=>{
+          if ( value.id == state.currentMusic.id ){
+            if ( index != state.list.length-1 ){
+              state.nextMusic = state.list[index+1];
+            }else {
+              state.nextMusic = state.list[0];
+            }
+          }
+        })
+        commit('getCurrentMusic', state.nextMusic)
+      }else if ( state.playStyle == 1 ){
+        let nextMusic = state.list[Math.floor(Math.random()*state.list.length)]
+        while ( nextMusic.id == state.currentMusic.id ){//  防止随机到当前音乐
+          nextMusic = state.list[Math.floor(Math.random()*state.list.length)]
+        }
+        commit('getCurrentMusic', nextMusic)
+      }
+      state.timerTimeout = setTimeout(function () {
+        commit('play')
+        clearTimeout(state.timerTimeout)
+      },2000)
+
+    },
   }
 };
 export default store

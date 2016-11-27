@@ -57,9 +57,9 @@
         <!--  播放模式、控制、列表  -->
         <div class="uk-grid mine-control">
           <div class="uk-width-1-5">
-            <img class="play-mode" src="static/wyy_res/a_x.png" />
-            <!--<img class="play-mode" src="static/wyy_res/aag.png" />-->
-            <!--<img class="play-mode" src="static/wyy_res/aa6.png" />-->
+            <img v-show="playStyle == 0" @click="changePlayStyle(0)" class="play-mode" src="static/wyy_res/a_x.png" />
+            <img v-show="playStyle == 1" @click="changePlayStyle(1)" class="play-mode" src="static/wyy_res/aag.png" />
+            <img v-show="playStyle == 2" @click="changePlayStyle(2)" class="play-mode" src="static/wyy_res/aa6.png" />
           </div>
           <div class="uk-width-3-5">
             <div class="uk-grid">
@@ -202,6 +202,9 @@
           isPlaying(){
             return this.$store.state.isPlaying
           },
+          playStyle(){//  当前播放模式，模式详情看store的注释
+            return this.$store.state.playStyle
+          },
           displayLrc(){// 是否显示歌词界面
             return this.$store.state.displayLrc
           },
@@ -240,6 +243,16 @@
               }
             }
             this.audioPlay();
+          },
+          changePlayStyle( val ){//  更改播放模式
+            let mode;
+            if ( val < 2 ){
+              mode = ++val;
+            }else {
+              mode = 0;
+            }
+            this.$store.commit('changePlayStyle',mode)
+
           },
           nextMusic(){//  下一首
             for ( let i =0; i < this.playingList.length; i++ ){

@@ -88,6 +88,9 @@
     },
     watch:{
       currentTime( val ){
+        if ( this.src == '' ){//  没有歌词时
+          return
+        }
         if ( val < this.times[0] ){//  重新开始一首歌
           this.currentIndex = -1;
           return
@@ -116,6 +119,7 @@
       },
       src( val ){
         if ( !val ){
+          this.lyricArr = [];
           return
         }
         this.loadLyric();
