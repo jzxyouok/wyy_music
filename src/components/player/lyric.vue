@@ -105,8 +105,12 @@
           this.translateY = 0;
           return
         }
+        let height = 0;
         let nodeList = document.getElementsByClassName('lyric-height');
-        this.translateY -= nodeList[val].offsetHeight;
+        for ( let i = 0; i < val; i++ ){
+          height += nodeList[i].offsetHeight
+        }
+        this.translateY = -height;
       },
     },
     methods: {
