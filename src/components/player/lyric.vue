@@ -11,12 +11,16 @@
     <div @touchstart="touchingStart($event)" @touchend="touchingEndPos($event)" class="lyric-container uk-container uk-position-relative">
       <div :style="{ 'top': translateY + 'px'}" class="move-lyric">
         <template v-for="(item,index) in lyricArr">
-          <div v-if="item.type == 'lyric'" class="lyric-sentence lyric-height uk-text-center"
+          <div v-if="item.lyric != ''" class="lyric-sentence lyric-height uk-text-center"
                :class="{'white-color': currentIndex == index }">
             <div>{{ item.lyric }}</div>
             <div>{{ item.translateLyric }}</div>
           </div>
         </template>
+        <div class="lyric-sentence uk-text-center">
+          <div v-if="lyricMsg.lyricUserName != ''">歌词贡献者：{{ lyricMsg.lyricUserName }}</div>
+          <div v-if="lyricMsg.transUserName != ''">歌词翻译者：{{ lyricMsg.transUserName }}</div>
+        </div>
       </div>
     </div>
   </div>
@@ -71,6 +75,10 @@
         times: [],//  时间的数组
         translateY: 0,
         startTouchingPos: {},
+        lyricMsg: {
+          lyricUserName: '',
+          transUserName: ''
+        },
       }
     },
     computed:{
@@ -97,9 +105,15 @@
         }
         for ( let i = 0; i < this.times.length; i++ ){
           if ( val >= this.times[i] && i == this.times.length -1 ){// 最后一句歌词
+            if ( this.lyricArr[i].lyric == '' ){//  过滤空白的歌词时间
+              break
+            }
             this.currentIndex = i;
             break
           }else if ( val >= this.times[i] && val < this.times[i+1] ){
+            if ( this.lyricArr[i].lyric == '' ){//  过滤空白的歌词时间
+              break
+            }
             this.currentIndex = i;
             break
           }
@@ -112,6 +126,10 @@
         }
         let height = 0;
         let nodeList = document.getElementsByClassName('lyric-height');
+        let length = nodeList.length;
+        if ( val >= length ){//  超过数目，因为过滤了空白歌词，但是时间数组没有过滤所以会超过
+          return
+        }
         for ( let i = 0; i < val + 1; i++ ){//  需要循环val次
           height += nodeList[i].offsetHeight
         }
@@ -120,6 +138,8 @@
       src( val ){
         if ( !val ){
           this.lyricArr = [];
+          this.lyricMsg.lyricUserName = ''
+          this.lyricMsg.transUserName = ''
           return
         }
         this.loadLyric();
@@ -133,18 +153,18 @@
           let self = this;
           let timeReg = /\[\d\d:\d\d\.?\d*\]/g;//  匹配时间段，如[00:14.879]
           let timeFormatReg = /\d\d:\d\d\.?\d*/g;//  匹配时间格式用来进行必要的转换，如[00:14.879] => 转化为秒
-          let msgReg = /\[\w{1,2}:\w+\]/ig;//  匹配其他信息,如[by:idiotest]
-          let keyReg = /\w+/ig;//  分开匹配的其他信息的键和值
           let lyric = [];// 歌词
           let lyricTranslate = [];//  翻译
-          let lyricMsg = {};//  其他信息载体
-          let msgList = [];
           let times = res.data.lyric.match(timeReg);// 时间段
+          self.times = [];//  重置时间的数组
+          self.lyricMsg.lyricUserName = res.data.lyricUserName;
+          self.lyricMsg.transUserName = res.data.transUserName;
           res.data.lyric.split('\n').forEach(val=>{// 歌词
-            lyric.push({
-              type: 'lyric',
-              lyric: val.replace(timeReg,'')
-            })
+            if ( timeReg.test(val) ){
+              lyric.push({
+                lyric: val.replace(timeReg,'')
+              })
+            }
           });
           times.forEach( (value,index)=>{// 时间的格式化以及加入列表
             let min = value.match(timeFormatReg)[0].split(':')[0];//  获取分钟
@@ -165,25 +185,7 @@
               }
             }
           }
-          if ( msgReg.test(res.data.lyric) ){//  其他信息的匹配
-            res.data.lyric.match(msgReg).forEach(val=>{
-              msgList.push({
-              type:'lyricMsg',
-              key: val.match(keyReg)[0],
-              value: val.match(keyReg)[1]
-              })
-            })
-          }
-          if ( res.data.translateLyric != '' && msgReg.test(res.data.translateLyric) ){//  其他信息的匹配
-            res.data.translateLyric.match(msgReg).forEach(val=>{
-              msgList.push({
-                type:'translateLyricMsg',
-                key: val.match(keyReg)[0],
-                value: val.match(keyReg)[1]
-              })
-            })
-          }
-          this.lyricArr = lyric.concat(msgList);
+          this.lyricArr = lyric;
 //          console.log( this.lyricArr )
         })
       },

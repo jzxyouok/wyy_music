@@ -31,7 +31,7 @@ var store = {
         state.isPlaying = true;
         state.timer = setInterval( function () {
           state.currentTime = audio.currentTime;
-        },1000)
+        },700)
       };
       state.audioObj.onpause = function () {//  暂停事件
         clearInterval(state.timer);//  不再获取进度条时间
