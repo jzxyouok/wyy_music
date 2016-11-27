@@ -17,10 +17,10 @@
               <list-mv></list-mv>
             </div>
             <div class="swiper-slide">
-              <list :list="list"></list>
+              <list :list="collectionList"></list>
             </div>
             <div class="swiper-slide">
-              <list :list="list"></list>
+              <list :list="latestList"></list>
             </div>
           </div>
         </div>
@@ -92,6 +92,12 @@
           },
           slideIndex(){
             return this.swiperObj.realIndex
+          },
+          collectionList(){
+            return this.$store.state.collectionList
+          },
+          latestList(){
+            return this.$store.state.latestList
           },
         },
         created(){

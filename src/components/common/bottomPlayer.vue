@@ -5,7 +5,7 @@
           <div class="uk-float-left">
             <img class="bottom-album" src="static/wyy_res/album.jpg" />
           </div>
-          <div class="uk-float-left">
+          <div class="uk-float-left left-music-msg">
             <!--  如果名字过长，后期将进行滚动显示  -->
             <h3 class="music-name text-ellipsis">{{ currentMusic.name || '未知'}}</h3>
             <p class="music-author text-ellipsis">{{ currentMusic.author | transformAuthors }}</p>
@@ -63,6 +63,9 @@
   }
   .bottom-player .left-control {
     width: calc(100% - 120px)
+  }
+  .left-control .left-music-msg {
+    width: calc(100% - 50px)
   }
   .bottom-player .right-control {
     width: 120px;
