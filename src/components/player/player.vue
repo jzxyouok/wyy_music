@@ -18,27 +18,27 @@
       <lyric :id="currentMusic.id" :class="{ 'to-bottom': !displayLrc }"></lyric>
       <div class="menu">
         <!--  收藏等功能列表 -->
-        <div v-show="!displayLrc" class="uk-grid">
+        <!--<div v-show="!displayLrc" class="uk-grid">
           <div class="uk-width-4-5 uk-container-center">
             <div class="uk-grid">
               <div class="uk-width-1-4 icon-container">
                 <img class="icon-menu icon-collection" src="static/wyy_res/a_z.png" />
-                <!--<img class="icon-menu icon-collection" src="static/wyy_res/q5.png" />-->
+                &lt;!&ndash;<img class="icon-menu icon-collection" src="static/wyy_res/q5.png" />&ndash;&gt;
               </div>
               <div class="uk-width-1-4 icon-container">
                 <img class="icon-menu icon-download" src="static/wyy_res/a_q.png" />
-                <!--<img class="icon-menu icon-download" src="static/wyy_res/a_s.png" />-->
+                &lt;!&ndash;<img class="icon-menu icon-download" src="static/wyy_res/a_s.png" />&ndash;&gt;
               </div>
               <div class="uk-width-1-4 icon-container">
                 <img class="icon-menu icon-comment" src="static/wyy_res/a_m.png" />
-                <!--<img class="icon-menu icon-comment" src="static/wyy_res/a_n.png" />-->
+                &lt;!&ndash;<img class="icon-menu icon-comment" src="static/wyy_res/a_n.png" />&ndash;&gt;
               </div>
               <div class="uk-width-1-4 icon-container">
                 <img class="icon-menu icon-detail" src="static/wyy_res/aa4.png" />
               </div>
             </div>
           </div>
-        </div>
+        </div>-->
         <!--  进度条 -->
         <div class="uk-container progress">
           <div class="uk-grid">

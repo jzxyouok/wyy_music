@@ -100,9 +100,6 @@
     },
     watch:{
       currentTime( val ){
-        if ( this.src == '' ){//  没有歌词时
-          return
-        }
         if ( val < this.times[0] ){//  重新开始一首歌
           this.currentIndex = -1;
           return
@@ -160,6 +157,18 @@
             self.times = [];//  重置时间的数组
             self.lyricMsg.lyricUserName = res.data.lyricUser != undefined ? res.data.lyricUser.nickname : '';
             self.lyricMsg.transUserName = res.data.transUser != undefined ? res.data.transUser.nickname : '';
+            if ( times == null ){// 不支持时间轴滚动
+              res.data.lrc.lyric.split('\n').forEach(val=>{// 歌词
+                lyric.push({
+                  lyric: val.replace(timeReg,'')
+                })
+              });
+              lyric.unshift({
+                lyric: '该歌词不支持滚动'
+              })
+              self.lyricArr = lyric;
+              return
+            }
             res.data.lrc.lyric.split('\n').forEach(val=>{// 歌词
               if ( timeReg.test(val) ){
               lyric.push({

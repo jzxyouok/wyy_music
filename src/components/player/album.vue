@@ -1,9 +1,9 @@
 <template>
     <div @touchstart="touchingStart($event)" @touchend="touchingEndPos($event)" class="album">
       <!--  控制杆 -->
-      <!--<div class="joystick">
-        <img :class="{ 'img-control': isPlaying }" src="static/wyy_res/aao.png" />
-      </div>-->
+      <div class="joystick" :class="{ 'img-control': isPlaying }">
+        <img src="static/wyy_res/aao.png" />
+      </div>
       <!--  磁碟  -->
       <div class="diskette">
         <div class="diskette-bg"></div>
@@ -22,44 +22,48 @@
   .album {
     position: relative;
     width: 100%;
-    height: calc(100% - 260px);
+    height: calc(100% - 200px);
     /*  后期处理成两端渐变 */
     border-top: 1px solid #f3f3f3;
     overflow: hidden;
   }
   /*  控制杆 */
-/*  .album .joystick {
-    height: 28%;
-    width: 42%;
+  .album .joystick {
+    height: 150px;
+    width: 100px;
     position: absolute;
     top: 0;
     left: 50%;
     z-index: 5;
-    margin-left: -5%;
+    margin-left: -50px;
+    -webkit-transform-origin: 50px 0px 0px;
+    transform-origin: 50px 0px 0px;
+    -webkit-transform: rotate(-25deg);
+    transform: rotate(-25deg);
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+
+  }
+  .album .img-control {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
   }
   .joystick img{
     height: 100%;
     width: 100%;
     position: absolute;
-    top: -8px;
-    left: 0;
+    top: -18px;
+    left: 32px;
     z-index: 9;
-    transform-origin: 0 0 0;
-    transform: rotate(-10deg);
-    transition: all 0.5s ease;
   }
-  .joystick .img-control {
-    top: -22px;
-    transform: rotate(15deg);
-  }*/
   /*  磁碟  */
   .album .diskette {
     position: absolute;
-    top: 50%;
+    top: 72px;
     left: 50%;
     width: 260px;
     height: 260px;
-    margin: -130px 0 0 -130px;
+    margin-left: -130px;
   }
   .diskette .diskette-bg, .diskette .diskette-container {
     position: absolute;
