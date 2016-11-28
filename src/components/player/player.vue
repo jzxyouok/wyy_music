@@ -7,14 +7,14 @@
           </div>
           <div class="uk-width-3-5">
             <h3 class="text-ellipsis">{{ currentMusic.name || '未知'}}</h3>
-            <p class="text-ellipsis">{{ currentMusic.author | transformAuthors }}</p>
+            <p class="text-ellipsis">{{ currentMusic.artists | transformAuthors }}</p>
           </div>
           <div class="uk-width-1-5">
             <img src="static/wyy_res/a4x.png" class="icon-btn" />
           </div>
         </div>
       <!--  显示专辑图片组件 -->
-      <album :is-playing="isPlaying" :class="{ 'to-bottom': displayLrc }"></album>
+      <album :is-playing="isPlaying" :album-img="currentMusic.album.picUrl" :class="{ 'to-bottom': displayLrc }"></album>
       <lyric :src="currentMusic.lrc" :class="{ 'to-bottom': !displayLrc }"></lyric>
       <div class="menu">
         <!--  收藏等功能列表 -->
@@ -285,7 +285,12 @@
           },
           createBg(){//  创建高斯模糊背景
             let img = new Image();
-            img.src = this.album;
+            /*if ( this.currentMusic.album.picUrl != '' ){//  存在跨域问题
+              img.src = this.currentMusic.album.picUrl;
+            }else {*/
+              img.src = this.album;
+            /*}
+            img.crossOrigin = 'anonymous'*/
             img.onload = function () {
               stackblur.image(img, 'musicBg', 180);
             }

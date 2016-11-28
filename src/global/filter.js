@@ -50,11 +50,25 @@ vue.filter('transformWeek', val=>{
       break;
   }
 });
-vue.filter('transformAuthors', str=>{
+vue.filter('transformAuthors', arr=>{
   //  返回歌曲作者的格式以'/'分割(默认',')
-  if ( str ){
-    return str.split(',').join('/')
-  }else {
-    return '未知'
+  if ( arr.length < 2 ){//  只有一个歌手时
+    return arr[0].name;
   }
+  let singers = [];
+  arr.forEach(val=>{
+    singers.push(val.name)
+  })
+  return singers.join('/')
 });
+vue.filter('transformMusicMsg',( item )=>{
+  let arr = item.artists;
+  if ( arr.length < 2 ){//  只有一个歌手时
+    return arr[0].name + '-' + item.name;
+  }
+  let singers = [];
+  arr.forEach(val=>{
+    singers.push(val.name)
+  })
+  return singers.join('/') + '-' + item.name;
+})

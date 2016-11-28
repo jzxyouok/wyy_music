@@ -24,7 +24,7 @@
               <img class="icon-playing" src="static/wyy_res/ahm.png" />
             </div>
             <div @touchstart="touchingStart" @touchend="playThis( item , $event )" :class="[{'uk-width-7-10': isPlayingIndex == item.id },{'uk-width-9-10': isPlayingIndex != item.id }]">
-              <div class="music-name text-ellipsis" :class="{'wyy-color': isPlayingIndex == item.id }">{{ item.name }}<span class="music-author" :class="{'wyy-gray-color': isPlayingIndex != item.id }">{{ ' - ' + item.author }}</span></div>
+              <div class="music-name text-ellipsis" :class="{'wyy-color': isPlayingIndex == item.id }">{{ item.name }}<span class="music-author" :class="{'wyy-gray-color': isPlayingIndex != item.id }"> - {{ item.artists | transformAuthors }}</span></div>
             </div>
             <div v-if="isPlayingIndex == item.id" class="uk-width-1-10">
               <img class="icon-detail" src="static/wyy_res/aas.png" />

@@ -110,10 +110,10 @@
         },
         methods:{
           loadData(){
-            this.$http({ url: 'static/api/music.php'}).then(function (res) {
-  //              console.log( res.data )
-              if ( res.data.status == 200 ){
-                this.list = res.data.data;
+            this.$http({ url: 'static/api/music_data.php'}).then(function (res) {
+                console.log( res.data )
+              if ( res.data.code == 200 ){
+                this.list = res.data.result.tracks;
               }else {
                 //  错误信息
               }

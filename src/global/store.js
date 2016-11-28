@@ -67,7 +67,7 @@ var store = {
     },
     getCurrentMusic( state , currentMusic ){//  获取当前播放音频对象
       state.currentMusic = currentMusic;
-      state.audioObj.src = process.env.NODE_ENV !== 'production' ? 'http://www.kittyjs.com/'+ currentMusic.src : currentMusic.src;
+      state.audioObj.src = currentMusic.mp3Url;
     },
     setCurrentTime( state , time ){
       state.currentTime = time;

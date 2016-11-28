@@ -8,7 +8,7 @@
           <div class="uk-float-left left-music-msg">
             <!--  如果名字过长，后期将进行滚动显示  -->
             <h3 class="music-name text-ellipsis">{{ currentMusic.name || '未知'}}</h3>
-            <p class="music-author text-ellipsis">{{ currentMusic.author | transformAuthors }}</p>
+            <p class="music-author text-ellipsis">{{ currentMusic.artists | transformAuthors }}</p>
           </div>
         </div>
         <div class="uk-float-left right-control">

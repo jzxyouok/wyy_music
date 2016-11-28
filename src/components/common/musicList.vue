@@ -22,8 +22,8 @@
               <div @click="playThis(item)" class="list-item-hr uk-width-8-10">
                 <h4 class="music-name">
                   <span>{{ item.name }}</span>
-                  <span v-if="item.mv != false" class="has-mv"></span></h4>
-                <p class="music-msg wyy-gray-color">{{ item.author + '-' + item.name }}</p>
+                  <span v-if="item.mvid != 0" class="has-mv"></span></h4>
+                <p class="music-msg wyy-gray-color">{{ item | transformMusicMsg }}</p>
               </div>
               <div class="list-item-hr uk-width-1-10">
                 <img class="icon-menu" src="static/wyy_res/xf.png" />
