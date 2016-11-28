@@ -48,6 +48,7 @@
     position: absolute;
     left: 0;
     z-index: 11;
+    width: 100%;
     /*  具体不知道，随便算的 */
     margin-top: 55%;
     -webkit-transition: all 0.5s ease;
@@ -66,7 +67,10 @@
 <script>
   export default{
     props:{
-      src: String
+      id: {
+        type: [String,Number],
+        default: 0
+      }
     },
     data(){
       return {
@@ -135,58 +139,55 @@
         }
         this.translateY = -height;
       },
-      src( val ){
-        if ( !val ){
-          this.lyricArr = [];
-          this.lyricMsg.lyricUserName = ''
-          this.lyricMsg.transUserName = ''
-          return
-        }
-        this.loadLyric();
+      id( id ){
+        this.loadLyric( id );
       },
     },
     methods: {
-      loadLyric(){
-        //  所有操作都是在有歌词文件的情况下完成，如果歌曲没有歌词，将不会进行请求
-        this.$http({ url: (process.env.NODE_ENV !== 'production' ?  this.src : '/' + this.src) }).then(function (res) {
-//          console.log(res)
-          let self = this;
-          let timeReg = /\[\d\d:\d\d\.?\d*\]/g;//  匹配时间段，如[00:14.879]
-          let timeFormatReg = /\d\d:\d\d\.?\d*/g;//  匹配时间格式用来进行必要的转换，如[00:14.879] => 转化为秒
-          let lyric = [];// 歌词
-          let lyricTranslate = [];//  翻译
-          let times = res.data.lyric.match(timeReg);// 时间段
-          self.times = [];//  重置时间的数组
-          self.lyricMsg.lyricUserName = res.data.lyricUserName;
-          self.lyricMsg.transUserName = res.data.transUserName;
-          res.data.lyric.split('\n').forEach(val=>{// 歌词
-            if ( timeReg.test(val) ){
+      loadLyric( id ){
+        this.$http({url:'static/api/music_data.php',params:{ lyric_id: id }}).then(function (res) {
+          console.log(res)
+          if ( res.data.code == 200 ){
+            if ( res.data.lrc.lyric == null ){//  没有歌词
+              return
+            }
+            let self = this;
+            let timeReg = /\[\d\d:\d\d\.?\d*\]/g;//  匹配时间段，如[00:14.879]
+            let timeFormatReg = /\d\d:\d\d\.?\d*/g;//  匹配时间格式用来进行必要的转换，如[00:14.879] => 转化为秒
+            let lyric = [];// 歌词
+            let lyricTranslate = [];//  翻译
+            let times = res.data.lrc.lyric.match(timeReg);// 时间段
+            self.times = [];//  重置时间的数组
+            self.lyricMsg.lyricUserName = res.data.lyricUser != undefined ? res.data.lyricUser.nickname : '';
+            self.lyricMsg.transUserName = res.data.transUser != undefined ? res.data.transUser.nickname : '';
+            res.data.lrc.lyric.split('\n').forEach(val=>{// 歌词
+              if ( timeReg.test(val) ){
               lyric.push({
                 lyric: val.replace(timeReg,'')
               })
             }
           });
-          times.forEach( (value,index)=>{// 时间的格式化以及加入列表
-            let min = value.match(timeFormatReg)[0].split(':')[0];//  获取分钟
+            times.forEach( (value,index)=>{// 时间的格式化以及加入列表
+              let min = value.match(timeFormatReg)[0].split(':')[0];//  获取分钟
             let sec = value.match(timeFormatReg)[0].split(':')[1];//  获取秒
             lyric[index].time = min*60 + sec*1;// 先把时间字符串转化为数字再进行叠加
             self.times.push(min*60 + sec*1);
           })
-          if ( res.data.translateLyric != '' ){// 翻译,根据原语言时间来匹配翻译
-            lyricTranslate = res.data.translateLyric.split('\n');
-            for ( let i = 0; i < times.length; i++ ){
-              let regExp = times[i].replace('[','\\[').replace('.','\\.').replace(']','\\]');
-              let reg = new RegExp(regExp);// 将时间作为正则匹配对象,与\[\d\d:\d\d\.?\d*\]保持一致
-              for ( let j = 0; j < lyricTranslate.length; j++ ){
-                if ( reg.test(lyricTranslate[j]) ){// 匹配出对应时间的翻译
-                  lyric[i].translateLyric = lyricTranslate[j].replace(reg,'');//  去除时间
-                  continue
+            if ( res.data.tlyric.lyric != null ){// 翻译,根据原语言时间来匹配翻译
+              lyricTranslate = res.data.tlyric.lyric.split('\n');
+              for ( let i = 0; i < times.length; i++ ){
+                let regExp = times[i].replace('[','\\[').replace('.','\\.').replace(']','\\]');
+                let reg = new RegExp(regExp);// 将时间作为正则匹配对象,与\[\d\d:\d\d\.?\d*\]保持一致
+                for ( let j = 0; j < lyricTranslate.length; j++ ){
+                  if ( reg.test(lyricTranslate[j]) ){// 匹配出对应时间的翻译
+                    lyric[i].translateLyric = lyricTranslate[j].replace(reg,'');//  去除时间
+                    continue
+                  }
                 }
               }
             }
-          }
-          this.lyricArr = lyric;
-//          console.log( this.lyricArr )
+            this.lyricArr = lyric;
+          }else {}
         })
       },
       touchingStart( e ){// 触摸开始位置
@@ -204,7 +205,7 @@
       },
     },
     mounted (){
-      this.loadLyric();
+      this.loadLyric( this.id );
       this.$store.commit('getVolume');
     },
     components: {

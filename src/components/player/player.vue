@@ -15,7 +15,7 @@
         </div>
       <!--  显示专辑图片组件 -->
       <album :is-playing="isPlaying" :album-img="currentMusic.album.picUrl" :class="{ 'to-bottom': displayLrc }"></album>
-      <lyric :src="currentMusic.lrc" :class="{ 'to-bottom': !displayLrc }"></lyric>
+      <lyric :id="currentMusic.id" :class="{ 'to-bottom': !displayLrc }"></lyric>
       <div class="menu">
         <!--  收藏等功能列表 -->
         <div v-show="!displayLrc" class="uk-grid">
