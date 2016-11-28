@@ -97,4 +97,22 @@ export default {
     box-shadow: 0 2px 7px -5px rgba(0, 0, 0, 1);
   }
   /*  更改浏览器默认的系统主题样式-结束  */
+
+  /*  1像素解决方案 */
+  .item-border-bottom {
+    position: relative;
+  }
+  .item-border-bottom:after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    height: 1px;
+    background-color: #ddd;
+    -webkit-transform: scaleY(0.5);
+    transform: scaleY(0.5);
+    pointer-events: none;/*  解决内部元素无法点击问题  */
+  }
 </style>

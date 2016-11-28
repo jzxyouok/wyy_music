@@ -1,25 +1,24 @@
 <template>
   <div v-show="showPlayingList" @click.self="togglePlayingList" class="playing-list">
-    <div class="list-head white-color-bg">
-      <div class="uk-container">
+
+    <div class="white-color-bg list-container uk-container" :style="{ 'transform': translateY > 0 ? 'translateY(' + translateY + 'px)' : 'translateY(0px)' }">
+      <div class="list-head white-color-bg item-border-bottom uk-container">
         <div class="uk-grid">
           <div class="uk-width-1-5">
             <span class="span-btn wyy-gray-color">收藏全部</span>
           </div>
           <div class="uk-width-3-5">
-            <h3 class="list-title uk-text-center">播放列表（32）</h3>
+            <h4 class="list-title uk-text-center">播放列表{{ list.length != 0 ? '（'+list.length+'）' : '' }}</h4>
           </div>
           <div class="uk-width-1-5 span-clear">
             <span @click="clearPlayingList" class="span-btn wyy-gray-color">清空</span>
           </div>
         </div>
       </div>
-    </div>
-    <div class="white-color-bg list-container uk-container">
       <div @touchstart="touchingStart($event)" @touchmove="touchingMove($event)" @touchend="touchingEnd($event)"
-           class="list-item-container" :style="{ 'transform': 'translateY(' + translateY + 'px)' }">
+           class="list-item-container" :style="{ 'transform': translateY < 0 ? 'translateY(' + translateY + 'px)' : 'translateY(0px)' }">
         <template v-for="item in list">
-          <div class="list-item uk-grid">
+          <div class="list-item uk-grid item-border-bottom">
             <div v-if="isPlayingIndex == item.id" class="uk-width-1-10">
               <img class="icon-playing" src="static/wyy_res/ahm.png" />
             </div>
@@ -50,27 +49,28 @@
   }
   .list-head {
     width: 100%;
-    height: 60px;
-    position: absolute;
-    bottom: 360px;
+    height: 50px;
+    position: relative;
+    top: 0;
     left: 0;
     z-index: 100;
-    border-bottom: 1px solid #ddd;
+    margin-left: -5px;
+    /*border-bottom: 1px solid #ddd;*/
   }
   .list-head .span-btn {
     display: inline-block;
-    font-size: 16px;
-    line-height: 24px;
+    font-size: 14px;
   }
   .list-head .span-clear {
     text-align: right;
   }
   .list-head .span-btn,.list-head .list-title {
-    margin-top: 18px;
+    margin-top: 13px;
+    line-height: 24px;
   }
   .playing-list .list-container {
     width: 100%;
-    height: 360px;
+    height: 378px;
     position: absolute;
     bottom: 0;
     left: 0;
@@ -84,8 +84,8 @@
     transition: all 0.3s ease;
   }
   .list-container .list-item {
-    height: 50px;
-    border-bottom: 1px solid #ddd;
+    height: 44px;
+    /*border-bottom: 1px solid #ddd;*/
     margin-top: 0;
   }
   .list-item .music-name {
@@ -153,11 +153,12 @@
 //        console.log(diffY)
         if ( Math.abs(diffY) < 20 ){// 防止移动过程中偏移过小造成的抖动
           return
-        }else if ( diffY > 80 ){// 用户可以向下滑动大距离隐藏列表
-          this.$store.commit('togglePlayingList');
         }
         this.startPos = e.touches[0];
         this.translateY += diffY * 2;
+        if ( this.translateY > 200 ){// 用户可以向下滑动大距离隐藏列表
+          this.$store.commit('togglePlayingList');
+        }
       },
       touchingEnd( e ){// 触摸结束位置
 //        console.log(e)
@@ -170,6 +171,8 @@
         this.translateY += diffY * 2;
         if ( this.translateY > 0 ){// 超出向下滚动范围，重置偏移量
           this.translateY = 0;
+        }else if ( this.translateY > 100){
+          this.$store.commit('togglePlayingList');
         }
       },
       togglePlayingList(){
