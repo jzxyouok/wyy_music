@@ -5,7 +5,7 @@
       <div class="list-head white-color-bg item-border-bottom uk-container">
         <div class="uk-grid">
           <div class="uk-width-1-5">
-            <span class="span-btn wyy-gray-color">收藏全部</span>
+            <span @click.self="togglePlayingList" class="span-btn wyy-gray-color">隐藏</span>
           </div>
           <div class="uk-width-3-5">
             <h4 class="list-title uk-text-center">播放列表{{ list.length != 0 ? '（'+list.length+'）' : '' }}</h4>

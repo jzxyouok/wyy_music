@@ -6,11 +6,8 @@
             <div class="uk-width-1-10">
               <img class="icon-music" src="static/wyy_res/actionbar_discover.png">
             </div>
-            <div class="uk-width-8-10">
+            <div class="uk-width-9-10">
               <h3 class="app-title white-color">小小云音乐</h3>
-            </div>
-            <div class="uk-width-1-10">
-              <img class="icon-search" src="static/wyy_res/it.png">
             </div>
           </div>
         </div>
@@ -28,13 +25,13 @@
               <list :list="list"></list>
             </div>
             <div class="swiper-slide">
-              <list-mv></list-mv>
-            </div>
-            <div class="swiper-slide">
-              <list :list="collectionList"></list>
+              <list :list="playingList"></list>
             </div>
             <div class="swiper-slide">
               <list :list="latestList"></list>
+            </div>
+            <div class="swiper-slide">
+              <search-music></search-music>
             </div>
           </div>
         </div>
@@ -105,15 +102,15 @@
 </style>
 <script>
   import swiper from 'swiper'
+  import searchMusic from './searchMusic.vue'
   import buttomPlayer from './common/bottomPlayer.vue'
   import list from './common/musicList.vue'
-  import listMv from './index/recommendMv.vue'
     export default{
         data(){
             return{
               list: [],
               swiperObj: '',//  swiper储存对象
-              menu: ['播放列表','MV列表','收藏列表','最近播放'],//  支持的菜单
+              menu: ['推荐列表','播放列表','最近播放','音乐搜索'],//  支持的菜单
             }
         },
         computed:{
@@ -137,11 +134,11 @@
           slideIndex(){
             return this.swiperObj.realIndex
           },
-          collectionList(){
-            return this.$store.state.collectionList
-          },
           latestList(){
             return this.$store.state.latestList
+          },
+          isLoadedData(){
+            return this.$store.state.isLoadedData
           },
         },
         created(){
@@ -150,7 +147,7 @@
         methods:{
           loadData(){
             this.$http({ url: 'static/api/music_data.php'}).then(function (res) {
-                console.log( res.data )
+//                console.log( res.data )
               if ( res.data.code == 200 ){
                 this.list = res.data.result.tracks;
               }else {
@@ -176,7 +173,7 @@
           this.swiperObj = new Swiper('.swiper-container', options )
         },
         components:{
-          buttomPlayer,list,listMv
+          searchMusic,buttomPlayer,list
         }
     }
 </script>

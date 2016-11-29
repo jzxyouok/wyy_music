@@ -6,14 +6,12 @@ var store = {
     audioObj: '',// 媒体DOM对象
     isPlaying: false,// 当前状态是否在播放
     list: [],// 当前播放列表
-    collectionList: [],// 收藏列表
     latestList: [],// 最近播放列表
     currentMusic: {},// 当前播放的音频
     currentTime: '',// 当前播放的音频的当前播放时间
     durationTime: '',// 当前播放的音频的总时长
     timer: '',//  定时器对象
     timerTimeout: '',//  计时器对象
-    prevMusic: {},// 上一首播放的音频
     nextMusic: {},// 下一首播放的音频
     showPlayingList: false,// 显示悬浮的当前播放列表tab
     volume: '',// 正在播放的音频声音大小
