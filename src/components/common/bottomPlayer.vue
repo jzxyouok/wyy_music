@@ -3,7 +3,7 @@
       <div class="uk-container uk-clearfix">
         <div @click="gotoPlay" class="uk-float-left left-control">
           <div class="uk-float-left">
-            <img class="bottom-album" src="static/wyy_res/album.jpg" />
+            <img class="bottom-album" :src="currentMusic.album.picUrl ? currentMusic.album.picUrl : 'static/wyy_res/album.jpg'" />
           </div>
           <div class="uk-float-left left-music-msg">
             <!--  如果名字过长，后期将进行滚动显示  -->
