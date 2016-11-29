@@ -1,6 +1,20 @@
 <template>
     <div class="home" :class="{'home-padding-bottom': playingList != '' }">
-      <action-bar></action-bar>
+      <div class="header wyy-bg-color">
+        <div class="uk-container">
+          <div class="uk-grid">
+            <div class="uk-width-1-10">
+              <img class="icon-music" src="static/wyy_res/actionbar_discover.png">
+            </div>
+            <div class="uk-width-8-10">
+              <h3 class="app-title white-color">小小云音乐</h3>
+            </div>
+            <div class="uk-width-1-10">
+              <img class="icon-search" src="static/wyy_res/it.png">
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="content">
         <ul class="dis-tabs uk-clearfix">
           <template v-for="(item,index) in menu">
@@ -30,18 +44,37 @@
 </template>
 <style scoped>
   .home {
-    padding-top: 60px;
-    background-color: #f2f4f5;
+    height: 100%;
+    /*background-color: #f2f4f5;*/
   }
-  .home-padding-bottom {
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    height: 50px;
+  }
+  .header .app-title {
+    margin: 10px 0;
+    line-height: 30px;
+  }
+  .header .icon-music, .header .icon-search {
+    display: block;
+    width: 30px;
+    margin: 10px auto 0;
+  }
+  .home .content{
+    box-sizing: border-box;
+    height: 100%;
+    padding-top: 94px;
+  }
+  .home-padding-bottom .content{
     padding-bottom: 60px;
-  }
-  .content {
-    padding-top: 44px;
   }
   .dis-tabs {
     position: fixed;
-    top: 60px;
+    top: 50px;
     left: 0;
     width: 100%;
     z-index: 10;
@@ -62,10 +95,16 @@
     height: 2px;
     transition: all 0.2s ease;
   }
+  .swiper-container {
+    background-color: #f2f4f5;
+    height: 100%;
+  }
+  .swiper-slide {
+    overflow-y: scroll;
+  }
 </style>
 <script>
   import swiper from 'swiper'
-  import actionBar from './index/actionBar.vue'
   import buttomPlayer from './common/bottomPlayer.vue'
   import list from './common/musicList.vue'
   import listMv from './index/recommendMv.vue'
@@ -137,7 +176,7 @@
           this.swiperObj = new Swiper('.swiper-container', options )
         },
         components:{
-          actionBar,buttomPlayer,list,listMv
+          buttomPlayer,list,listMv
         }
     }
 </script>

@@ -1,16 +1,5 @@
 <template>
     <div class="music-list uk-container">
-      <!--<div class="list-title uk-grid">
-        <div class="uk-width-1-10">
-          <img class="icon-btn" src="static/wyy_res/common/xl.png" />
-        </div>
-        <div class="uk-width-8-10">
-          <h3 class="title">播放全部<span class="wyy-gray-color">(共{{ total }}首)</span></h3>
-        </div>
-        <div class="uk-width-1-10">
-          <img class="icon-btn" src="static/wyy_res/others/xc.png" />
-        </div>
-      </div>-->
       <ul class="list-content">
         <template v-for="(item,index) in list">
           <li class="list-item">
@@ -39,29 +28,15 @@
   .music-list {
     padding-right: 0;
   }
-  .list-title {
+/*  .list-item {
     height: 60px;
-    border-bottom: 1px solid #f3f3f3;
-  }
-  .list-title .icon-btn {
-    display: block;
-    margin: 18px auto 0;
-    width: 24px;
-  }
-  .list-title .title {
-    margin-top: 18px;
-    padding-left: 5px;
-  }
-  .title span{
-    font-size: 14px;
-  }
-
-  .list-item {
-    height: 60px;
+  }*/
+  .item-border-bottom {
+    padding-bottom: 5px;
   }
   .list-item .number {
     height: 30px;
-    margin: 15px auto;
+    margin: 15px auto 0;
     line-height: 30px;
     text-align: center;
     /*font-size: 18px;*/
@@ -69,11 +44,11 @@
   .list-item .icon-menu {
     display: block;
     height: 16px;
-    margin: 22px auto;
+    margin: 22px auto 0;
   }
   .list-item .music-name {
-    margin: 10px 0 0;
-    height: 24px;
+    margin: 10px 0 5px;
+    height: 20px;
     font-size: 0;
   }
   .music-name span {
@@ -86,14 +61,14 @@
     -ms-text-overflow: ellipsis;
     text-overflow: ellipsis;
     white-space: nowrap;
-    line-height: 24px;
+    /*line-height: 24px;*/
   }
   .music-name .has-mv {
     display: inline-block;
     width: 30px;
     height: 14px;
     margin-left: 5px;
-    margin-bottom: 5px;
+    margin-bottom: 3px;
     background: url("/static/wyy_res/l5.png") no-repeat;
     background-size: 100% 100%;
   }
